@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visualization: D3</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
+	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/solarized_dark.css">
+	<link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/toc.css">
+
+	
+		<link rel="stylesheet" href="/css/tutorials.css">
+	
+		<link rel="stylesheet" href="/css/solarized_dark.css">
+	
+
+	<!-- needed for tutorial specific css -->
+	
+</head>
+<body>	
+	
+
+	<!--
+	<div class="container" id="main-container">
+		<div class="topNavbar">
+			<div class="navbar-div" id="logo">
+			<a class="logoLink" href="/">BIOJS</a>
+			</div>
+			<div class="navbar-div" id="navbar-links2">
+				<li>
+			
+			</div>
+		</div>
+	-->
+
+
+    <div id="biojs-menu">
+<div class="Menu">
+        <div class="list">
+            <div class="logoDiv">
+                <img src="/img/logo.png" id="logoImg">
+                <div class="logoDivName">BioContainers Education</div>
+            </div>
+
+
+        <span class="item-heading"> Basics </span>
+			
+	
+				<a class="item " href="/101/intro/">Intro</a>
+			
+	
+				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
+			
+	
+				<a class="item " href="/101/getting_started/">Getting started</a>
+			
+	
+				<a class="item " href="/101/modularity/">Modularity</a>
+			
+	
+				<a class="item " href="/101/bootstrapping/">Bootstrapping</a>
+			
+	
+				<a class="item " href="/101/example_snippets/">Example snippets</a>
+			
+	
+				<a class="item " href="/101/publish_it/">Publish it</a>
+			
+	
+				<a class="item " href="/101/other_resources/">Other resources</a>
+			
+		
+
+        <span class="item-heading"> Beginner tutorial </span>
+			
+	
+				<a class="item " href="/details/continuous_integration/">Continuous integration</a>
+			
+		
+
+        <span class="item-heading"> User tutorial </span>
+			
+		
+
+        <span class="item-heading"> Developer tutorial </span>
+			
+		
+
+        <span class="item-heading"> Advanced Tutorial </span>
+			
+	
+				<a class="item " href="/snipspector_adv/tools/">Tools overview</a>
+			
+	
+				<a class="item item-active" href="/snipspector_adv/vis_d3/">Visualization: D3</a>
+			
+	
+				<a class="item " href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
+			
+		
+    </div>
+</div>
+
+	</div>
+
+	<div id="biojs-main-content">
+		
+		<div class="heading row">
+   
+  <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
+	  <span class="contentTitle">Visualization: D3 </span>
+
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/snipspector-adv/42_visualization_d3.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+  </div>
+
+	<div class="col-xs-2 col-md-3">
+		<div id="biojs-iconnav-glyphs">
+	  <a class="git" href="https://github.com/biocontainers/" target="_blank"><i class="fa fa-github-alt"></i></a>
+
+	  <a class="git"  href="http://biocontainers.pro" target="_blank"><i class="fa fa-home"></i></a>
+	  <a class="git hidden-xs hidden-sm" href="https://kiwiirc.com/client/irc.freenode.net/biocontainers" target="_blank"><i class="fa fa-weixin"></i></a>
+	  <a class="git hidden-xs hidden-sm" id="bookmark-link" href="#"><i class="fa fa-bookmark"></i></a>
+
+  </div>	
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    $('#bookmark-link').click(function() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title,window.location.href,'');
+        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else if(window.opera && window.print) { // Opera Hotlist
+            this.title=document.title;
+            return true;
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    });
+});
+</script>
+
+	  <a class="gitStar hidden-xs hidden-sm" style="width:150px;" id="biojs-iconnav-help" href="https://gitter.im/biocontainers/Lobby" target="_blank"><span class="glyphicon glyphicon-bullhorn" style="font-size:17px;" ></span> Get help</a>
+
+  </div>	
+  <div class="col-md-2 col-lg-2 hidden-xs hidden-sm" id="social-media-share">
+
+    <!-- share it: twitter, google -->
+    <div style="height:25px"> <a href="https://twitter.com/share" class="twitter-share-button" style="width: 40px">Tweet</a>
+
+      <script>
+        ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');
+      </script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+	  <div class="share-google-button">
+      	<div class="g-plus" data-action="share" data-annotation="bubble"
+      data-align="right"></div>
+	  </div>
+    </div>
+
+    </div>
+	
+
+    <div class="author col-md-2 col-xs-2 hidden-xs">
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+	        
+			<!--<div class="tutorial-item">Contributor(s): David</div>-->
+	        
+			
+	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 30 minutes </div>
+	        
+	</div>
+
+</div>
+
+<div class="pullButton pullButton-mob">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+
+
+<div class="containerBody">
+	<!--
+    <div class="leftPanel">
+
+		
+
+    </div>
+	-->
+    <div class="rightPanel">
+
+
+
+        <div class="static-content">
+
+            <div id="explanation" style="display:none">
+                <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to mark check points.
+A check point is a way for you to check how you are doing.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For most of the steps in this tutorial we will
+provide the code as it should look after the task. It is tempting, we
+know, but please, please, do not go for the “copy&amp;paste” way.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to challenge you
+with additional code-related tasks so you can go further at your own
+pace. No inline answer will be provide for those challenges but we will
+give you some guidelines and tips. By the way, within the instructions
+we will use <em>an italic font</em> to refer to variables and pieces of code.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to ask you some questions related to the task your are working on.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Additional info and resources - this is not essential to complete the tutorial, but very interesting.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Tips that might help you on this task.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-hand-up" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are following this tutorial as part of a workshop, do not hesitate to
+raise your hand and share any questions or comments you may have.
+If you are doing it by your own, you still can raise your hand in our
+mailing list, just join our <a href="https://groups.google.com/forum/#!forum/biojs">Google Group</a>.</p>
+</div></div></div>
+
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+<!--
+
+-->
+            <p>In the following section we will give you a gentle introduction on how to create a component for BioJS 2.0.
+As a case study, we will continue working with chromosome data and show you how to visualize this data with D3.
+First of all create a new folder called <code>biojs-vis-snipspector</code> by running <a href="https://github.com/biojs/slush-biojs"><code>slush biojs</code></a>.
+We will use this as our working bench and only edit the <code>index.js</code> file inside the <code>lib</code> folder.
+Note: Please replace the current code with our following code!</p>
+
+<h3 id="installing-npm-dependencies">1) Installing npm dependencies</h3>
+
+<p>For this tutorial, we will require d3 and our parser!
+In <code>npm</code> this is very easy, just run.</p>
+
+<pre><code>npm install biojs-io-snipspector d3 --save
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>What does <code>--save</code> mean? <a href="https://www.npmjs.org/doc/cli/npm-install.html">Help</a></p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you don’t find a npm package for a js lib, you can add it to the “snippets js” section of your <code>package.json</code>.</p>
+
+<pre><code>[...]
+"snippets": {
+	"js": ["/build/&lt;your-component&gt;.js", "&lt;non npm libs&gt;"],
+[...]
+</code></pre>
+</div></div></div>
+
+<p>In the previous tutorial we wrote a parser please have a look at the previous <a href="/snipspector_adv/parser_real_data/">tutorial</a>, where we called our like this:</p>
+
+<pre><code>parser.read("http://files.biojs.net/chromosomes/manny", function(result){
+  var genome = result;
+
+})
+</code></pre>
+
+<p>In the following we will build a donutchart to visualize our data.</p>
+
+<h3 id="require-dependencies">2) Require dependencies</h3>
+
+<p>First we need some dependencies. We require d3 for our visualizations and the parser from the previous tutorial.
+We can require them with following code:</p>
+
+<p>(<code>lib/index.js</code>)</p>
+
+<pre><code>var d3 = require("d3");
+var parser = require("biojs-io-snipspector");
+</code></pre>
+
+<p>Furthermore we want to wrap our visualization in an exported function:</p>
+
+<p>(add to <code>lib/index.js</code>)</p>
+
+<pre><code>var vis = function(opts){
+ // future code to be added here
+}
+module.exports = vis;
+</code></pre>
+
+<h3 id="getting-started-with-d3">3) Getting started with d3</h3>
+
+<p>Now we can get started. To define our chart, we first need the size of it, a set of colors, the arc form and an converter for our data:</p>
+
+<p>(add to <code>lib/index.js</code>)</p>
+
+<pre><code>var width = 960,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+
+var color = d3.scale.category10();
+
+var arc = d3.svg.arc()
+            .outerRadius(radius - 10)
+            .innerRadius(radius - 150);
+
+var pie = d3.layout.pie()
+            .sort(null)
+            .value(function (d) {
+                return d.number;
+            });
+</code></pre>
+
+<p>In details:</p>
+
+<ul>
+  <li>First we need a <code>radius</code>,<code>width</code> and <code>height</code> value for our svg components.</li>
+  <li><code>color</code> is a function which will translate values into color code.</li>
+  <li><code>arc</code> draws our svg arc. We we set <code>innerRadius</code> to <code>0</code>, we would get a piechart.</li>
+  <li><code>pie</code> is our data transformer. D3 provides us with an converter (or layouts), which will convert an array data representation into a suitable representation for pie charts.</li>
+</ul>
+
+<h3 id="checking-for-the-biojs-snippet">4) Checking for the BioJS snippet</h3>
+
+<p>Normally <code>slush</code> should have created an example snippet for you, let’s verify whether it is existent.
+The file name doesn’t not matter as long as it is in the <code>examples</code> directory.</p>
+
+<p><code>examples/simple_example.js</code></p>
+
+<pre><code>var app = require("biojs-vis-snipspector");
+app({el: yourDiv});
+</code></pre>
+
+<p>So let’s use this snippet and show our current code, run:</p>
+
+<pre><code>npm run w
+</code></pre>
+
+<p>This will run <a href="/101/example_snippets">sniper</a> and let you browse our work at <a href="http://localhost:9090/examples">http://localhost:9090/examples</a>.
+Currently the snippet will be empty, but you can add some example code inside our module in <code>lib/index.js</code> to check whether every is working. </p>
+
+<pre><code>var svg = d3.select(opts.el).append("svg")
+  .attr("width", 100)
+  .attr("height", 100);
+
+svg.append("circle")
+  .style("fill", "red")
+  .attr("r", 40)
+</code></pre>
+
+<p>If you see a circle, you can remove the example code and move on.</p>
+
+<h3 id="convert-our-data">5) Convert our data</h3>
+
+<p>Now it is time to plot some data! In d3, data are arrays. So the format which our <code>biojs-io-snipspector</code> returns is not suitable for our representation.
+Therefore we need to convert our data into this format for each chromosome (each chromosome will be represented by a pie/donut chart)</p>
+
+<p>(add to <code>lib/index.js</code>)</p>
+
+<pre><code>var chromosome_data = [{category: "del", number: 1}, {category: "hetero": ,number: 2} , {category: "homo" , number: 3}];
+</code></pre>
+
+<p>Can you come up with an converter?
+Here is our solution:
+Add this into your code.</p>
+
+<p>(add to <code>lib/index.js</code>)</p>
+
+<pre><code>function converter(genome){
+   var data_res = [];
+
+   for (var k = 0; k &lt; 25; k++) {
+               var data = [{
+                   number: genome[k].del
+       }, {
+                   number: genome[k].hetero
+       }, {
+                   number: genome[k].homo
+       }];
+
+
+               var data_wrapper = [{
+                   name: genome[k].name,
+                   data: data
+       }];
+
+               data_res = data_res.concat(data_wrapper);
+
+   }
+
+   return data_res;
+}
+</code></pre>
+
+<p>Everything should look like this right now:</p>
+
+<pre><code>function converter(genome){...}
+
+parser.read("http://files.biojs.net/chromosomes/manny", function(result){
+  var data_res = converter(result);
+
+  //Our visualization code ...
+
+})
+</code></pre>
+
+<p>All chromosomes are now in an optimal array representation and each chromosome object is now represented by his name and dataset.</p>
+
+<h3 id="creating-a-donut-chart">6) Creating a donut chart!</h3>
+
+<p>Now, after cleaning up our data, let’s get finally to the visualization part!
+First, we will visualize the data in chromosome ‘X’ in a donut chart!</p>
+
+<p>Let’s create a svg which we append on the body of our html!</p>
+
+<pre><code>var X_data = data_res[22].data;
+
+var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var g = svg.selectAll(".arc")
+            .data(pie(X_data))
+            .enter().append("g")
+            .attr("class", "arc");
+
+g.append("path")
+    .attr("d", arc)
+    .style("fill", function (d) {
+            return color(d.data.category);
+        });
+
+g.append("text")
+    .attr("transform", function (d) {
+            return "translate(" + arc.centroid(d) + ")";
+        })
+    .attr("dy", ".35em")
+    .style("text-anchor", "middle")
+    .text(function (d) {
+            return d.data.category;
+        });
+</code></pre>
+
+<p>D3 handles new data with <code>enter()</code>. To learn more about <code>enter</code>,<code>update</code> and <code>delete</code>, visit the <a href="http://d3js.org/">d3 tutorial</a>.
+Congratulations! You wrote your first visualization component for biojs!
+Now it is time to export and build it!</p>
+
+<p>To export it write a wrapper around your all your code (except the dependencies)</p>
+
+<pre><code>var parser = require("biojs-io-snipspector");
+
+function d3_show(opts) {
+//All of our written code until now (except for the dependencies)
+}
+
+module.exports = d3_show;
+</code></pre>
+
+<p>We recommend browserify. Therefore use our preinstalled npm run build-browser!</p>
+
+<pre><code>npm run build-browser
+</code></pre>
+
+<p>to create a build for this file!</p>
+
+<p>The final program looks like this:</p>
+
+<div class="collapsible">
+    <pre><code data-lang="text" class="javascript ">var d3 = require(&quot;d3&quot;);
+var parser = require(&quot;biojs-io-snipspector&quot;);
+
+function d3_show(opts) {
+
+ var width = opts.width || 960,
+            height = opts.height || 500,
+            el = opts.el;
+            radius = Math.min(width, height) / 2;
+
+        var color = d3.scale.category10();
+
+        var arc = d3.svg.arc()
+                    .outerRadius(radius - 10)
+                    .innerRadius(radius - 150);
+
+        var pie = d3.layout.pie()
+                    .sort(null)
+                    .value(function (d) {
+                        return d.number;
+                    });
+
+function converter(genome){
+        var data_res = [];
+
+        for (var k = 0; k &lt; 25; k++) {
+                    var data = [{
+                        number: genome[k].del
+            }, {
+                        number: genome[k].hetero
+            }, {
+                        number: genome[k].homo
+            }];
+
+
+                    var data_wrapper = [{
+                        name: genome[k].name,
+                        data: data
+            }];
+
+                    data_res = data_res.concat(data_wrapper);
+
+        }
+
+        return data_res;
+}
+
+parser.read(&quot;http://files.biojs.net/chromosomes/manny&quot;, function(result){
+  var data_res = converter(result);
+
+  var X_data = data_res[22].data;
+
+        var svg = d3.select(el).append(&quot;svg&quot;)
+                    .attr(&quot;width&quot;, width)
+                    .attr(&quot;height&quot;, height)
+                    .append(&quot;g&quot;)
+                    .attr(&quot;transform&quot;, &quot;translate(&quot; + width / 2 + &quot;,&quot; + height / 2 + &quot;)&quot;);
+
+        var g = svg.selectAll(&quot;.arc&quot;)
+                    .data(pie(X_data))
+                    .enter().append(&quot;g&quot;)
+                    .attr(&quot;class&quot;, &quot;arc&quot;);
+
+        g.append(&quot;path&quot;)
+            .attr(&quot;d&quot;, arc)
+            .style(&quot;fill&quot;, function (d) {
+                    return color(d.data.category);
+                });
+
+        g.append(&quot;text&quot;)
+            .attr(&quot;transform&quot;, function (d) {
+                    return &quot;translate(&quot; + arc.centroid(d) + &quot;)&quot;;
+                })
+            .attr(&quot;dy&quot;, &quot;.35em&quot;)
+            .style(&quot;text-anchor&quot;, &quot;middle&quot;)
+            .text(function (d) {
+                    return d.data.category;
+                });
+
+})
+
+}
+
+module.exports = d3_show;</code></pre>
+  </div>
+
+<p>For more information about how each code component works, have a look at following <a href="http://schoolofdata.org/2013/10/01/pie-and-donut-charts-in-d3-js/">resources</a>.</p>
+
+<p>In our final component <code>biojs-vis-snipspector</code>, we also included a function to visualize all chromosomes.</p>
+
+<div id="vis"></div>
+
+<p>Have a look at the <a href="https://github.com/biojs-edu/biojs-vis-snipspector">source code</a> to learn more!</p>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script src="/series/snipspector-adv/res/snipvis.js"></script>
+
+<script>var snipvis = require("biojs-vis-snipspector");
+snipvis(document.getElementById("vis"))</script>
+
+
+
+           <div id="lower-link-box" class="link-box">
+				 
+				<a href="/snipspector_adv/tools/" class="btn btn-primary previous-link">Previous</a>
+				 
+				
+					<a href="/snipspector_adv/parser_real_data/" class="btn btn-primary next-link pull-right">Next</a>
+				
+
+				<br />	
+			</div>
+
+		</div>
+	</div>
+
+<!-- temporaroy removed 
+
+-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	// load highlighted code blocks
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+	jQuery(".collapsible").each(function(i,e){
+		collapseStuff(e,"Hide the code", "Display the code");
+	});
+	/*
+	DO NOT show the explanation
+	collapseStuff("#explanation","Hide the icon explanation", "Display the icon explanation");
+	jQuery("#explanation").css("display", "block");
+	*/
+});
+function collapseStuff(e, textHidden, textDisplayed){
+	var divHigh = $(e);
+	var children = divHigh.children();
+	children.hide();
+	var toggleBox = document.createElement("div");
+	toggleBox.className = "tutorials-togglebox";
+	divHigh.prepend(toggleBox);
+	var awesomeIcon = document.createElement("span");
+	var awesomeText= document.createElement("span");
+	awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+	awesomeText.textContent = "Display the code";
+	awesomeText.className = "tutorials-togglebox-text";
+	toggleBox.appendChild(awesomeIcon);
+	toggleBox.appendChild(awesomeText);
+	awesomeText.textContent = textDisplayed;
+	$(toggleBox).click(function(){
+		var codeBox = children;
+		var text = divHigh.children().first();
+		if( codeBox.css("display") == "none" ){
+			codeBox.show(700);
+			awesomeText.textContent = textHidden;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-up";
+		}else{
+			codeBox.hide(500);
+			awesomeText.textContent = textDisplayed;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+		}
+	});
+};
+</script>
+
+<script src="/js/highlight.min.js"></script>
+
+	</div>
+		
+		</div>
+		<!--
+		<div class="footer">
+			<div class="improve-this-page">
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/snipspector-adv/42_visualization_d3.md">Improve this page</a>
+			</div>
+
+			<div id="privacy-notice-less" class="privacy-policy">
+				Privacy Policy.
+			</div>
+			<div id="privacy-notice-more"  class="privacy-policy" style="display:none">
+				This website uses Google Analytics to collect anonymous visiting stats.<br />
+				By visiting this site you agree to the <a href="https://www.google.com/analytics/terms/us.html">data processing agreement</a> by Google.<br />
+				If you do not agree, <a href="http://www.usa.gov/optout-instructions.shtml">opt out</a>.
+			</div>
+		
+		</div>
+		-->
+
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/highlight.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-scrollspy.js"></script>
+	<script type="text/javascript" src="/js/bottom.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+	        $(document).ready(function() {
+        			$('.color').each(function(i) {
+        				var position = $(this).position();
+        				console.log(position);
+        				console.log('min: ' + position.top + ' / max: ' + parseInt(position.top + $(this).height()));
+        				$(this).scrollspy({
+        					min: position.top,
+        					max: position.top + $(this).height(),
+        					onEnter: function(element, position) {
+        						if(console) console.log('entering ' +  element.id);
+        						$("body").css('background-color', element.id);
+        					},
+        					onLeave: function(element, position) {
+        						if(console) console.log('leaving ' +  element.id);
+        					//	$('body').css('background-color','#eee');
+        					}
+        				});
+        			});
+        		});
+        	</script>
+	<script type="text/javascript">
+
+		/*
+		$(window).scroll(function(){
+    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});        
+    		if ($(window).scrollTop() > 140){
+	    		$(".leftPanel").css({"top": ($(window).scrollTop()) -140 + "px"});
+			}
+    	});
+    	*/
+
+		$('.pullButton').click(function(e){
+			$("#biojs-menu").css("display","block");
+			$("#biojs-main-content").css("margin-left","220px");
+			$(".pullButton").removeClass("pullButton-mob");
+			e.stopPropagation();
+			return false;
+		});
+
+		$(window).click(function(){
+			closeMenu();
+		});
+		$('.Menu').click(function(){
+			closeMenu();
+		});
+
+		function closeMenu(){
+			if(isMobile()){
+				$("#biojs-menu").css("display","none");
+				$(".pullButton").addClass("pullButton-mob");
+				$("#biojs-main-content").css("margin-left","0px");
+			}
+		}
+		function isMobile(){
+			return $(window).width() <= 600;
+		}
+
+	</script>
+
+
+	
+
+
+	<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51509688-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

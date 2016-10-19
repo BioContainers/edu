@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bootstrapping</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
+	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/solarized_dark.css">
+	<link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/toc.css">
+
+	
+		<link rel="stylesheet" href="/css/tutorials.css">
+	
+		<link rel="stylesheet" href="/css/solarized_dark.css">
+	
+
+	<!-- needed for tutorial specific css -->
+	
+</head>
+<body>	
+	
+
+	<!--
+	<div class="container" id="main-container">
+		<div class="topNavbar">
+			<div class="navbar-div" id="logo">
+			<a class="logoLink" href="/">BIOJS</a>
+			</div>
+			<div class="navbar-div" id="navbar-links2">
+				<li>
+			
+			</div>
+		</div>
+	-->
+
+
+    <div id="biojs-menu">
+<div class="Menu">
+        <div class="list">
+            <div class="logoDiv">
+                <img src="/img/logo.png" id="logoImg">
+                <div class="logoDivName">BioContainers Education</div>
+            </div>
+
+
+        <span class="item-heading"> Basics </span>
+			
+	
+				<a class="item " href="/101/intro/">Intro</a>
+			
+	
+				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
+			
+	
+				<a class="item " href="/101/getting_started/">Getting started</a>
+			
+	
+				<a class="item " href="/101/modularity/">Modularity</a>
+			
+	
+				<a class="item item-active" href="/101/bootstrapping/">Bootstrapping</a>
+			
+	
+				<a class="item " href="/101/example_snippets/">Example snippets</a>
+			
+	
+				<a class="item " href="/101/publish_it/">Publish it</a>
+			
+	
+				<a class="item " href="/101/other_resources/">Other resources</a>
+			
+		
+
+        <span class="item-heading"> Beginner tutorial </span>
+			
+	
+				<a class="item " href="/details/continuous_integration/">Continuous integration</a>
+			
+		
+
+        <span class="item-heading"> User tutorial </span>
+			
+		
+
+        <span class="item-heading"> Developer tutorial </span>
+			
+		
+
+        <span class="item-heading"> Advanced Tutorial </span>
+			
+	
+				<a class="item " href="/snipspector_adv/tools/">Tools overview</a>
+			
+	
+				<a class="item " href="/snipspector_adv/vis_d3/">Visualization: D3</a>
+			
+	
+				<a class="item " href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
+			
+		
+    </div>
+</div>
+
+	</div>
+
+	<div id="biojs-main-content">
+		
+		<div class="heading row">
+   
+  <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
+	  <span class="contentTitle">Bootstrapping </span>
+
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/101/35_bootstraping_a_project.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+  </div>
+
+	<div class="col-xs-2 col-md-3">
+		<div id="biojs-iconnav-glyphs">
+	  <a class="git" href="https://github.com/biocontainers/" target="_blank"><i class="fa fa-github-alt"></i></a>
+
+	  <a class="git"  href="http://biocontainers.pro" target="_blank"><i class="fa fa-home"></i></a>
+	  <a class="git hidden-xs hidden-sm" href="https://kiwiirc.com/client/irc.freenode.net/biocontainers" target="_blank"><i class="fa fa-weixin"></i></a>
+	  <a class="git hidden-xs hidden-sm" id="bookmark-link" href="#"><i class="fa fa-bookmark"></i></a>
+
+  </div>	
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    $('#bookmark-link').click(function() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title,window.location.href,'');
+        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else if(window.opera && window.print) { // Opera Hotlist
+            this.title=document.title;
+            return true;
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    });
+});
+</script>
+
+	  <a class="gitStar hidden-xs hidden-sm" style="width:150px;" id="biojs-iconnav-help" href="https://gitter.im/biocontainers/Lobby" target="_blank"><span class="glyphicon glyphicon-bullhorn" style="font-size:17px;" ></span> Get help</a>
+
+  </div>	
+  <div class="col-md-2 col-lg-2 hidden-xs hidden-sm" id="social-media-share">
+
+    <!-- share it: twitter, google -->
+    <div style="height:25px"> <a href="https://twitter.com/share" class="twitter-share-button" style="width: 40px">Tweet</a>
+
+      <script>
+        ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');
+      </script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+	  <div class="share-google-button">
+      	<div class="g-plus" data-action="share" data-annotation="bubble"
+      data-align="right"></div>
+	  </div>
+    </div>
+
+    </div>
+	
+
+    <div class="author col-md-2 col-xs-2 hidden-xs">
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+	        
+			
+	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 20 minutes </div>
+	        
+	</div>
+
+</div>
+
+<div class="pullButton pullButton-mob">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+
+
+<div class="containerBody">
+	<!--
+    <div class="leftPanel">
+
+		
+
+    </div>
+	-->
+    <div class="rightPanel">
+
+
+
+        <div class="static-content">
+
+            <div id="explanation" style="display:none">
+                <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to mark check points.
+A check point is a way for you to check how you are doing.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For most of the steps in this tutorial we will
+provide the code as it should look after the task. It is tempting, we
+know, but please, please, do not go for the “copy&amp;paste” way.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to challenge you
+with additional code-related tasks so you can go further at your own
+pace. No inline answer will be provide for those challenges but we will
+give you some guidelines and tips. By the way, within the instructions
+we will use <em>an italic font</em> to refer to variables and pieces of code.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to ask you some questions related to the task your are working on.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Additional info and resources - this is not essential to complete the tutorial, but very interesting.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Tips that might help you on this task.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-hand-up" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are following this tutorial as part of a workshop, do not hesitate to
+raise your hand and share any questions or comments you may have.
+If you are doing it by your own, you still can raise your hand in our
+mailing list, just join our <a href="https://groups.google.com/forum/#!forum/biojs">Google Group</a>.</p>
+</div></div></div>
+
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+<!--
+
+-->
+            <div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; You need to install <code>npm</code> before you can start to rock. See <a href="/101/getting_started/"> the getting started guide </a> for more info.</div>
+
+<h2 id="create-a-new-package">1) Create a new package</h2>
+
+<p>We use a customized <a href="https://github.com/biojs/slush-biojs">slush generator called slush-biojs</a> to bootstrap each new BioJS project.
+<code>slush-biojs</code> helps you to get started with creating your own BioJS component, by creating a directory structure and a number of useful files for you, including the package.json for maintaining all your other project dependencies and license files.</p>
+
+<p>If you are a beginner it is highly recommended to use the slush generator by following the steps on this tutorial page. </p>
+
+<div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; On Linux and Mac you will need to prepend <code>sudo</code> for global (<code>-g</code>) installations or <a href="https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md">configure</a> global installations into your home directory.</div>
+
+<h3 id="install-slush">1.1) Install slush</h3>
+
+<p>Before creating your first slush-generated BioJS component, you will have to install the required tools via the terminal as follows:</p>
+
+<p>First, install <code>slush</code> with the following command:</p>
+
+<pre><code>npm install -g slush
+</code></pre>
+
+<p>After the installation has finished successfully, it’s time for you to install <code>slush-biojs</code> as well. You can do it like this:</p>
+
+<pre><code>npm install -g slush-biojs
+</code></pre>
+
+<p><code>-g</code> stands for global installation, will download the npm packages to your global npm path (e.g. <code>/usr/lib/node_modules</code>) and add the executables
+to your <code>PATH</code> variable. If you want to install globally into your home directory without using <code>sudo</code>, have a look at <a href="https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md">this guide</a> or use <a href="https://github.com/creationix/nvm">nvm</a>.</p>
+
+<p><code>slush-biojs</code> is updated frequently, so make sure to update it from time to time.</p>
+
+<h3 id="bootstrap-your-new-project">1.2) Bootstrap your new project</h3>
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For BioJS 2 components, we have following naming recommendations:</p>
+
+<p><strong>biojs-[io/rest/vis/algo/…]-[name]</strong></p>
+
+<ul>
+  <li>Use <code>io</code> for components which are responsible for parsing data into a specific format (aka parser)</li>
+  <li>Use <code>vis</code> for components which are visualizing data sets</li>
+  <li>Use <code>rest</code> for REST APIs to databases</li>
+  <li>Use <code>algo</code> for server/client side algorithms processing the data (e.g. alignments, neural networks, markov models, graph algorithms)</li>
+</ul>
+
+<p>If you have a better name for your package, feel free to use it.
+This is more of a guideline for when you don’t feel like being creative.</p>
+</div></div></div>
+
+<p>To use our Slush generator create a directory, change into it and run the generator.
+Like this:</p>
+
+<pre><code>mkdir &lt;your-project&gt;
+cd &lt;your-project&gt; &amp;&amp; slush biojs
+</code></pre>
+
+<p>The generator will then create a directory structure and a number of useful files for you, including the package.json 
+and license files.</p>
+
+<h3 id="fill-your-package-with-life">1.3) Fill your package with life</h3>
+
+<p>When initialising the slush generator in your project, you will be prompted with a couple of questions
+which help you to setup your <code>package.json</code> file. If you are unsure about what to fill in, you can use the two configuration examples below as a guideline:</p>
+
+<h4 id="a-packagejson-configuration-example-for-bootstrapping-a-parser">1.3.a) Package.json configuration example for bootstrapping a parser</h4>
+
+<pre><code>? Module name? (required) biojs-io-clustal	
+? Description? Parses Clustal alignment files
+? Module version? 0.1.0
+? Author name? greenify
+? Author email? &lt;hidden&gt;
+? Github username? greenify
+? Keywords for npm (separate with comma) clustal, alignment
+? A visualization lib? No
+? Unit tests: Yes
+? Configure a build system? (Gulp) No
+? Linting (Check code style with JSHint) No
+? Choose your license type: MIT
+? Is this correct? Yes
+</code></pre>
+
+<h4 id="b-packagejson-configuration-example-for-bootstrapping-a-visualization-component">1.3.b) Package.json configuration example for bootstrapping a visualization component</h4>
+
+<pre><code>? Module name? (required) biojs-vis-seqlogo
+? Description? A sequence logo visualizer
+? Module version? 0.1.0
+? Author name? greenify
+? Author email? &lt;hidden&gt;
+? Github username? greenify
+? Keywords for npm (separate with comma) hmm, logo, seqlogo
+? A visualization lib? Yes
+? Unit tests: No
+? Add a example css file? No
+? Configure a build system? (Gulp) No
+? Linting (Check code style with JSHint) No
+? Choose your license type: MIT
+? Is this correct? Yes
+</code></pre>
+
+<p>After you confirmed your entries by answering the last questions with a Yes, <code>slush-biojs</code> will start installing dependencies 
+and setting up a suitable directory structure. This process might take up to 10 mins, so please be patient and
+enjoy a cup of coffee in the meanwhile.</p>
+
+<h3 id="resulting-file-structure">1.4) Resulting file structure</h3>
+
+<p>The exact structure might vary depending on the settings you choose in slush.
+Nevertheless in almost all packages you will find these following six items:</p>
+
+<ul>
+  <li><a href="https://github.com/biojs/biojs/wiki/BioJS-sections-in-the-package.json"><code>package.json</code></a>: Information about your package: author, version, …</li>
+  <li><code>lib</code> : Folder including your real source code</li>
+  <li><code>.gitignore</code>: Files that should be ignored by the git versioning system</li>
+  <li><code>LICENSE</code>: The license under which you want your source code to be distributed, e.g. MIT or Apache 2</li>
+</ul>
+
+<p>You probably never have to modify the last two:</p>
+
+<ul>
+  <li><code>node_modules</code>: all npm packages of your packages</li>
+  <li><code>build</code>: target dir for all browserified, minified js or css resources</li>
+</ul>
+
+<p>You can find an overview of all automatically configured npm tasks <a href="https://github.com/biojs/slush-biojs">here</a>.</p>
+
+<h3 id="optionally-you-might-find">Optionally you might find</h3>
+
+<ul>
+  <li><a href="https://github.com/biojs/biojs-sniper"><code>examples</code></a> (previously called: <code>snippets</code>): Folder containing visualization examples</li>
+  <li><code>test</code>: Folder containing unit tests</li>
+  <li><a href="https://github.com/biojs/biojs/wiki/Adding-CSS-stylesheets"><code>css</code></a>: Folder contain all stylesheets (SASS and LESS files can be added via transforms)</li>
+  <li><code>src</code>: Sometime used as main source folder or by projects with Coffee-Script (those projects transpile the source folder <code>src</code> to <code>lib</code>)</li>
+</ul>
+
+<h3 id="confirm-your-installation">1.5) Confirm your installation</h3>
+
+<p>If everything went okay, you should check your BioJS project setup with the following commands depending on your type of component:</p>
+
+<h4 id="a-io-packages">1.5.a) IO packages</h4>
+
+<p>If you created an IO component type of BioJS project, run the following command in your terminal to test
+if your project is setup properly:</p>
+
+<pre><code>npm test
+</code></pre>
+
+<p>A simple, default test should pass.</p>
+
+<pre><code>  biojs-io-awesome-parser module
+    #hello()
+      ✓ should return a hello 
+
+  1 passing (6ms)
+</code></pre>
+
+<h4 id="b-visualization-packages">1.5.b) Visualization packages</h4>
+
+<p>First prebuild your component, so it can be checked in the browser afterwards. You can build your BioJS project with this command:</p>
+
+<pre><code>npm run build
+</code></pre>
+
+<p>After this task has completed, spin up a local webserver hosting your BioJS project with this short command:</p>
+
+<pre><code>npm run w
+</code></pre>
+
+<p>You can follow the start of your local webserver in your terminal which will be looking similar to this:</p>
+
+<pre><code>starting:  'npm run sniper','npm run watch'
+[npm-run-sniper]: &gt; biojs-vis-awesome-vis@0.1.0 sniper /tmp/biojs-vis-awesome-vis
+[npm-run-sniper]: &gt; sniper .
+[npm-run-watch]: &gt; biojs-vis-awesome-vis@0.1.0 watch /tmp/biojs-vis-awesome-vis
+[npm-run-watch]: &gt; watchify -r ./:biojs-vis-awesome-vis -v -o build/vis.js
+[npm-run-sniper]: running: http://localhost:9090
+[npm-run-sniper]: DIR:.
+[npm-run-watch]: 1218 bytes written to build/vis.js (0.02 seconds)
+</code></pre>
+
+<p>Your examples page will be greeting you with a short “hello world” under this url <a href="http://localhost:9090/examples/simple" target="_blank">http://localhost:9090/examples/simple</a>.</p>
+
+<p>If these tests fail, checkout the following frequent errors to fix your current setup:</p>
+
+<h3 id="frequent-errors">1.6) Frequent errors</h3>
+
+<p><code>[...] not found</code> or “Cannot find module xyz”   </p>
+
+<ul>
+  <li>Check whether you have a <code>node_modules</code> folder</li>
+  <li>If <code>node_modules</code> does <em>not</em> exist, run <code>npm install</code> </li>
+  <li>If <code>node_modules</code> does exist, run <code>rm -r node_modules &amp;&amp; npm install</code> </li>
+  <li>When your still experience the same error, check whether the missing module is part of your <code>package.json</code></li>
+  <li>Most common reason: Your npm installation is outdated (especially on Ubuntu/Debian) -&gt; update npm to <code>2.x</code>.</li>
+  <li>If you still experience a problem, don’t hesitate to contact us</li>
+</ul>
+
+<h3 id="install-watchify--sniper-optional">1.7) Install watchify &amp; sniper (optional)</h3>
+
+<p><code>slush-biojs</code> should install these packages all npm dependencies and you can run them
+without installing them globally. However if you are lazy, you can install them as shortcuts.</p>
+
+<pre><code>npm install -g watchify sniper browserify
+</code></pre>
+
+<p><code>Watchify</code>: Listens for file changes and incremental runs <code>browserify</code><br />
+<code>Browserify</code>: A tool that lets you <code>require('modules')</code> in the browser by bundling up all of your dependencies<br />
+<code>Sniper</code>: Simulates the BioJS registry and allows you to load files from your disk (it is a local file server)  </p>
+
+<p>With a global installation you can run <code>sniper instead of </code>npm run sniper`.</p>
+
+<h2 id="available-commands">2) Available commands</h2>
+
+<h3 id="snippets-only-available-for-visualization---skip">2.1. Snippets (only available for visualization -&gt; skip)</h3>
+
+<p>Allows you to write minimal example <a href="https://github.com/biojs/sniper">snippets</a> of your visualization.
+These snippets will be used for the <a href="http://biojs.io">BioJS registry</a>.</p>
+
+<pre><code>npm run sniper
+</code></pre>
+
+<p>and open <a href="http://localhost:9090/examples">http://localhost:9090/examples</a>. See the <a href="https://github.com/biojs/sniper">Sniper repository</a> for more details.</p>
+
+<h3 id="watchify">2.2. Watchify</h3>
+
+<p>Watches all your files and runs <a href="http://browserify.org">browserify</a> on every change.
+Combine this with the sniper.
+(Subsequent runs of watchify are fast).</p>
+
+<pre><code>npm run watch
+</code></pre>
+
+<p>Enjoy.</p>
+
+<h3 id="tests">2.3. Tests</h3>
+
+<p>(only available if you enabled it, by default for parsers)</p>
+
+<pre><code>npm test
+</code></pre>
+
+<p>They are grouped into two sections:</p>
+
+<ul>
+  <li>Non-DOM <code>gulp test-unit</code> (folder: <code>test/unit</code>)</li>
+  <li>DOM-only <code>gulp test-dom</code> (folder: <code>test/dom</code>)</li>
+</ul>
+
+<p>Gotchas:</p>
+
+<ul>
+  <li>The Unit tests are run with PhantomJS, if you want to debug them open the <code>test/index.html</code>
+your browser.</li>
+  <li>You need to add your <em>DOM</em> tests to the <code>test/dom/index.js</code>.</li>
+</ul>
+
+<p>If you want to auto-execute all your test on a file change, run:</p>
+
+<pre><code>gulp test-watch
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>You can customize the sniper sections with a <a href="https://github.com/biojs/slush-biojs#configuration">local configuration file</a></p>
+</div></div></div>
+
+<h3 id="more-tasks">2.4. More tasks</h3>
+
+<p>Depending on the settings you select, the slush bootstraper might add more tasks.
+You can see <a href="https://github.com/biojs/slush-biojs">here</a> the entire list.</p>
+
+
+           <div id="lower-link-box" class="link-box">
+				 
+				<a href="/101/modularity/" class="btn btn-primary previous-link">Previous</a>
+				 
+				
+					<a href="/101/example_snippets/" class="btn btn-primary next-link pull-right">Next</a>
+				
+
+				<br />	
+			</div>
+
+		</div>
+	</div>
+
+<!-- temporaroy removed 
+
+-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	// load highlighted code blocks
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+	jQuery(".collapsible").each(function(i,e){
+		collapseStuff(e,"Hide the code", "Display the code");
+	});
+	/*
+	DO NOT show the explanation
+	collapseStuff("#explanation","Hide the icon explanation", "Display the icon explanation");
+	jQuery("#explanation").css("display", "block");
+	*/
+});
+function collapseStuff(e, textHidden, textDisplayed){
+	var divHigh = $(e);
+	var children = divHigh.children();
+	children.hide();
+	var toggleBox = document.createElement("div");
+	toggleBox.className = "tutorials-togglebox";
+	divHigh.prepend(toggleBox);
+	var awesomeIcon = document.createElement("span");
+	var awesomeText= document.createElement("span");
+	awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+	awesomeText.textContent = "Display the code";
+	awesomeText.className = "tutorials-togglebox-text";
+	toggleBox.appendChild(awesomeIcon);
+	toggleBox.appendChild(awesomeText);
+	awesomeText.textContent = textDisplayed;
+	$(toggleBox).click(function(){
+		var codeBox = children;
+		var text = divHigh.children().first();
+		if( codeBox.css("display") == "none" ){
+			codeBox.show(700);
+			awesomeText.textContent = textHidden;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-up";
+		}else{
+			codeBox.hide(500);
+			awesomeText.textContent = textDisplayed;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+		}
+	});
+};
+</script>
+
+<script src="/js/highlight.min.js"></script>
+
+	</div>
+		
+		</div>
+		<!--
+		<div class="footer">
+			<div class="improve-this-page">
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/101/35_bootstraping_a_project.md">Improve this page</a>
+			</div>
+
+			<div id="privacy-notice-less" class="privacy-policy">
+				Privacy Policy.
+			</div>
+			<div id="privacy-notice-more"  class="privacy-policy" style="display:none">
+				This website uses Google Analytics to collect anonymous visiting stats.<br />
+				By visiting this site you agree to the <a href="https://www.google.com/analytics/terms/us.html">data processing agreement</a> by Google.<br />
+				If you do not agree, <a href="http://www.usa.gov/optout-instructions.shtml">opt out</a>.
+			</div>
+		
+		</div>
+		-->
+
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/highlight.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-scrollspy.js"></script>
+	<script type="text/javascript" src="/js/bottom.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+	        $(document).ready(function() {
+        			$('.color').each(function(i) {
+        				var position = $(this).position();
+        				console.log(position);
+        				console.log('min: ' + position.top + ' / max: ' + parseInt(position.top + $(this).height()));
+        				$(this).scrollspy({
+        					min: position.top,
+        					max: position.top + $(this).height(),
+        					onEnter: function(element, position) {
+        						if(console) console.log('entering ' +  element.id);
+        						$("body").css('background-color', element.id);
+        					},
+        					onLeave: function(element, position) {
+        						if(console) console.log('leaving ' +  element.id);
+        					//	$('body').css('background-color','#eee');
+        					}
+        				});
+        			});
+        		});
+        	</script>
+	<script type="text/javascript">
+
+		/*
+		$(window).scroll(function(){
+    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});        
+    		if ($(window).scrollTop() > 140){
+	    		$(".leftPanel").css({"top": ($(window).scrollTop()) -140 + "px"});
+			}
+    	});
+    	*/
+
+		$('.pullButton').click(function(e){
+			$("#biojs-menu").css("display","block");
+			$("#biojs-main-content").css("margin-left","220px");
+			$(".pullButton").removeClass("pullButton-mob");
+			e.stopPropagation();
+			return false;
+		});
+
+		$(window).click(function(){
+			closeMenu();
+		});
+		$('.Menu').click(function(){
+			closeMenu();
+		});
+
+		function closeMenu(){
+			if(isMobile()){
+				$("#biojs-menu").css("display","none");
+				$(".pullButton").addClass("pullButton-mob");
+				$("#biojs-main-content").css("margin-left","0px");
+			}
+		}
+		function isMobile(){
+			return $(window).width() <= 600;
+		}
+
+	</script>
+
+
+	
+
+
+	<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51509688-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

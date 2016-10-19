@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Parser: using real data</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
+	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/solarized_dark.css">
+	<link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/toc.css">
+
+	
+		<link rel="stylesheet" href="/css/tutorials.css">
+	
+		<link rel="stylesheet" href="/css/solarized_dark.css">
+	
+
+	<!-- needed for tutorial specific css -->
+	
+</head>
+<body>	
+	
+
+	<!--
+	<div class="container" id="main-container">
+		<div class="topNavbar">
+			<div class="navbar-div" id="logo">
+			<a class="logoLink" href="/">BIOJS</a>
+			</div>
+			<div class="navbar-div" id="navbar-links2">
+				<li>
+			
+			</div>
+		</div>
+	-->
+
+
+    <div id="biojs-menu">
+<div class="Menu">
+        <div class="list">
+            <div class="logoDiv">
+                <img src="/img/logo.png" id="logoImg">
+                <div class="logoDivName">BioContainers Education</div>
+            </div>
+
+
+        <span class="item-heading"> Basics </span>
+			
+	
+				<a class="item " href="/101/intro/">Intro</a>
+			
+	
+				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
+			
+	
+				<a class="item " href="/101/getting_started/">Getting started</a>
+			
+	
+				<a class="item " href="/101/modularity/">Modularity</a>
+			
+	
+				<a class="item " href="/101/bootstrapping/">Bootstrapping</a>
+			
+	
+				<a class="item " href="/101/example_snippets/">Example snippets</a>
+			
+	
+				<a class="item " href="/101/publish_it/">Publish it</a>
+			
+	
+				<a class="item " href="/101/other_resources/">Other resources</a>
+			
+		
+
+        <span class="item-heading"> Beginner tutorial </span>
+			
+	
+				<a class="item " href="/details/continuous_integration/">Continuous integration</a>
+			
+		
+
+        <span class="item-heading"> User tutorial </span>
+			
+		
+
+        <span class="item-heading"> Developer tutorial </span>
+			
+		
+
+        <span class="item-heading"> Advanced Tutorial </span>
+			
+	
+				<a class="item " href="/snipspector_adv/tools/">Tools overview</a>
+			
+	
+				<a class="item " href="/snipspector_adv/vis_d3/">Visualization: D3</a>
+			
+	
+				<a class="item item-active" href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
+			
+		
+    </div>
+</div>
+
+	</div>
+
+	<div id="biojs-main-content">
+		
+		<div class="heading row">
+   
+  <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
+	  <span class="contentTitle">Parser: using real data </span>
+
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/snipspector-adv/50_real_parser.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+  </div>
+
+	<div class="col-xs-2 col-md-3">
+		<div id="biojs-iconnav-glyphs">
+	  <a class="git" href="https://github.com/biocontainers/" target="_blank"><i class="fa fa-github-alt"></i></a>
+
+	  <a class="git"  href="http://biocontainers.pro" target="_blank"><i class="fa fa-home"></i></a>
+	  <a class="git hidden-xs hidden-sm" href="https://kiwiirc.com/client/irc.freenode.net/biocontainers" target="_blank"><i class="fa fa-weixin"></i></a>
+	  <a class="git hidden-xs hidden-sm" id="bookmark-link" href="#"><i class="fa fa-bookmark"></i></a>
+
+  </div>	
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    $('#bookmark-link').click(function() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title,window.location.href,'');
+        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else if(window.opera && window.print) { // Opera Hotlist
+            this.title=document.title;
+            return true;
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    });
+});
+</script>
+
+	  <a class="gitStar hidden-xs hidden-sm" style="width:150px;" id="biojs-iconnav-help" href="https://gitter.im/biocontainers/Lobby" target="_blank"><span class="glyphicon glyphicon-bullhorn" style="font-size:17px;" ></span> Get help</a>
+
+  </div>	
+  <div class="col-md-2 col-lg-2 hidden-xs hidden-sm" id="social-media-share">
+
+    <!-- share it: twitter, google -->
+    <div style="height:25px"> <a href="https://twitter.com/share" class="twitter-share-button" style="width: 40px">Tweet</a>
+
+      <script>
+        ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');
+      </script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+	  <div class="share-google-button">
+      	<div class="g-plus" data-action="share" data-annotation="bubble"
+      data-align="right"></div>
+	  </div>
+    </div>
+
+    </div>
+	
+
+    <div class="author col-md-2 col-xs-2 hidden-xs">
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+	        
+			<!--<div class="tutorial-item">Contributor(s): Seb</div>-->
+	        
+			
+	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 30 minutes </div>
+	        
+	</div>
+
+</div>
+
+<div class="pullButton pullButton-mob">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+
+
+<div class="containerBody">
+	<!--
+    <div class="leftPanel">
+
+		
+
+    </div>
+	-->
+    <div class="rightPanel">
+
+
+
+        <div class="static-content">
+
+            <div id="explanation" style="display:none">
+                <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to mark check points.
+A check point is a way for you to check how you are doing.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For most of the steps in this tutorial we will
+provide the code as it should look after the task. It is tempting, we
+know, but please, please, do not go for the “copy&amp;paste” way.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to challenge you
+with additional code-related tasks so you can go further at your own
+pace. No inline answer will be provide for those challenges but we will
+give you some guidelines and tips. By the way, within the instructions
+we will use <em>an italic font</em> to refer to variables and pieces of code.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to ask you some questions related to the task your are working on.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Additional info and resources - this is not essential to complete the tutorial, but very interesting.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Tips that might help you on this task.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-hand-up" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are following this tutorial as part of a workshop, do not hesitate to
+raise your hand and share any questions or comments you may have.
+If you are doing it by your own, you still can raise your hand in our
+mailing list, just join our <a href="https://groups.google.com/forum/#!forum/biojs">Google Group</a>.</p>
+</div></div></div>
+
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+<!--
+
+-->
+            <div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; Please create the <a href="/snipspector/basics">basic package</a> before.
+Alternatively you can clone the <a href="https://github.com/biojs-edu/biojs-io-snipspector/tree/basic_packaging">solution of the last exercise</a>.</div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><a href="http://jsbin.com/hiyijagawete/2/edit">Here</a> is the result of this example - parsing the 15MB file with 500,000 lines in your browser.</p>
+</div></div></div>
+
+<p><a class="jsbin-embed" href="http://jsbin.com/hiyijagawete/4/embed?js,console">JS Bin</a>
+<script src="http://static.jsbin.com/js/embed.js"></script> </p>
+
+<h3 id="installing-a-npm-dependency">1) Installing a npm dependency</h3>
+
+<p>As we want to download data, we need a <code>request</code> package.
+In <code>npm</code> this is very easy, just run.</p>
+
+<pre><code>npm install nets --save
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>What does <code>--save</code> mean? <a href="https://www.npmjs.org/doc/cli/npm-install.html">Help</a></p>
+</div></div></div>
+
+<h3 id="require-a-dependency">2) Require a dependency</h3>
+
+<pre><code>var request = require("nets");
+</code></pre>
+
+<p>A sample request might look like this.</p>
+
+<pre><code>request('https://raw.githubusercontent.com/biojs-edu/biojs-io-snipspector/master/test/test.file', function (error, response, body) {
+  if (!error &amp;&amp; response.statusCode == 200) {
+    console.log(body) // Prints the reponse body
+  }
+})
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><code>manny.dummy</code> only contains the first 50 lines. We will use the whole file with 500.000 lines later in this tutorial.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><a href="https://github.com/maxogden/nets"><code>nets</code></a> is a meta-wrapper for the <a href="https://github.com/mikeal/request">request</a> package, which switches to <a href="https://github.com/Raynos/xhr">xhr</a> when it gets “browserified”.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<ol>
+  <li>Install the <code>nets</code> package</li>
+  <li>Create a sample file (e.g. <code>foo.js</code>)</li>
+  <li>Download <code>https://raw.githubusercontent.com/biojs-edu/biojs-io-snipspector/master/test/test.file</code> and print it to the screen</li>
+</ol>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Run a file: <code>node foo.js</code></p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><strong>Solution</strong></p>
+</div></div></div>
+
+<div class="collapsible">
+    <pre><code data-lang="text" class="javascript ">var request = require(&quot;nets&quot;);
+request(&#39;https://raw.githubusercontent.com/biojs-edu/biojs-io-snipspector/master/test/test.file&#39;, function (error, response, body) {
+  if (!error &amp;&amp; response.statusCode == 200) {
+    console.log(body) // Prints the reponse body
+  }
+})</code></pre>
+  </div>
+
+<h3 id="download-the-real-data">3) Download the real data</h3>
+
+<pre><code>snipspector.read = function(url, callback) {
+ // TODO
+}
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Create the <code>read</code> method in the graduate object which takes a <code>url</code> and a <code>callback</code> as input
+and calls the callback with the parsed data.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Using callbacks is just one of multiple ways (but probably the easiest to understand).
+Another very popular one is to use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promises</a>.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>You can need to remove the static <code>data</code> object in the parse method.
+Put this data into your unit test.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><strong>Solution</strong> - if you have troubles: write the unit test first, before you look at this solution.</p>
+</div></div></div>
+
+<p><code>lib/index.js</code></p>
+
+<div class="collapsible">
+    <pre><code data-lang="text" class="javascript ">var request = require(&quot;nets&quot;);
+
+var snipspector = {};
+
+snipspector.read = function(url, callback) {
+  request(url, function (error, response, body) {
+    if (!error &amp;&amp; response.statusCode == 200) {
+      callback(snipspector.parse(body));
+    }
+  })
+}
+
+snipspector.parse = function(data) {
+
+    if(data.indexOf(&#39;\n&#39;) &gt;= 0 ){
+      data = data.split(&#39;\n&#39;);
+    }
+
+   var chromosomes = [];
+
+    // analyze snippets
+    // homo(zygous): AA
+    // hetero(zygous): AC
+    // del(etion): A-, -A or --
+
+    var chr = null;
+    for (var i = 0; i &lt; data.length; i++) {
+
+      // ignore empty rows or comments
+      if(data[i].length == 0 || data[i][0] === &quot;#&quot;){
+        continue;
+      }
+
+      var row = data[i].split(/\s+/);
+      var chrName = row[1];
+
+      // new chromosome begins
+      if( chr == null ||  chrName !== chr.name) {
+        // ignore the first time
+        if( chr != null ){
+          chromosomes.push(chr);
+        }
+        chr = {homo: 0, hetero: 0, del: 0};
+        chr.name = chrName;
+      }
+
+      var genotype = row[3];
+      if( genotype.length == 2){
+        // ignore MT
+        if(genotype[0] == genotype[1] &amp;&amp; genotype[0] != &quot;-&quot;){
+          // homo
+          chr.homo = chr.homo + 1;  
+        } else if( genotype[0] !== &quot;-&quot; &amp;&amp; genotype[1] !== &quot;-&quot;){
+          // hetero
+          chr.hetero = chr.hetero + 1;  
+        }else{
+          // del
+          chr.del = chr.del + 1;  
+        }
+      }
+    }
+    // push the last item
+    chromosomes.push(chr);
+
+    return chromosomes;
+}
+
+//Should print [{name: &quot;20&quot;, homo: 2, hetero: 1, del: 0,
+// {name: &quot;21&quot;, homo: 1, hetero: 1, del: 1},
+// {name: &quot;22&quot;, homo 1, hetero: 1, del: 0 }]
+
+
+module.exports = snipspector; // Export the object for other components</code></pre>
+  </div>
+
+<h3 id="test-with-live-data-mocking">4) Test with live data (mocking)</h3>
+
+<h4 id="mocking-the-backend">4.1) Mocking the backend</h4>
+
+<pre><code>npm install nock --save-dev
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Why did we use <code>--save-dev</code>?</p>
+</div></div></div>
+
+<p><a href="https://github.com/pgte/nock">Nock</a> allows us to mock a backend, in this example <code>http://an.url/list</code>
+All you need to do is to add this block before your mocha tests run
+(i.e. before the <code>describe</code> method).</p>
+
+<pre><code>var nock = require('nock')
+var testURL = 'http://an.url/'
+var scope = nock(testURL)
+.get('/list')
+.replyWithFile(200, __dirname + '/test.file');
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p><code>__dirname</code> is the current directory of an script (here: <code>test</code>).</p>
+</div></div></div>
+
+<p>Now you only need to create the dummy file with which Nock should reply.</p>
+
+<p><code>test/test.file</code></p>
+
+<pre><code>rs5747620	20	15412698	TT
+rs9605903	20	15434720	CC
+rs2236639	20	15452483	GC
+rs5747999	21	15455353	AA
+rs11089263	21	15467656	A-
+rs2096537	21	15474749	AC
+rs9604959	22	15479107	CG
+rs9604967	22	15492342	CC
+</code></pre>
+<p>(this is the same file from <a href="./30_package_basics.html">the package basics tutorial</a></p>
+
+<p>For the beginning we use a small file for testing, so it is easier to debug.</p>
+
+<h4 id="asynchronous-testing">4.2) Asynchronous testing</h4>
+
+<p>Now before you write your second unit test, there is a small thing to which you should pay attention.
+<code>XHR</code> requests are <code>asynchronous</code>, that means you have to stop the test suite and wait until you have received the request.</p>
+
+<p>In Mocha this is incredible easy.</p>
+
+<pre><code>it('should work with live data', function(done){
+
+done(); // call the mocha callback and resume the test suite
+});
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Passing an argument to an Mocha test will automatically let the test suite run your test asynchronously - the argument is your callback.
+<a href="https://mochajs.github.io/mocha/#asynchronous-code">More info</a>.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Write a second unit test that calls our mocked URL and test whether <code>snipspector.read(&lt;url&gt;, &lt;callback&gt;)</code> works.</p>
+</div></div></div>
+
+<h3 id="solution">5) Solution</h3>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>no please do <strong>not</strong> have a look at our solution, if your unit test is green -
+your solution is correct!</p>
+
+</div></div></div>
+
+<p><code>test/simple.js</code></p>
+
+<div class="collapsible">
+    <pre><code data-lang="text" class="javascript ">var assert = require(&quot;chai&quot;).assert;
+var snip = require(&quot;../&quot;);
+
+// you can find more docu about mocha here
+// https://visionmedia.github.io/mocha/
+
+var nock = require(&#39;nock&#39;)
+var testURL = &#39;http://an.url/&#39;
+
+var scope = nock(testURL)
+  .get(&#39;/list&#39;)
+  .replyWithFile(200, __dirname + &#39;/test.file&#39;);
+
+  var dummyObj = [{name: &quot;20&quot;, homo: 2, hetero: 1, del: 0},
+{name: &quot;21&quot;, homo: 1, hetero: 1, del: 1},
+{name: &quot;22&quot;, homo: 1, hetero: 1, del: 0 }];
+
+describe(&#39;Snipspector&#39;, function(){
+  // do any init stuff here
+  beforeEach(function(){
+  });
+  describe(&#39;parse&#39;, function(){
+    it(&#39;should return match with default object&#39;, function(){
+      var data = [&quot;rs5747620	20	15412698	TT&quot;,
+      &quot;rs9605903	20	15434720	CC&quot;,
+      &quot;rs2236639	20	15452483	GC&quot;,
+      &quot;rs5747999	21	15455353	AA&quot;,
+      &quot;rs11089263	21	15467656	A-&quot;,
+      &quot;rs2096537	21	15474749	AC&quot;,
+      &quot;rs9604959	22	15479107	CG&quot;,
+      &quot;rs9604967	22	15492342	CC&quot;];
+      assert.deepEqual(snip.parse(data), dummyObj);
+    });
+  });
+  it(&#39;should work with live data&#39;, function(done){
+    snip.read(testURL + &quot;list&quot;, function(parsed){
+      // the dummy file contains exactly this obj
+      assert.deepEqual(parsed, dummyObj);
+      done(); // you need to call the done callback to resume mocha
+    });
+  });
+});</code></pre>
+  </div>
+
+<p><br /></p>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>You can find the complete solution of this package on <a href="https://github.com/biojs-edu/biojs-io-snipspector">github</a> and <a href="https://www.npmjs.org/package/biojs-io-snipspector">npm</a>.</p>
+</div></div></div>
+
+
+           <div id="lower-link-box" class="link-box">
+				 
+				<a href="/snipspector_adv/vis_d3/" class="btn btn-primary previous-link">Previous</a>
+				 
+				
+
+				<br />	
+			</div>
+
+		</div>
+	</div>
+
+<!-- temporaroy removed 
+
+-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	// load highlighted code blocks
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+	jQuery(".collapsible").each(function(i,e){
+		collapseStuff(e,"Hide the code", "Display the code");
+	});
+	/*
+	DO NOT show the explanation
+	collapseStuff("#explanation","Hide the icon explanation", "Display the icon explanation");
+	jQuery("#explanation").css("display", "block");
+	*/
+});
+function collapseStuff(e, textHidden, textDisplayed){
+	var divHigh = $(e);
+	var children = divHigh.children();
+	children.hide();
+	var toggleBox = document.createElement("div");
+	toggleBox.className = "tutorials-togglebox";
+	divHigh.prepend(toggleBox);
+	var awesomeIcon = document.createElement("span");
+	var awesomeText= document.createElement("span");
+	awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+	awesomeText.textContent = "Display the code";
+	awesomeText.className = "tutorials-togglebox-text";
+	toggleBox.appendChild(awesomeIcon);
+	toggleBox.appendChild(awesomeText);
+	awesomeText.textContent = textDisplayed;
+	$(toggleBox).click(function(){
+		var codeBox = children;
+		var text = divHigh.children().first();
+		if( codeBox.css("display") == "none" ){
+			codeBox.show(700);
+			awesomeText.textContent = textHidden;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-up";
+		}else{
+			codeBox.hide(500);
+			awesomeText.textContent = textDisplayed;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+		}
+	});
+};
+</script>
+
+<script src="/js/highlight.min.js"></script>
+
+	</div>
+		
+		</div>
+		<!--
+		<div class="footer">
+			<div class="improve-this-page">
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/snipspector-adv/50_real_parser.md">Improve this page</a>
+			</div>
+
+			<div id="privacy-notice-less" class="privacy-policy">
+				Privacy Policy.
+			</div>
+			<div id="privacy-notice-more"  class="privacy-policy" style="display:none">
+				This website uses Google Analytics to collect anonymous visiting stats.<br />
+				By visiting this site you agree to the <a href="https://www.google.com/analytics/terms/us.html">data processing agreement</a> by Google.<br />
+				If you do not agree, <a href="http://www.usa.gov/optout-instructions.shtml">opt out</a>.
+			</div>
+		
+		</div>
+		-->
+
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/highlight.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-scrollspy.js"></script>
+	<script type="text/javascript" src="/js/bottom.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+	        $(document).ready(function() {
+        			$('.color').each(function(i) {
+        				var position = $(this).position();
+        				console.log(position);
+        				console.log('min: ' + position.top + ' / max: ' + parseInt(position.top + $(this).height()));
+        				$(this).scrollspy({
+        					min: position.top,
+        					max: position.top + $(this).height(),
+        					onEnter: function(element, position) {
+        						if(console) console.log('entering ' +  element.id);
+        						$("body").css('background-color', element.id);
+        					},
+        					onLeave: function(element, position) {
+        						if(console) console.log('leaving ' +  element.id);
+        					//	$('body').css('background-color','#eee');
+        					}
+        				});
+        			});
+        		});
+        	</script>
+	<script type="text/javascript">
+
+		/*
+		$(window).scroll(function(){
+    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});        
+    		if ($(window).scrollTop() > 140){
+	    		$(".leftPanel").css({"top": ($(window).scrollTop()) -140 + "px"});
+			}
+    	});
+    	*/
+
+		$('.pullButton').click(function(e){
+			$("#biojs-menu").css("display","block");
+			$("#biojs-main-content").css("margin-left","220px");
+			$(".pullButton").removeClass("pullButton-mob");
+			e.stopPropagation();
+			return false;
+		});
+
+		$(window).click(function(){
+			closeMenu();
+		});
+		$('.Menu').click(function(){
+			closeMenu();
+		});
+
+		function closeMenu(){
+			if(isMobile()){
+				$("#biojs-menu").css("display","none");
+				$(".pullButton").addClass("pullButton-mob");
+				$("#biojs-main-content").css("margin-left","0px");
+			}
+		}
+		function isMobile(){
+			return $(window).width() <= 600;
+		}
+
+	</script>
+
+
+	
+
+
+	<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51509688-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

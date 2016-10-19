@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Package basics</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
+	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="/css/solarized_dark.css">
+	<link rel="stylesheet" type="text/css" href="/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/toc.css">
+
+	
+		<link rel="stylesheet" href="/css/tutorials.css">
+	
+		<link rel="stylesheet" href="/css/solarized_dark.css">
+	
+
+	<!-- needed for tutorial specific css -->
+	
+</head>
+<body>	
+	
+
+	<!--
+	<div class="container" id="main-container">
+		<div class="topNavbar">
+			<div class="navbar-div" id="logo">
+			<a class="logoLink" href="/">BIOJS</a>
+			</div>
+			<div class="navbar-div" id="navbar-links2">
+				<li>
+			
+			</div>
+		</div>
+	-->
+
+
+    <div id="biojs-menu">
+<div class="Menu">
+        <div class="list">
+            <div class="logoDiv">
+                <img src="/img/logo.png" id="logoImg">
+                <div class="logoDivName">BioContainers Education</div>
+            </div>
+
+
+        <span class="item-heading"> Basics </span>
+			
+	
+				<a class="item " href="/101/intro/">Intro</a>
+			
+	
+				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
+			
+	
+				<a class="item " href="/101/getting_started/">Getting started</a>
+			
+	
+				<a class="item " href="/101/modularity/">Modularity</a>
+			
+	
+				<a class="item " href="/101/bootstrapping/">Bootstrapping</a>
+			
+	
+				<a class="item " href="/101/example_snippets/">Example snippets</a>
+			
+	
+				<a class="item " href="/101/publish_it/">Publish it</a>
+			
+	
+				<a class="item " href="/101/other_resources/">Other resources</a>
+			
+		
+
+        <span class="item-heading"> Beginner tutorial </span>
+			
+	
+				<a class="item " href="/details/continuous_integration/">Continuous integration</a>
+			
+		
+
+        <span class="item-heading"> User tutorial </span>
+			
+		
+
+        <span class="item-heading"> Developer tutorial </span>
+			
+		
+
+        <span class="item-heading"> Advanced Tutorial </span>
+			
+	
+				<a class="item " href="/snipspector_adv/tools/">Tools overview</a>
+			
+	
+				<a class="item " href="/snipspector_adv/vis_d3/">Visualization: D3</a>
+			
+	
+				<a class="item " href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
+			
+		
+    </div>
+</div>
+
+	</div>
+
+	<div id="biojs-main-content">
+		
+		<div class="heading row">
+   
+  <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
+	  <span class="contentTitle">Package basics </span>
+
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/developer-manual/30_package_basics.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+  </div>
+
+	<div class="col-xs-2 col-md-3">
+		<div id="biojs-iconnav-glyphs">
+	  <a class="git" href="https://github.com/biocontainers/" target="_blank"><i class="fa fa-github-alt"></i></a>
+
+	  <a class="git"  href="http://biocontainers.pro" target="_blank"><i class="fa fa-home"></i></a>
+	  <a class="git hidden-xs hidden-sm" href="https://kiwiirc.com/client/irc.freenode.net/biocontainers" target="_blank"><i class="fa fa-weixin"></i></a>
+	  <a class="git hidden-xs hidden-sm" id="bookmark-link" href="#"><i class="fa fa-bookmark"></i></a>
+
+  </div>	
+
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function() {
+    $('#bookmark-link').click(function() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title,window.location.href,'');
+        } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href,document.title); 
+        } else if(window.opera && window.print) { // Opera Hotlist
+            this.title=document.title;
+            return true;
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    });
+});
+</script>
+
+	  <a class="gitStar hidden-xs hidden-sm" style="width:150px;" id="biojs-iconnav-help" href="https://gitter.im/biocontainers/Lobby" target="_blank"><span class="glyphicon glyphicon-bullhorn" style="font-size:17px;" ></span> Get help</a>
+
+  </div>	
+  <div class="col-md-2 col-lg-2 hidden-xs hidden-sm" id="social-media-share">
+
+    <!-- share it: twitter, google -->
+    <div style="height:25px"> <a href="https://twitter.com/share" class="twitter-share-button" style="width: 40px">Tweet</a>
+
+      <script>
+        ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');
+      </script>
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+	  <div class="share-google-button">
+      	<div class="g-plus" data-action="share" data-annotation="bubble"
+      data-align="right"></div>
+	  </div>
+    </div>
+
+    </div>
+	
+
+    <div class="author col-md-2 col-xs-2 hidden-xs">
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+	        
+			<!--<div class="tutorial-item">Contributor(s): David, Iris, Manny, Seb</div>-->
+	        
+			
+	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 60 minutes </div>
+	        
+	</div>
+
+</div>
+
+<div class="pullButton pullButton-mob">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+
+
+<div class="containerBody">
+	<!--
+    <div class="leftPanel">
+
+		
+
+    </div>
+	-->
+    <div class="rightPanel">
+
+
+
+        <div class="static-content">
+
+            <div id="explanation" style="display:none">
+                <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to mark check points.
+A check point is a way for you to check how you are doing.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For most of the steps in this tutorial we will
+provide the code as it should look after the task. It is tempting, we
+know, but please, please, do not go for the “copy&amp;paste” way.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to challenge you
+with additional code-related tasks so you can go further at your own
+pace. No inline answer will be provide for those challenges but we will
+give you some guidelines and tips. By the way, within the instructions
+we will use <em>an italic font</em> to refer to variables and pieces of code.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>We will use this icon to ask you some questions related to the task your are working on.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Additional info and resources - this is not essential to complete the tutorial, but very interesting.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Tips that might help you on this task.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-hand-up" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are following this tutorial as part of a workshop, do not hesitate to
+raise your hand and share any questions or comments you may have.
+If you are doing it by your own, you still can raise your hand in our
+mailing list, just join our <a href="https://groups.google.com/forum/#!forum/biojs">Google Group</a>.</p>
+</div></div></div>
+
+
+            </div>
+
+            <div class="clearfix"> </div>
+
+<!--
+
+-->
+            <h2 id="our-input-data">1) Our input data</h2>
+
+<p>In the following section we will give you a gentle introduction on how to create a component for BioJS 2.0.
+As a case study, we will build a simple parser to read SNPs from Manny.
+In the next tutorial we will show you how to visualize this data.  </p>
+
+<div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; We assume that you have successfully <a href="/101/bootstrapping">bootstrapped</a> a new BioJS package.</div>
+
+<p>You can play with the result of this tutorial on <a href="http://jsbin.com/kogewi/1/edit?js,console">JSBin</a>.</p>
+
+<h2 id="our-input-data-1">2) Our input data</h2>
+
+<p>First we will have a look at the data. The whole file is a set of ~500K SNPs (Simple Nucleotide Polymorphisms) from <a href="http://manuelcorpas.com">@manuelcorpas</a>). These SNPs come from a saliva sample genotyped using the SNP chip version 2 from <a href="https://www.23andme.com/">23andMe</a>, a personal genomics provider.</p>
+
+<p>SNPs are the minimal unit of genetic variation that an organism may have and correspond to a single letter change in the DNA sequence of an organism (in this case <a href="http://manuelcorpas.com">@manuelcorpas</a>).  </p>
+
+<p>This file is available at <a href="http://files.biojs.net/chromosomes/manny"><code>files.biojs.net/chromosome/manny</code></a>.</p>
+
+<p>The file is structured as follows:</p>
+
+<pre><code>rsid chromosome pos genotype
+</code></pre>
+
+<p>Genotype is the field that tells us exactly what the sequence looks like at a particular position. It is important to note that Genotype usually has two letters, because, as you may remember from high school biology, humans have two pairs of each chromosome. Well, mostly, unless you are a male, in which case you only have a lonely X copy with a tiny Y chromosome.</p>
+
+<p>There are 3 types of genotypes that we will look at in this example.</p>
+
+<ol>
+  <li>If the same letter is present in both copies, then we say that we have a homozygous SNP; e.g.: AA, TT, GG, CC.</li>
+  <li>If the letters are different, then we have a heterozygous SNP: AT, GC, etc.</li>
+  <li>The position might have been delete in both or either chromosome: –, A-, -G, etc.</li>
+</ol>
+
+<p>These three fields in each feature line are required:</p>
+
+<ul>
+  <li><code>rsid</code> (String): SNP id</li>
+  <li><code>chromosome</code> (String): name of the chromosome</li>
+  <li><code>pos</code> (int): position in the chromosome</li>
+  <li><code>genotype</code>: (String) both residues from the two matching chromosomes (warning: mitochondria (MT) or Y chromosome are haploid)</li>
+</ul>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>For detailed info about the BED format, visit the <a href="http://www.ensembl.org/info/website/upload/bed.html">ensembl doc</a> or the <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1">UCSC help</a></p>
+</div></div></div>
+
+<p>For example:</p>
+
+<pre><code>rs5747620	20	15412698	TT
+rs9605903	20	15434720	CC
+rs2236639	20	15452483	GC
+rs5747999	21	15455353	AA
+rs11089263	21	15467656	A-
+rs2096537	21	15474749	AC
+rs9604959	22	15479107	CG
+rs9604967	22	15492342	CC
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>To make this tutorial as easy as possible, we will only work with this static example. In the <a href="/snipspector_adv/parser_real_data">extended parsing</a> you will learn how to parse the real file with 500,000 rows.</p>
+</div></div></div>
+
+<h2 id="export-your-component">3) Export your component</h2>
+
+<p>Now it is time to export your component in order to provide your functionality with the other BioJS components or in your module (e.g your first test case).
+We use <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS Syntax</a> to export modules in BioJS.</p>
+
+<p>Please export your parser in the following way:</p>
+
+<pre><code>var snipspector = { }
+
+snipspector.parse = function() {
+    ...
+}
+
+module.exports = snipspector;
+</code></pre>
+
+<p>Other BioJS components are able to include your component by using</p>
+
+<pre><code>var snipspector = require('biojs-io-snipspector');
+snipspector.parse();
+</code></pre>
+
+<p>Instead of requiring packages, you can also require files:</p>
+
+<pre><code>var snipspector = require('../lib/index');
+snipspector.parse();
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>The path can be either relative <code>../lib/index.js</code> or simply the package name <code>biojs-io-snipspector</code>.</p>
+</div></div></div>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>There is an <a href="https://github.com/maxogden/art-of-node#how-require-works">excellent guide</a> on how the <code>require</code> command works under the hood.</p>
+</div></div></div>
+
+<h2 id="the-first-testcase">4) The first testcase</h2>
+
+<p>Write the following file to the test folder of your Biojs package directory.</p>
+
+<pre><code>var assert = require("chai").assert;
+var tutorial = require("../");
+
+// you can find more documentation about mocha here
+// https://visionmedia.github.io/mocha/
+
+describe('Snipspector', function(){
+  // do any init stuff here
+  beforeEach(function(){
+    snipspector = tutorial.parse;
+  });
+  describe('parse', function(){
+    it('should return match with default object', function(){
+      dummyObj = [{name: "20", homo: 2, hetero: 1, del: 0},
+                  {name: "21", homo: 1, hetero: 1, del: 1}, 
+                  {name: "22", homo: 1, hetero: 1, del: 0 }];
+      assert.deepEqual(snipspector(), dummyObj);
+    });
+  });
+});
+</code></pre>
+<p>We already provide you with one test case, in the next section we will show you how to fix this unit test.
+You can execute the test suite with:</p>
+
+<pre><code>npm test
+</code></pre>
+
+<p>It is really ok if you see errors here - you will fix them later ;-)</p>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>In this tutorial we use <a href="https://visionmedia.github.io/mocha/">Mocha</a> as JavaScript test framework.
+However you can use your favorite - you only need to change the <code>test</code> command in the <code>scripts</code> section of your <code>package.json</code>.</p>
+</div></div></div>
+
+<h2 id="start-coding">5) Start coding</h2>
+
+<p>It is time to code!
+To begin please open now the <code>lib</code> folder and access the <code>index.js</code> file.</p>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>You can find the code for this exercise on <a href="https://github.com/biojs/biojs-tutorial-template-snp">github</a>.</p>
+</div></div></div>
+
+<p>First have a look at the provided code.</p>
+
+<pre><code>var snipspector = {};
+
+snipspector.parse = function() {
+
+    var data = ["rs5747620	20	15412698	TT",
+    "rs9605903	20	15434720	CC",
+    "rs2236639	20	15452483	GC",
+    "rs5747999	21	15455353	AA",
+    "rs11089263	21	15467656	A-",
+    "rs2096537	21	15474749	AC",
+    "rs9604959	22	15479107	CG",
+    "rs9604967	22	15492342	CC"];
+
+    var chromosomes = [];
+
+    // analyze snippets
+    // homo(zygous): AA
+    // hetero(zygous): AC
+    // del(etion): A-, -A or --
+    for (var i = 0; i &lt; data.length; i++) {
+        // Please fill in your code here!
+    }
+
+    console.log(chromosomes);
+
+    return chromosomes;
+}
+
+snipspector.parse(); //Should print [{name: "20", homo: 2, hetero: 1, del: 0,
+                     // {name: "21", homo: 1, hetero: 1, del: 1},
+                     // {name: "22", homo 1, hetero: 1, del: 0 }]
+
+module.exports = snipspector; // Export the object for other components
+</code></pre>
+
+<p>You can always run your application directly with with Node, like this:</p>
+
+<pre><code>node index.js
+</code></pre>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are new JavaScript or have not coded for a while, you might want to check out this <a href="http://overapi.com/javascript/">Cheatsheet</a>.
+Or this one for a short fresh up of <a href="http://thewebivore.com/wp-content/uploads/2013/02/PamsJavascriptCheatSheet.pdf">variables</a>.</p>
+</div></div></div>
+
+<h2 id="your-first-big-task">6) Your first, big task</h2>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-road" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Please fill in the missing code inside the for loop so that <code>snipspector.parse()</code> counts all homozygous, heterozygous and deleted SNPs. Your task is to count the number or homozygous, heterozygous and deleted SNPs per chromosome. Note that heterozygous deletions are counted as deletions only, not heterozygous SNPs. If you have done a great job your unit test will turn green!</p>
+
+</div></div></div>
+
+<p>Sample of format:</p>
+
+<pre><code>[{name: "chrname", homo: 2, hetero: 0, del: 1}]
+</code></pre>
+
+<h2 id="verify-your-solution">7) Verify your solution</h2>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-minus-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>No please do <strong>NOT</strong> have a look at our solution, if your unit test is green -
+your solution is correct!
+Please only continue if your solution is working.</p>
+
+</div></div></div>
+
+<p><strong>Solution:</strong></p>
+
+<div class="collapsible">
+    <pre><code data-lang="text" class="javascript ">var snipspector = {};
+
+snipspector.parse = function() {
+
+    var data = [&quot;rs5747620	20	15412698	TT&quot;,
+    &quot;rs9605903	20	15434720	CC&quot;,
+    &quot;rs2236639	20	15452483	GC&quot;,
+    &quot;rs5747999	21	15455353	AA&quot;,
+    &quot;rs11089263	21	15467656	A-&quot;,
+    &quot;rs2096537	21	15474749	AC&quot;,
+    &quot;rs9604959	22	15479107	CG&quot;,
+    &quot;rs9604967	22	15492342	CC&quot;];
+
+    var parsed = [];
+
+    // analyze snippets
+    // homo(zygous): AA
+    // hetero(zygous): AC
+    // del(etion): A-, -A or --
+
+    var chr = null;
+    for (var i = 0; i &lt; data.length; i++) {
+      var row = data[i].split(/\s+/);
+      var chrName = row[1];
+
+      // new chromosome begins
+      if( chr == null ||  chrName !== chr.name) {
+        // ignore the first time
+        if( chr != null ){
+          parsed.push(chr);
+        }
+        chr = {homo: 0, hetero: 0, del: 0};
+        chr.name = chrName;
+      }
+
+      var genotype = row[3];
+      if( genotype.length == 2){
+        // ignore MT
+        if(genotype[0] == genotype[1] &amp;&amp; genotype[0] != &quot;-&quot;){
+          // homo
+          chr.homo = chr.homo + 1;  
+        } else if( genotype[0] != &quot;-&quot; &amp;&amp; genotype[1] != &quot;-&quot;){
+          // hetero
+          chr.hetero = chr.hetero + 1;  
+        }else{
+          // del
+          chr.del = chr.del + 1;  
+        }
+      }
+    }
+    // push the last item
+    parsed.push(chr);
+
+    return parsed;
+}
+
+snipspector.parse(); //Should print [{name: &quot;20&quot;, homo: 2, hetero: 1, del: 0,
+                     // {name: &quot;21&quot;, homo: 1, hetero: 1, del: 1},
+                     // {name: &quot;22&quot;, homo 1, hetero: 1, del: 0 }]
+
+module.exports = snipspector; // Export the object for other components</code></pre>
+  </div>
+
+<p>You can also browse the solution at <a href="https://github.com/biojs-edu/biojs-io-snipspector/tree/basic_packaging">github</a> or play with it on <a href="http://jsbin.com/kogewi/1/edit?js,console">JSBin</a>.</p>
+
+<h2 id="publish-your-component">8) Publish your component</h2>
+
+<p>Congratulations! You wrote your very first Biojs 2 Component. You can now publish it on github and it is ready to be used by everybody.</p>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>If you are unfamiliar with git, check out the <a href="https://rogerdudler.github.io/git-guide/">Git guide</a> or <a href="https://try.github.io/levels/1/challenges/1">15 minutes interactive lesson</a> by Codeschool.</p>
+</div></div></div>
+
+<p>Furthermore, consider to <a href="/101/publish_it/">publish</a> your future components to npm.
+In the next tutorial, you will learn <a href="/snipspector/vis_basics">how to create a visualization component</a> using your newly build <code>biojs-io-snipspector</code> component.</p>
+
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>You can find the complete solution of this package on <a href="https://github.com/biojs-edu/biojs-io-snipspector/tree/basic_packaging">github</a> and <a href="https://www.npmjs.org/package/biojs-io-snipspector">npm</a>.</p>
+</div></div></div>
+
+
+           <div id="lower-link-box" class="link-box">
+				 
+				
+
+				<br />	
+			</div>
+
+		</div>
+	</div>
+
+<!-- temporaroy removed 
+
+-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+	// load highlighted code blocks
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+	jQuery(".collapsible").each(function(i,e){
+		collapseStuff(e,"Hide the code", "Display the code");
+	});
+	/*
+	DO NOT show the explanation
+	collapseStuff("#explanation","Hide the icon explanation", "Display the icon explanation");
+	jQuery("#explanation").css("display", "block");
+	*/
+});
+function collapseStuff(e, textHidden, textDisplayed){
+	var divHigh = $(e);
+	var children = divHigh.children();
+	children.hide();
+	var toggleBox = document.createElement("div");
+	toggleBox.className = "tutorials-togglebox";
+	divHigh.prepend(toggleBox);
+	var awesomeIcon = document.createElement("span");
+	var awesomeText= document.createElement("span");
+	awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+	awesomeText.textContent = "Display the code";
+	awesomeText.className = "tutorials-togglebox-text";
+	toggleBox.appendChild(awesomeIcon);
+	toggleBox.appendChild(awesomeText);
+	awesomeText.textContent = textDisplayed;
+	$(toggleBox).click(function(){
+		var codeBox = children;
+		var text = divHigh.children().first();
+		if( codeBox.css("display") == "none" ){
+			codeBox.show(700);
+			awesomeText.textContent = textHidden;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-up";
+		}else{
+			codeBox.hide(500);
+			awesomeText.textContent = textDisplayed;
+			awesomeIcon.className = "tutorials-togglebox-icon glyphicon glyphicon-chevron-down";
+		}
+	});
+};
+</script>
+
+<script src="/js/highlight.min.js"></script>
+
+	</div>
+		
+		</div>
+		<!--
+		<div class="footer">
+			<div class="improve-this-page">
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/developer-manual/30_package_basics.md">Improve this page</a>
+			</div>
+
+			<div id="privacy-notice-less" class="privacy-policy">
+				Privacy Policy.
+			</div>
+			<div id="privacy-notice-more"  class="privacy-policy" style="display:none">
+				This website uses Google Analytics to collect anonymous visiting stats.<br />
+				By visiting this site you agree to the <a href="https://www.google.com/analytics/terms/us.html">data processing agreement</a> by Google.<br />
+				If you do not agree, <a href="http://www.usa.gov/optout-instructions.shtml">opt out</a>.
+			</div>
+		
+		</div>
+		-->
+
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/highlight.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-scrollspy.js"></script>
+	<script type="text/javascript" src="/js/bottom.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+			<script type="text/javascript">
+	        $(document).ready(function() {
+        			$('.color').each(function(i) {
+        				var position = $(this).position();
+        				console.log(position);
+        				console.log('min: ' + position.top + ' / max: ' + parseInt(position.top + $(this).height()));
+        				$(this).scrollspy({
+        					min: position.top,
+        					max: position.top + $(this).height(),
+        					onEnter: function(element, position) {
+        						if(console) console.log('entering ' +  element.id);
+        						$("body").css('background-color', element.id);
+        					},
+        					onLeave: function(element, position) {
+        						if(console) console.log('leaving ' +  element.id);
+        					//	$('body').css('background-color','#eee');
+        					}
+        				});
+        			});
+        		});
+        	</script>
+	<script type="text/javascript">
+
+		/*
+		$(window).scroll(function(){
+    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});        
+    		if ($(window).scrollTop() > 140){
+	    		$(".leftPanel").css({"top": ($(window).scrollTop()) -140 + "px"});
+			}
+    	});
+    	*/
+
+		$('.pullButton').click(function(e){
+			$("#biojs-menu").css("display","block");
+			$("#biojs-main-content").css("margin-left","220px");
+			$(".pullButton").removeClass("pullButton-mob");
+			e.stopPropagation();
+			return false;
+		});
+
+		$(window).click(function(){
+			closeMenu();
+		});
+		$('.Menu').click(function(){
+			closeMenu();
+		});
+
+		function closeMenu(){
+			if(isMobile()){
+				$("#biojs-menu").css("display","none");
+				$(".pullButton").addClass("pullButton-mob");
+				$("#biojs-main-content").css("margin-left","0px");
+			}
+		}
+		function isMobile(){
+			return $(window).width() <= 600;
+		}
+
+	</script>
+
+
+	
+
+
+	<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51509688-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
