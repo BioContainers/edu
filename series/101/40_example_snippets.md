@@ -1,5 +1,5 @@
 ---
-title: 'Example snippets'
+title: 'Running a BioContainer'
 layout: series_item
 series: '101'
 permalink: 101/example_snippets/

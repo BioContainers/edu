@@ -6,22 +6,23 @@ permalink: 101/getting_started/
 estimated-time: 5
 ---
 
-#### This page will help you prepare your computer for work with BioJS
+#### This page will help you prepare your computer for BioContainers
 
-You will need to work in a terminal using __`npm`__ and __`git`__. 
-* [Git](https://github.com) is a version control system that will keep track of the changes you have made in code.
-* [Node.js](http://nodejs.org) is a 'runtime environment platform for server-side JavaScript applications'. 
-Node's package managing system is called [npm](https://www.npmjs.com).
+You will need to work in a terminal using __`docker`__ and __`git`__. 
+
+* [Git](https://github.com) is a version control system that will keep track of the changes you have made in code. [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
+* [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as: 
+ [docker](https://docs.docker.com/), [docker engine](https://docs.docker.com/engine/installation/), [docker hub](https://docs.docker.com/docker-hub/). 
 
 
 {% hlblock check %}
 
-Open your terminal of choice and check whether you have both commands (`npm`, `git`) installed. You should run these without
+Open your terminal of choice and check whether you have both commands (`docker`, `git`) installed. You should run these without
 any error.
 
 ~~~
 git help
-npm help
+docker help
 ~~~
 
 {% endhlblock %}
@@ -36,101 +37,98 @@ Otherwise, choose your operating system below to learn more:
 
 
 {% hlblock info %}
-If you want to fresh up your `git` skills, check out the [Git guide](https://rogerdudler.github.io/git-guide/) or [15 minutes interactive lesson](https://try.github.io/levels/1/challenges/1) by Codeschool.
+If you want to fresh up your `git` skills, check out the [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947) or [15 minutes interactive lesson](https://try.github.io/levels/1/challenges/1) by Codeschool.
 {% endhlblock %}
 
 {% hlblock question %}
-What does `npm` stand for?
+What does `docker` stand for?
 {% endhlblock %}
 
 <a name="mac"></a>
 
 ### Mac OSX
 
-On Mac we recommend installing git and node.js via [Homebrew](http://brew.sh). Homebrew is called the 'missing package manager for OS X'. 
-It allows you to download packages onto your Mac from your command line.
-Homebrew, git and node.js are packages worth having if you want to do software development on your Mac.
-  
-To get started, open a Terminal session first.
+[On Mac](https://docs.docker.com/docker-for-mac/) installing Docker can be done by installing the complete [Docker Toolbox](https://www.docker.com/products/docker-toolbox) available in Mac and Windows. The Docker Toolbox
+contains the Docker Engine, Compose, Machine, etc. 
 
-Then install Homebrew using this command:
+{% hlblock check %}
 
-~~~
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" # brew is a package manager
-~~~
-
-Homebrew is quite a large package so downloading can take a while depending on your internet connection.
-
-Then use Homebrew to install node.js:
+Mac Docker ToolBox can be download from [this page](https://docs.docker.com/docker-for-mac/). The installation provides Docker Engine, Docker CLI client, Docker Compose, and Docker Machine.
 
 ~~~
-brew install node
+Double-click Docker.dmg to open the installer, then drag Moby the whale to the Applications folder. You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components and links to the Docker apps.
 ~~~
 
-If you have not installed `git`, this command uses homebrew to install git:
+{% endhlblock %}
+
+{% alert warn %}
+
+If you are already running Docker on your machine, first read [Docker for Mac vs. Docker Toolbox](https://docs.docker.com/docker-for-mac/docker-toolbox/) to understand the impact of this installation on your existing setup, how to set your environment for Docker for Mac, and how the two products can coexist.
+If you have a old version of docokerboot and you want to remove it, you can use the following [script](/faqs/manually-remove-dockerboot)
+
+{% endalert %}
+
+Then installed tools can be check using these commands:
+
+~~~
+$ docker --version
+Docker version 1.12.0, build 8eab29e
+
+$docker-compose --version
+docker-compose version 1.8.0, build f3628c7
+
+$docker-machine --version
+docker-machine version 0.8.0, build b85aac1
+
+~~~
+
+Installing git can be done using Homebrew:
 
 ~~~
 brew install git
 ~~~
 
-Check if the installation was successful by typing "git help" and "npm help" into the command line again.
-
-Alternatively you can also install node.js via the [package installer](http://nodejs.org/download/) and  download [Github for Mac](https://mac.github.com/).
-
+If you have problems to install docker you can receive support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby) 
 
 <a name="linux"></a>
 
 ### Linux
 
-{% hlblock help %}
-Install nodejs via [your package manager](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager)
-{% endhlblock %}
-
-E.g.
-
-~~~
-curl -sL https://deb.nodesource.com/setup | sudo bash - # Ubuntu, Debian
-pacman -S nodejs #  Arch
-emerge nodejs # Gentoo
-yum install npm # Fedora
-~~~
+Install [Docker in Linux](https://docs.docker.com/engine/installation/)  in Linux can be done using the specific Linux distribution. Some of the supported distributions are:
+[Arch Linux](https://docs.docker.com/engine/installation/linux/archlinux/), [CentOS](https://docs.docker.com/engine/installation/linux/centos/), [CRUX Linux](https://docs.docker.com/engine/installation/linux/cruxlinux/), 
+[Debian](https://docs.docker.com/engine/installation/linux/debian/), [Fedora](https://docs.docker.com/engine/installation/linux/fedora/), [Gentoo](https://docs.docker.com/engine/installation/linux/gentoolinux/), 
+[Oracle Linux](https://docs.docker.com/engine/installation/linux/oracle/), [Red Hat Enterprise Linux](https://docs.docker.com/engine/installation/linux/rhel/), [openSUSE and SUSE Linux Enterprise](https://docs.docker.com/engine/installation/linux/SUSE/),
+[Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
 
-{% hlblock info %}
-If you want to avoid installing packages with sudo, you can use the node version manager [nvm.](https://github.com/creationix/nvm)
-Install it like this:
+{% alert warn %}
 
-~~~
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash # install nvm
-~~~
+If your linux distribution is not listed above, don’t give up yet. To try out Docker on a distribution that is not listed above,
+go here: [Installation from binaries](https://docs.docker.com/engine/installation/binaries/).
 
-Then set the most recent node version (or LTS in this case) as your default:
+{% endalert %}
 
-~~~
-nvm install 4.2.2 && nvm alias default 4.2.2 && nvm use default # install node & npm in userenv
-~~~
-
-{% endhlblock %}
-
-Now you can install node packages like this:
-
-~~~
-npm install drawrnajs
-~~~
 
 <a name="windows"></a>
 
 ### Windows
 
-Windows is definitely not the preferred operating system for software development of this kind. So some additional 
-and often unexpected effort will probably be necessary to get everything running. 
-Be warned that some packages just assume that they have a UNIX-like environment. So consider using Linux or Mac OS if you have choice.
+Docker for Windows is our newest offering for PCs. It runs as a native Windows application and uses Hyper-V to virtualize the Docker Engine environment and Linux kernel-specific features for the Docker daemon.
 
-If you don't have a choice or want to try anyway, installing git and npm on windows is still easy:
-Just download & install using the Windows installer for [node](http://nodejs.org/download/) and [git](https://git-scm.com/).
+{% alert warn %}
 
-After installation, you can use the Git Bash terminal for both npm and git commands in a UNIX-like environment. 
+Please read through these topics on how to get started. To give us your feedback on your experience with the app and report bugs or problems, 
+log in to [Docker for Windows forum](https://forums.docker.com/c/docker-for-windows).
 
-Another possibility would be the [Cygwin](http://www.mcclean-cooper.com/valentino/cygwin_install/) terminal emulator. 
-This allows you to install git via a package manager. **Please beware** that node and npm don't support Cygwin at the moment.
-However you can still use it through Cygwin after installing node via it's installer or building an older version (< 4.2.2) from source.  
+{% endalert %}
+
+After downloading the [InstallDocker.msi](https://download.docker.com/win/stable/InstallDocker.msi) file, you can follow the next steps:
+
+1- Double-click InstallDocker.msi to run the installer. It typically downloads to your Downloads folder, or you can run it from the recent downloads bar at the bottom of your web browser.
+
+2- Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
+
+3- You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
+
+Click Finish on the setup complete dialog to launch Docker.
+

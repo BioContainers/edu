@@ -64,13 +64,13 @@
 				<a class="item item-active" href="/101/getting_started/">Getting started</a>
 			
 	
-				<a class="item " href="/101/modularity/">Modularity</a>
+				<a class="item " href="/101/docker-nutshell/">Docker in NutShell</a>
 			
 	
-				<a class="item " href="/101/bootstrapping/">Bootstrapping</a>
+				<a class="item " href="/101/biocontainers-architecture/">BioContainers Architecture</a>
 			
 	
-				<a class="item " href="/101/example_snippets/">Example snippets</a>
+				<a class="item " href="/101/example_snippets/">Running a BioContainer</a>
 			
 	
 				<a class="item " href="/101/publish_it/">Publish it</a>
@@ -105,6 +105,13 @@
 			
 	
 				<a class="item " href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
+			
+		
+
+        <span class="item-heading"> BioContainers FAQS </span>
+			
+	
+				<a class="item " href="/faqs/manually-remove-dockerboot/">Remove boot2docker</a>
 			
 		
     </div>
@@ -180,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 
     <div class="author col-md-2 col-xs-2 hidden-xs">
-			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 23 Oct 2016</div>
 	        
 			
 	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 5 minutes </div>
@@ -255,19 +262,22 @@ mailing list, just join our <a href="https://groups.google.com/forum/#!forum/bio
 <!--
 
 -->
-            <h4 id="this-page-will-help-you-prepare-your-computer-for-work-with-biojs">This page will help you prepare your computer for work with BioJS</h4>
+            <h4 id="this-page-will-help-you-prepare-your-computer-for-biocontainers">This page will help you prepare your computer for BioContainers</h4>
 
-<p>You will need to work in a terminal using <strong><code>npm</code></strong> and <strong><code>git</code></strong>. 
-* <a href="https://github.com">Git</a> is a version control system that will keep track of the changes you have made in code.
-* <a href="http://nodejs.org">Node.js</a> is a ‘runtime environment platform for server-side JavaScript applications’. 
-Node’s package managing system is called <a href="https://www.npmjs.com">npm</a>.</p>
+<p>You will need to work in a terminal using <strong><code>docker</code></strong> and <strong><code>git</code></strong>. </p>
+
+<ul>
+  <li><a href="https://github.com">Git</a> is a version control system that will keep track of the changes you have made in code. <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947">Full Introduction for Bioinformatics</a></li>
+  <li><a href="https://www.docker.com/">Docker</a> is the world’s leading platform for software containerization. Docker includes multiple tools and components such as: 
+ <a href="https://docs.docker.com/">docker</a>, <a href="https://docs.docker.com/engine/installation/">docker engine</a>, <a href="https://docs.docker.com/docker-hub/">docker hub</a>. </li>
+</ul>
 
 <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p>Open your terminal of choice and check whether you have both commands (<code>npm</code>, <code>git</code>) installed. You should run these without
+<p>Open your terminal of choice and check whether you have both commands (<code>docker</code>, <code>git</code>) installed. You should run these without
 any error.</p>
 
 <pre><code>git help
-npm help
+docker help
 </code></pre>
 
 </div></div></div>
@@ -283,95 +293,86 @@ npm help
 </ul>
 
 <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p>If you want to fresh up your <code>git</code> skills, check out the <a href="https://rogerdudler.github.io/git-guide/">Git guide</a> or <a href="https://try.github.io/levels/1/challenges/1">15 minutes interactive lesson</a> by Codeschool.</p>
+<p>If you want to fresh up your <code>git</code> skills, check out the <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947">Full Introduction for Bioinformatics</a> or <a href="https://try.github.io/levels/1/challenges/1">15 minutes interactive lesson</a> by Codeschool.</p>
 </div></div></div>
 
 <div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-bell" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p>What does <code>npm</code> stand for?</p>
+<p>What does <code>docker</code> stand for?</p>
 </div></div></div>
 
 <p><a name="mac"></a></p>
 
 <h3 id="mac-osx">Mac OSX</h3>
 
-<p>On Mac we recommend installing git and node.js via <a href="http://brew.sh">Homebrew</a>. Homebrew is called the ‘missing package manager for OS X’. 
-It allows you to download packages onto your Mac from your command line.
-Homebrew, git and node.js are packages worth having if you want to do software development on your Mac.</p>
+<p><a href="https://docs.docker.com/docker-for-mac/">On Mac</a> installing Docker can be done by installing the complete <a href="https://www.docker.com/products/docker-toolbox">Docker Toolbox</a> available in Mac and Windows. The Docker Toolbox
+contains the Docker Engine, Compose, Machine, etc. </p>
 
-<p>To get started, open a Terminal session first.</p>
+<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-check" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
+<p>Mac Docker ToolBox can be download from <a href="https://docs.docker.com/docker-for-mac/">this page</a>. The installation provides Docker Engine, Docker CLI client, Docker Compose, and Docker Machine.</p>
 
-<p>Then install Homebrew using this command:</p>
-
-<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" # brew is a package manager
+<pre><code>Double-click Docker.dmg to open the installer, then drag Moby the whale to the Applications folder. You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components and links to the Docker apps.
 </code></pre>
 
-<p>Homebrew is quite a large package so downloading can take a while depending on your internet connection.</p>
+</div></div></div>
 
-<p>Then use Homebrew to install node.js:</p>
+<div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; If you are already running Docker on your machine, first read <a href="https://docs.docker.com/docker-for-mac/docker-toolbox/">Docker for Mac vs. Docker Toolbox</a> to understand the impact of this installation on your existing setup, how to set your environment for Docker for Mac, and how the two products can coexist.
+If you have a old version of docokerboot and you want to remove it, you can use the following <a href="/faqs/manually-remove-dockerboot">script</a></div>
 
-<pre><code>brew install node
+<p>Then installed tools can be check using these commands:</p>
+
+<pre><code>$ docker --version
+Docker version 1.12.0, build 8eab29e
+
+$docker-compose --version
+docker-compose version 1.8.0, build f3628c7
+
+$docker-machine --version
+docker-machine version 0.8.0, build b85aac1
+
 </code></pre>
 
-<p>If you have not installed <code>git</code>, this command uses homebrew to install git:</p>
+<p>Installing git can be done using Homebrew:</p>
 
 <pre><code>brew install git
 </code></pre>
 
-<p>Check if the installation was successful by typing “git help” and “npm help” into the command line again.</p>
-
-<p>Alternatively you can also install node.js via the <a href="http://nodejs.org/download/">package installer</a> and  download <a href="https://mac.github.com/">Github for Mac</a>.</p>
+<p>If you have problems to install docker you can receive support here:<a href="https://gitter.im/biocontainers/Lobby">BioContainers Gitter</a> </p>
 
 <p><a name="linux"></a></p>
 
 <h3 id="linux">Linux</h3>
 
-<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-gift" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p>Install nodejs via <a href="https://github.com/joyent/node/wiki/installing-node.js-via-package-manager">your package manager</a></p>
-</div></div></div>
+<p>Install <a href="https://docs.docker.com/engine/installation/">Docker in Linux</a>  in Linux can be done using the specific Linux distribution. Some of the supported distributions are:
+<a href="https://docs.docker.com/engine/installation/linux/archlinux/">Arch Linux</a>, <a href="https://docs.docker.com/engine/installation/linux/centos/">CentOS</a>, <a href="https://docs.docker.com/engine/installation/linux/cruxlinux/">CRUX Linux</a>, 
+<a href="https://docs.docker.com/engine/installation/linux/debian/">Debian</a>, <a href="https://docs.docker.com/engine/installation/linux/fedora/">Fedora</a>, <a href="https://docs.docker.com/engine/installation/linux/gentoolinux/">Gentoo</a>, 
+<a href="https://docs.docker.com/engine/installation/linux/oracle/">Oracle Linux</a>, <a href="https://docs.docker.com/engine/installation/linux/rhel/">Red Hat Enterprise Linux</a>, <a href="https://docs.docker.com/engine/installation/linux/SUSE/">openSUSE and SUSE Linux Enterprise</a>,
+<a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">Ubuntu</a></p>
 
-<p>E.g.</p>
-
-<pre><code>curl -sL https://deb.nodesource.com/setup | sudo bash - # Ubuntu, Debian
-pacman -S nodejs #  Arch
-emerge nodejs # Gentoo
-yum install npm # Fedora
-</code></pre>
-
-<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p>If you want to avoid installing packages with sudo, you can use the node version manager <a href="https://github.com/creationix/nvm">nvm.</a>
-Install it like this:</p>
-
-<pre><code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash # install nvm
-</code></pre>
-
-<p>Then set the most recent node version (or LTS in this case) as your default:</p>
-
-<pre><code>nvm install 4.2.2 &amp;&amp; nvm alias default 4.2.2 &amp;&amp; nvm use default # install node &amp; npm in userenv
-</code></pre>
-
-</div></div></div>
-
-<p>Now you can install node packages like this:</p>
-
-<pre><code>npm install drawrnajs
-</code></pre>
+<div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; If your linux distribution is not listed above, don’t give up yet. To try out Docker on a distribution that is not listed above,
+go here: <a href="https://docs.docker.com/engine/installation/binaries/">Installation from binaries</a>.</div>
 
 <p><a name="windows"></a></p>
 
 <h3 id="windows">Windows</h3>
 
-<p>Windows is definitely not the preferred operating system for software development of this kind. So some additional 
-and often unexpected effort will probably be necessary to get everything running. 
-Be warned that some packages just assume that they have a UNIX-like environment. So consider using Linux or Mac OS if you have choice.</p>
+<p>Docker for Windows is our newest offering for PCs. It runs as a native Windows application and uses Hyper-V to virtualize the Docker Engine environment and Linux kernel-specific features for the Docker daemon.</p>
 
-<p>If you don’t have a choice or want to try anyway, installing git and npm on windows is still easy:
-Just download &amp; install using the Windows installer for <a href="http://nodejs.org/download/">node</a> and <a href="https://git-scm.com/">git</a>.</p>
+<div class="alert alert-warning "> <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <span class="glyphicon glyphicon-warning-sign" style="font-size:22px"></span> &nbsp; Please read through these topics on how to get started. To give us your feedback on your experience with the app and report bugs or problems, 
+log in to <a href="https://forums.docker.com/c/docker-for-windows">Docker for Windows forum</a>.</div>
 
-<p>After installation, you can use the Git Bash terminal for both npm and git commands in a UNIX-like environment. </p>
+<p>After downloading the <a href="https://download.docker.com/win/stable/InstallDocker.msi">InstallDocker.msi</a> file, you can follow the next steps:</p>
 
-<p>Another possibility would be the <a href="http://www.mcclean-cooper.com/valentino/cygwin_install/">Cygwin</a> terminal emulator. 
-This allows you to install git via a package manager. <strong>Please beware</strong> that node and npm don’t support Cygwin at the moment.
-However you can still use it through Cygwin after installing node via it’s installer or building an older version (&lt; 4.2.2) from source.  </p>
+<p>1- Double-click InstallDocker.msi to run the installer. It typically downloads to your Downloads folder, or you can run it from the recent downloads bar at the bottom of your web browser.</p>
+
+<p>2- Follow the install wizard to accept the license, authorize the installer, and proceed with the install.</p>
+
+<p>3- You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.</p>
+
+<p>Click Finish on the setup complete dialog to launch Docker.</p>
+
 
 
            <div id="lower-link-box" class="link-box">
@@ -379,7 +380,7 @@ However you can still use it through Cygwin after installing node via it’s ins
 				<a href="/101/what_is_biocontainers/" class="btn btn-primary previous-link">Previous</a>
 				 
 				
-					<a href="/101/modularity/" class="btn btn-primary next-link pull-right">Next</a>
+					<a href="/101/docker-nutshell/" class="btn btn-primary next-link pull-right">Next</a>
 				
 
 				<br />	

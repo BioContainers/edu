@@ -24,3 +24,6 @@ series:
     "snipspector_adv":
       desc: "Advanced Tutorial"
       sort: 5
+    "faqs":
+      desc: "BioContainers FAQS"
+      sort: 6
