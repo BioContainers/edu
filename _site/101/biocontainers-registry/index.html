@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Tools overview</title>
+	<title>Registry UI</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +24,6 @@
 	
 
 	<!-- needed for tutorial specific css -->
-	
-		<link rel="stylesheet" href="/css/aspects.css">
 	
 </head>
 <body>	
@@ -75,21 +73,7 @@
 				<a class="item " href="/101/running-example/">BioContainer example</a>
 			
 	
-				<a class="item " href="/101/publish_it/">Publish it</a>
-			
-	
-				<a class="item " href="/101/other_resources/">Other resources</a>
-			
-		
-
-        <span class="item-heading"> Beginner tutorial </span>
-			
-	
-				<a class="item " href="/details/continuous_integration/">Continuous integration</a>
-			
-		
-
-        <span class="item-heading"> User tutorial </span>
+				<a class="item item-active" href="/101/biocontainers-registry/">Registry UI</a>
 			
 		
 
@@ -97,23 +81,20 @@
 			
 		
 
-        <span class="item-heading"> Advanced Tutorial </span>
-			
-	
-				<a class="item item-active" href="/snipspector_adv/tools/">Tools overview</a>
-			
-	
-				<a class="item " href="/snipspector_adv/vis_d3/">Visualization: D3</a>
-			
-	
-				<a class="item " href="/snipspector_adv/parser_real_data/">Parser: using real data</a>
-			
-		
-
         <span class="item-heading"> BioContainers FAQS </span>
 			
 	
 				<a class="item " href="/faqs/manually-remove-dockerboot/">Remove boot2docker</a>
+			
+		
+
+        <span class="item-heading"> Containers Examples </span>
+			
+	
+				<a class="item " href="/containers-examples/DIAUmpire/">DiaUmpire</a>
+			
+	
+				<a class="item " href="/containers-examples/Comet/">Comet</a>
 			
 		
     </div>
@@ -126,9 +107,9 @@
 		<div class="heading row">
    
   <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
-	  <span class="contentTitle">Tools overview </span>
+	  <span class="contentTitle">Registry UI </span>
 
-	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/snipspector-adv/25_tools.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/101/60_biocontainers-registry.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
   </div>
 
 	<div class="col-xs-2 col-md-3">
@@ -189,9 +170,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 
     <div class="author col-md-2 col-xs-2 hidden-xs">
-			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 19 Oct 2016</div>
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 23 Oct 2016</div>
 	        
-			<!--<div class="tutorial-item">Contributor(s): Seb</div>-->
+			<!--<div class="tutorial-item">Contributor(s): David, Seb</div>-->
 	        
 			
 	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 5 minutes </div>
@@ -266,597 +247,14 @@ mailing list, just join our <a href="https://groups.google.com/forum/#!forum/bio
 <!--
 
 -->
-            <p>The following collection is just an extract of tools you are able to use.</p>
-
-<h3 id="aspect_testing"> Testing </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://busterjs.org/" alt="BusterJS">
-<img class="aspect-row-img" src="/img/aspects/testing/busterjs.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://jasmine.github.io/" alt="Jasmine">
-<img class="aspect-row-img" src="/img/aspects/testing/jasmine.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://karma-runner.github.io/" alt="Karma">
-<img class="aspect-row-img" src="/img/aspects/testing/karma.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://visionmedia.github.io/mocha/" alt="Mocha">
-<img class="aspect-row-img" src="/img/aspects/testing/mocha.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://phantomjs.org/" alt="PhantomJS">
-<img class="aspect-row-img" src="/img/aspects/testing/phantomjs.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://qunitjs.com/" alt="QUnit">
-<img class="aspect-row-img" src="/img/aspects/testing/qunit.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://sinonjs.org/" alt="SinonJS">
-<img class="aspect-row-img" src="/img/aspects/testing/sinonjs.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_vis"> Visualization </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://d3js.org/" alt="D3">
-<img class="aspect-row-img" src="/img/aspects/vis/d3.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://www.w3schools.com/html/html5_intro.asp" alt="HTML 5">
-<img class="aspect-row-img" src="/img/aspects/vis/html5.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://raphaeljs.com/" alt="Raphael">
-<img class="aspect-row-img" src="/img/aspects/vis/raphael.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://visjs.org/" alt="VisJS">
-<img class="aspect-row-img" src="/img/aspects/vis/visjs.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://en.wikipedia.org/wiki/WebGL" alt="WebGL">
-<img class="aspect-row-img" src="/img/aspects/vis/webgl.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_language"> Language </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://coffeescript.org/" alt="CoffeeScript">
-<img class="aspect-row-img" src="/img/aspects/language/coffeescript.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://www.dartlang.org/" alt="Dart">
-<img class="aspect-row-img" src="/img/aspects/language/dart.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://elm-lang.org/" alt="ELM">
-<img class="aspect-row-img" src="/img/aspects/language/elm.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts" alt="ES 6">
-<img class="aspect-row-img" src="/img/aspects/language/es6.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://www.typescriptlang.org/" alt="TypeScript">
-<img class="aspect-row-img" src="/img/aspects/language/typescript.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_automation"> Automation </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://gulpjs.com" alt="Gulp">
-<img class="aspect-row-img" src="/img/aspects/automation/gulp.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://gruntjs.com" alt="Grunt">
-<img class="aspect-row-img" src="/img/aspects/automation/grunt.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://slushjs.github.io/#/" alt="Slush">
-<img class="aspect-row-img" src="/img/aspects/automation/slush.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://yeoman.io/" alt="Yeoman">
-<img class="aspect-row-img" src="/img/aspects/automation/yeoman.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_ci"> Continuous Integration </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://circleci.com/" alt="Circle CI">
-<img class="aspect-row-img" src="/img/aspects/ci/circleci.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://www.cloudbees.com/" alt="Cloudbees">
-<img class="aspect-row-img" src="/img/aspects/ci/cloudbees.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://codeclimate.com/" alt="Code Climate">
-<img class="aspect-row-img" src="/img/aspects/ci/codeclimate.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://drone.io/" alt="Drone IO">
-<img class="aspect-row-img" src="/img/aspects/ci/droneio.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://saucelabs.com/" alt="Sauce Labs">
-<img class="aspect-row-img" src="/img/aspects/ci/saucelabs.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://ci.testling.com/" alt="Testling">
-<img class="aspect-row-img" src="/img/aspects/ci/testling.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://travis-ci.org/" alt="Travis">
-<img class="aspect-row-img" src="/img/aspects/ci/travis.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_utils"> Utils </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://backbonejs.org/" alt="Backbone">
-<img class="aspect-row-img" src="/img/aspects/utils/backbone.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://jquery.com/" alt="JQuery">
-<img class="aspect-row-img" src="/img/aspects/utils/jquery.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://lodash.com/" alt="LoDash">
-<img class="aspect-row-img" src="/img/aspects/utils/lodash.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://underscorejs.org/" alt="Underscore">
-<img class="aspect-row-img" src="/img/aspects/utils/underscore.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://zeptojs.com/" alt="ZeptoJS">
-<img class="aspect-row-img" src="/img/aspects/utils/zepto.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-</div>
-
-<h3 id="aspect_other"> Other </h3>
-
-<div class="row aspect-row">
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://dev.w3.org/csswg/selectors4/" alt="CSS 4">
-<img class="aspect-row-img" src="/img/aspects/other/css4.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://www.jshint.com/" alt="JSHint">
-<img class="aspect-row-img" src="/img/aspects/other/jshint.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://lesscss.org/" alt="LESS">
-<img class="aspect-row-img" src="/img/aspects/other/less.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="visible-xs clearfix"> </div>
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="http://sass-lang.com/" alt="SASS">
-<img class="aspect-row-img" src="/img/aspects/other/sass.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://learnboost.github.io/stylus/" alt="Stylus">
-<img class="aspect-row-img" src="/img/aspects/other/stylus.png" />
-</a>
-</div>
-
-<!--
-
-
--->
-
-
-
-<div class="col-md-2 col-xs-4 aspect-row-item vcenter">
-<a href="https://github.com/mishoo/UglifyJS2" alt="UglifyJS">
-<img class="aspect-row-img" src="/img/aspects/other/uglifyjs.png" />
-</a>
-</div>
-
-<!--
-
-
-<div class="clearfix"> </div>
-
--->
-
-
-
-</div>
+            <p>Every biocontainer is deploy and permanent deposited in a public registry <a href="http://hub.docker.com">Docker Hub</a> or <a href="quay.io">Quay.io</a>. </p>
 
 
 
            <div id="lower-link-box" class="link-box">
 				 
-				
-					<a href="/snipspector_adv/vis_d3/" class="btn btn-primary next-link pull-right">Next</a>
+				<a href="/101/running-example/" class="btn btn-primary previous-link">Previous</a>
+				 
 				
 
 				<br />	
@@ -923,7 +321,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 		<!--
 		<div class="footer">
 			<div class="improve-this-page">
-				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/snipspector-adv/25_tools.md">Improve this page</a>
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/101/60_biocontainers-registry.md">Improve this page</a>
 			</div>
 
 			<div id="privacy-notice-less" class="privacy-policy">

@@ -12,18 +12,12 @@ series:
     "101":
       desc: "Basics"
       sort: 1
-    "beginner":
-      desc: "Beginner tutorial"
-      sort: 2
-    "user-manual":
-      desc: "User tutorial"
-      sort: 3
     "developer-manual":
       desc: "Developer tutorial"
-      sort: 4
-    "snipspector_adv":
-      desc: "Advanced Tutorial"
-      sort: 5
+      sort: 2
     "faqs":
       desc: "BioContainers FAQS"
-      sort: 6
+      sort: 3
+    "containers-examples":
+      desc: "Containers Examples"
+      sort: 4
