@@ -115,7 +115,7 @@ A full documentation about how to use BioContainers to perform bioinformatics an
 BioContainers is a community-driven project that allows bioinformatics to request, build and deploy bioinformatics tools using containers. The following figure present the 
 general BioContainers workflow: 
 
-![What is Container](imgs/workflow.png)
+![What is Container](https://github.com/BioContainers/specs/blob/master/imgs/workflow.png)
 
 The next sections explain in details the presented workflow: 
  

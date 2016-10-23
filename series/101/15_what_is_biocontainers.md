@@ -57,7 +57,7 @@ tools accessible to researchers, minimizing the efforts for installation and con
 
 
 
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/toolbox-color.png">BioContainers is an open source and community-driven framework which provides system-agnostic executable environments for bioinformatics software with special focus on proteomics, genomics, metabolomics and transcriptomics.[BioContainers](http://biocontainers.pro) is based on
+<img class="splashIcon" src="{{ site.baseurl}}img/series/101/toolbox-color.png"> BioContainers is an open source and community-driven framework which provides system-agnostic executable environments for bioinformatics software with special focus on proteomics, genomics, metabolomics and transcriptomics.[BioContainers](http://biocontainers.pro) is based on
 the popular **Docker framework** that allows software to be installed and executed under an isolated and controllable environment. BioContainers is based in four main components:
 
 - [Containers](https://github.com/BioContainers/containers) provides all the containers maintained by the BioContainers community and ready to be use by the community.    
