@@ -37,16 +37,15 @@ from machine to machine. If you have 30 Docker containers that you want to run, 
 ### Running blast 
 
 ~~~
-docker run biodckr/blast blastn -help
+docker run biodckr/blast blastp -help
 ~~~
 
-This will print the help page for `blastn` tool. The first part of the command `docker run biodckr/blast` enable docker 
-to identified the correct container in your local registry. The second part `blastn -help` is the command that you want to
+This will print the help page for `blastp` tool. The first part of the command `docker run biodckr/blast` enable docker 
+to identified the correct container in your local registry. The second part `blastp -help` is the command that you want to
 use in the container.
 
 {% alert info %}
  If you want to [list all the containers/images](https://docs.docker.com/engine/reference/commandline/images/) you have pull from public repositories and are available in your 
  local machine, you can use the following command: `$ docker images`
- 
 {% endalert %}
  
