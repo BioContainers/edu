@@ -33,12 +33,12 @@ description and repository push and pull counts. Repositories can be linked to G
 [BioContainers Registry UI](http://biocontainers.pro/registry/) provides the interface to and UI to **search**, **tag**, and **document** a BioContainers across all the registries.
 
  
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/registry.png" width="800px">      
+<img class="splashIcon" src="{{ site.baseurl}}/img/series/101/registry.png" width="800px">      
 
 The users can search containers by using the search box: 
 
 
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/search.png" width="800px">  
+<img class="splashIcon" src="{{ site.baseurl}}/img/series/101/search.png" width="800px">  
 
 
                                                                                                                                                  
@@ -56,7 +56,7 @@ The containers registry allow the users to `sort` the containers by any of these
 
 The user can click the container name [for example, BLAST](/101/running-example/) and see all the documentation related with the container. 
 
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/blast.png" width="400px">  
+<img class="splashIcon" src="{{ site.baseurl}}/img/series/101/blast.png" width="400px">  
 
 {% alert info %}
  
@@ -65,6 +65,6 @@ containers.
 
 {% endalert %} 
 
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/bedtools.png" width="400px">  
+<img class="splashIcon" src="{{ site.baseurl}}/img/series/101/bedtools.png" width="400px">  
 
                                                                                                                                                                                                                                                                                                                        
