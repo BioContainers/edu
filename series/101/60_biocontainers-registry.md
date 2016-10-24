@@ -1,7 +1,7 @@
 ---
 title: 'Registry UI'
 layout: series_item
-contributors: David, Seb
+contributors: Yassset Perez-Riverol
 series: '101'
 permalink: 101/biocontainers-registry/
 estimated-time: 5

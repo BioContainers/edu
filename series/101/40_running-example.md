@@ -74,7 +74,7 @@ No, we need to prepare the zebrafish database with `makeblastdb` for the search:
 {% alert info %}                                                                                                                  
  
  Here, we explain multiples concepts in the same command. The most important component is `-v /Users/yperez/workplace:/data/`. This command creates a symbolic link
- between the `workplace` where the downloaded files are store and the `/data/` inside the container. You can see easily  
+ between the `workplace` where the downloaded files are store and the `/data/` inside the container. You can [check here](/developer-manual/biocontainers-input-output/) for more documentation.  
 
 {% endalert %} 
 

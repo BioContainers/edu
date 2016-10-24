@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>BioContainers?</title>
+	<title>Input/Outpout</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,7 +58,7 @@
 				<a class="item " href="/101/intro/">Intro</a>
 			
 	
-				<a class="item item-active" href="/101/what_is_biocontainers/">BioContainers?</a>
+				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
 			
 	
 				<a class="item " href="/101/getting_started/">Getting started</a>
@@ -86,7 +86,7 @@
 				<a class="item " href="/developer-manual/best-practices/">Best Practices</a>
 			
 	
-				<a class="item " href="/developer-manual/biocontainers-input-output/">Input/Outpout</a>
+				<a class="item item-active" href="/developer-manual/biocontainers-input-output/">Input/Outpout</a>
 			
 	
 				<a class="item " href="/developer-manual/deploy-dockerhub/">Deploy to DockerHub</a>
@@ -119,9 +119,9 @@
 		<div class="heading row">
    
   <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
-	  <span class="contentTitle">BioContainers? </span>
+	  <span class="contentTitle">Input/Outpout </span>
 
-	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/101/15_what_is_biocontainers.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
+	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/developer-manual/30_biocontainers-input-output.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
   </div>
 
 	<div class="col-xs-2 col-md-3">
@@ -182,7 +182,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 
     <div class="author col-md-2 col-xs-2 hidden-xs">
-			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 23 Oct 2016</div>
+			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 24 Oct 2016</div>
+	        
+			<!--<div class="tutorial-item">Contributor(s): Yassset Perez-Riverol</div>-->
 	        
 			
 	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 5 minutes </div>
@@ -257,88 +259,31 @@ mailing list, just join our <a href="https://groups.google.com/forum/#!forum/bio
 <!--
 
 -->
-            <p style="font-size: 9px; text-align: center"><img src="/img/series/101/docker-gif.gif" alt="Containers" height="250px" class="center" /></p>
+            <h1 id="using-input--and-output-files">Using input  and Output files</h1>
 
-<p>Basically a software container <i class="fa fa-archive" aria-hidden="true"></i> is used to encapsulate a software component and the correponding dependencies. You don’t start from scratch or install all the software over and over. </p>
+<p>In many cases the software you are using requires an input or an output file to work.
+This can be achieved using a container image, but it requires that you change the way how you execute
+the docker daemon.</p>
 
-<blockquote>
-  <p>Container-based virtualization, also called operating system virtualization, is an approach to virtualization in which the virtualization layer
-runs as an application within the operating system (OS). In this approach, the operating system’s kernel runs on the hardware node with several
-isolated guest virtual machines (VMs) installed on top of it. The isolated guests are called containers. </p>
-</blockquote>
+<p>The first step is to have a specific folder in your computer to serve as a shared folder between your system and the container. In this case let’s place a file called prot.fa inside a folder called <code>/home/user/docker/</code>.</p>
 
-<h2 id="what-exactly-is-a-biocontainer">What exactly is a BioContainer?</h2>
+<p>The <code>/home/user/docker/</code> folder will be mapped inside the container, that way this can server as a gateway for files, both the input and the output files will be placed there. </p>
 
-<p>Is a <strong>Independently deployable bits of code</strong> that can be used to build and run agile applications. It could be anything from a FASTA parser, a tree algorithm or a simple visualization module.</p>
+<p>After setting the folder and necessary files inside we can execute the image we want. In the example bellow we are running an image built from an example container:</p>
 
-<ul>
-  <li>Containers encapsulate discrete components of application logic provisioned only with the minimal resources needed to do their job.</li>
-  <li>Containers are easily packaged, lightweight and designed to run anywhere</li>
-  <li>Multiple containers can be deployed in a single VM.</li>
-</ul>
+<pre><code>$ docker run -v /home/user/docker/:/data/ biodckr/program -input /data/prot.fa -output /data/result.txt`
+</code></pre>
 
-<p>Lets install a container quickly: </p>
-
-<div style="display:block"><div class="tutorials-highlight" style="display:block;"><span class="glyphicon glyphicon-info-sign" style="float:left;display:block;margin-right:20px"></span><div class="tutorials-highlight-text">
-<p><code>docker pull biodckr/dia-umpire</code> This simple sentence install dia-umpire and all its dependencies</p>
-</div></div></div>
-
-<h2 id="what-is-biocontainers">What is BioContainers?</h2>
-
-<p><a href="http://biocontainers.pro">BioContainers</a> is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute Bioinformatics Docker containers with special focus in Proteomics, Genomics, Transcriptomics and Metabolomics.
-BioDocker is based in the popular <a href="#what-is-docker">Docker framework</a>. A revolutionary platform for developers and sysadmins to build, ship, and run applications
-anywhere. With Docker you can build an image containing your software and all dependencies and ship it ready to use (see <a href="#what-is-docker">Details</a>).</p>
-
-<h2 id="biocontainers-goals">BioContainers Goals</h2>
-
-<p>BioContainers community and project have three major goals:</p>
-<ul>
-  <li>A central registry with containers ready to be use: <a href="http://biocontainers.pro/registry">The BioContainers Registry</a></li>
-  <li>Specifications about how to create a BioContainers container/image and infrastructure to deploy them.</li>
-  <li>A complete infrastructure create, share and request docker images from bioinformatics software</li>
- </ul>
-
-<p><a href="https://github.com/BioContainers/containers">BioContainers containers</a>facilitate the usage, integration and reproducibility of software and algorithms into more comprehensive bioinformatics pipelines. 
-Finally, we presented the guidelines and specifications to create a container, contribute to the group or request a container from the group. Our guidelines and specifications are part of community efforts like <a href="https://github.com/opencontainers">open-containers</a> ando <a href="https://bioconda.github.io/">Bioconda</a> to make installation, addition, evaluation and benchmarking of new algorithms and
-tools accessible to researchers, minimizing the efforts for installation and configuration.</p>
-
-<p><img class="splashIcon" src="/img/series/101/toolbox-color.png" /> BioContainers is an open source and community-driven framework which provides system-agnostic executable environments for bioinformatics software with special focus on proteomics, genomics, metabolomics and transcriptomics.<a href="http://biocontainers.pro">BioContainers</a> is based on
-the popular <strong>Docker framework</strong> that allows software to be installed and executed under an isolated and controllable environment. BioContainers is based in four main components:</p>
-
-<ul>
-  <li>
-    <p><a href="https://github.com/BioContainers/containers">Containers</a> provides all the containers maintained by the BioContainers community and ready to be use by the community.    </p>
-  </li>
-  <li>
-    <p><a href="https://biocontainers.pro/registry">Biocontainers Registry</a> is hosted registry of all biocontainers images that are ready to be use.</p>
-  </li>
-  <li>
-    <p><a href="https://github.com/BioContainers/sandbox">BioDocker SandBox</a> is used to host all the new software, broken containers. Users can ask for a new container by creating a new <a href="https://github.com/BioDocker/sandbox/issues">issue</a>. 
-Also developers can contribute with the group by generating a container for the requested software. </p>
-  </li>
-  <li>
-    <p><a href="https://github.com/BioContainers/specs">Specifications</a> define a set of guidelines and rules to contribute with BioContainers.</p>
-  </li>
-</ul>
-
-<!--
-* Easy to start:
-* Easy to test
--->
-
-<h2 id="what-you-get-using-biocontainers">What you get using BioContainers</h2>
-
-<p>In the next video you can check out what you can achieve by using docker containers:</p>
-
-<iframe width="100%" height="600px" src="https://www.youtube.com/embed/aLipr7tTuA4" frameborder="0"></iframe>
+<p>Our local path <code>/home/user/docker/</code> will map inside the container into a folder called <code>/data/</code> and the software will have access to the file. After the processing is done the result file will be saved on the same place and we can have it outside the container in the same folder.
+In this scenario, the only difference is the use of the parameter <code>-v</code> when running the image, this parameter tells the docker daemon that when are mapping something from the host system internally.</p>
 
 
            <div id="lower-link-box" class="link-box">
 				 
-				<a href="/101/intro/" class="btn btn-primary previous-link">Previous</a>
+				<a href="/developer-manual/best-practices/" class="btn btn-primary previous-link">Previous</a>
 				 
 				
-					<a href="/101/getting_started/" class="btn btn-primary next-link pull-right">Next</a>
+					<a href="/developer-manual/deploy-dockerhub/" class="btn btn-primary next-link pull-right">Next</a>
 				
 
 				<br />	
@@ -405,7 +350,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 		<!--
 		<div class="footer">
 			<div class="improve-this-page">
-				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/101/15_what_is_biocontainers.md">Improve this page</a>
+				<span class="glyphicon glyphicon-pencil"></span> <a href="https://github.com/biojs/edu/blob/master/series/developer-manual/30_biocontainers-input-output.md">Improve this page</a>
 			</div>
 
 			<div id="privacy-notice-less" class="privacy-policy">
