@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DockerFile Template</title>
+	<title>Dockerfile Template</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
@@ -17,17 +17,17 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/css/toc.css">
 
-	
+
 		<link rel="stylesheet" href="/css/tutorials.css">
-	
+
 		<link rel="stylesheet" href="/css/solarized_dark.css">
-	
+
 
 	<!-- needed for tutorial specific css -->
-	
+
 </head>
-<body>	
-	
+<body>
+
 
 	<!--
 	<div class="container" id="main-container">
@@ -37,7 +37,7 @@
 			</div>
 			<div class="navbar-div" id="navbar-links2">
 				<li>
-			
+
 			</div>
 		</div>
 	-->
@@ -53,73 +53,73 @@
 
 
         <span class="item-heading"> Basics </span>
-			
-	
+
+
 				<a class="item " href="/101/intro/">Intro</a>
-			
-	
+
+
 				<a class="item " href="/101/what_is_biocontainers/">BioContainers?</a>
-			
-	
+
+
 				<a class="item " href="/101/getting_started/">Getting started</a>
-			
-	
+
+
 				<a class="item " href="/101/docker-nutshell/">Docker in NutShell</a>
-			
-	
+
+
 				<a class="item " href="/101/biocontainers-architecture/">BioContainers Architecture</a>
-			
-	
+
+
 				<a class="item " href="/101/running-example/">BioContainer example</a>
-			
-	
+
+
 				<a class="item " href="/101/biocontainers-registry/">Registry UI</a>
-			
-		
+
+
 
         <span class="item-heading"> Developer tutorial </span>
-			
-	
-				<a class="item item-active" href="/developer-manual/biocotainers-dockerfile/">DockerFile Template</a>
-			
-	
+
+
+				<a class="item item-active" href="/developer-manual/biocotainers-dockerfile/">Dockerfile Template</a>
+
+
 				<a class="item " href="/developer-manual/best-practices/">Best Practices</a>
-			
-	
+
+
 				<a class="item " href="/developer-manual/biocontainers-input-output/">Input/Outpout</a>
-			
-	
+
+
 				<a class="item " href="/developer-manual/deploy-dockerhub/">Deploy to DockerHub</a>
-			
-		
+
+
 
         <span class="item-heading"> BioContainers FAQS </span>
-			
-	
+
+
 				<a class="item " href="/faqs/manually-remove-dockerboot/">Remove boot2docker</a>
-			
-		
+
+
 
         <span class="item-heading"> Containers Examples </span>
-			
-	
+
+
 				<a class="item " href="/containers-examples/DIAUmpire/">DiaUmpire</a>
-			
-	
+
+
 				<a class="item " href="/containers-examples/Comet/">Comet</a>
-			
-		
+
+
     </div>
 </div>
 
 	</div>
 
 	<div id="biojs-main-content">
-		
+
 		<div class="heading row">
-   
+
   <div class="col-md-6 col-xs-7 col-lg-5" id="contentTitleCell">
-	  <span class="contentTitle">DockerFile Template </span>
+	  <span class="contentTitle">Dockerfile Template </span>
 
 	  <a class="gitStar" style="width:150px;" href="https://github.com/biocontainers/edu/blob/master/series/developer-manual/10_biocontainers-dockerfile.md" target="_blank"><span class="glyphicon glyphicon-pencil" style="font-size:14px;" ></span> Improve this page</a>
   </div>
@@ -132,7 +132,7 @@
 	  <a class="git hidden-xs hidden-sm" href="https://kiwiirc.com/client/irc.freenode.net/biocontainers" target="_blank"><i class="fa fa-weixin"></i></a>
 	  <a class="git hidden-xs hidden-sm" id="bookmark-link" href="#"><i class="fa fa-bookmark"></i></a>
 
-  </div>	
+  </div>
 
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
             window.sidebar.addPanel(document.title,window.location.href,'');
         } else if(window.external && ('AddFavorite' in window.external)) { // IE Favorite
-            window.external.AddFavorite(location.href,document.title); 
+            window.external.AddFavorite(location.href,document.title);
         } else if(window.opera && window.print) { // Opera Hotlist
             this.title=document.title;
             return true;
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	  <a class="gitStar hidden-xs hidden-sm" style="width:150px;" id="biojs-iconnav-help" href="https://gitter.im/biocontainers/Lobby" target="_blank"><span class="glyphicon glyphicon-bullhorn" style="font-size:17px;" ></span> Get help</a>
 
-  </div>	
+  </div>
   <div class="col-md-2 col-lg-2 hidden-xs hidden-sm" id="social-media-share">
 
     <!-- share it: twitter, google -->
@@ -179,14 +179,14 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 
     </div>
-	
+
 
     <div class="author col-md-2 col-xs-2 hidden-xs">
 			<div class="tutorial-item"><span class="glyphicon glyphicon-calendar" style="font-size:14px;margin-bottom: 2px;"></span> 24 Oct 2016</div>
-	        
-			
+
+
 	        <div class="tutorial-item"><span class="glyphicon glyphicon-time" style="font-size:14px;margin-bottom: 2px;"></span> 5 minutes </div>
-	        
+
 	</div>
 
 </div>
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	<!--
     <div class="leftPanel">
 
-		
+
 
     </div>
 	-->
@@ -268,61 +268,38 @@ mailing list, just join our <a href="https://groups.google.com/forum/#!forum/bio
 <p>Bellow is the complete example of a BioDocker Dockerfile:</p>
 
 <pre><code>
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         Comet
-# Software Version: 2015020
-# Description:      basic local alignment search tool
-# Website:          http://comet-ms.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         Comet 2015020
-# Base Image:       biodckr/biodocker
-# Build Cmd:        docker build --rm -t biodckrdev/comet 2015020/.
-# Pull Cmd:         docker pull biodckr/comet
-# Run Cmd:          docker run --rm -it biodckrdev/comet &lt;options&gt; &lt;files&gt;
-# Extra:            Extra information
-# Extra:            with new lines if necessary
-#################################################################
+	# Base Image
+	FROM biocontainers/biocontainers:latest
 
-# Set the base image to biodocker base image
-FROM biodckr/biodocker
+	# Metadata
+	LABEL base.image="biocontainers:latest"
+	LABEL version="3"
+	LABEL software="Comet"
+	LABEL software.version="2016012"
+	LABEL description="an open source tandem mass spectrometry sequence database search tool"
+	LABEL website="http://comet-ms.sourceforge.net/"
+	LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
+	LABEL license="http://comet-ms.sourceforge.net/"
+	LABEL tags="Proteomics"
 
-################## BEGIN INSTALLATION ######################
+	# Maintainer
+	MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
-# Change user to root
-USER root
+	USER biodocker
 
-# UPDATE APT, INSTALL PREREQUISITES AND CLEAN CACHE
-RUN apt-get clean all &amp;&amp; \
-    apt-get update -y &amp;&amp; \
-    apt-get upgrade -y &amp;&amp; \
-    apt-get install -y wget &amp;&amp; \
-    apt-get clean &amp;&amp; \
-    apt-get purge &amp;&amp; \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	RUN ZIP=comet_binaries_2016012.zip && \
+	  wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+	  unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+	  chmod -R 755 /home/biodocker/bin/Comet/* && \
+	  rm /tmp/$ZIP
 
-# ADD FILES
-ADD comet.2015020.linux.exe /home/biodocker/bin/
+	RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
 
-# RUN COMMANDS
-RUN chmod +x /home/biodocker/bin/comet.2015020.linux.exe
+	ENV PATH /home/biodocker/bin/Comet:$PATH
 
-# CHANGE USER BACK TO BIODOCKER
-USER biodocker
+	WORKDIR /data/
 
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
-
-# DEFINE DEFAULT COMMAND
-CMD ["comet.2015020.linux.exe"]
-
-##################### INSTALLATION END #####################
-
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost &lt;felipe@leprevost.com.br&gt;
-# Modified by Yasset Perez-Riverol. 7edf3b0
+	CMD ["comet"]
 </code></pre>
 
 <h2 id="header">Header</h2>
@@ -330,16 +307,14 @@ MAINTAINER Felipe da Veiga Leprevost &lt;felipe@leprevost.com.br&gt;
 <p>Every Dockerfile must have a header with the following items:</p>
 
 <ul>
+	<li><strong>Base Image</strong>: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biodkr/biodocker image.</li>
   <li><strong>Dockerfile Version</strong>: This is a single-number version system (ex: v1, v2, v3 …). Every change in the file must increase in 1.</li>
   <li><strong>Software</strong>: The name of the software installed inside the container. This can be a little tricky because some software demand libraries or dependencies. In this case the idea is to describe the “principal” software of the container, or the reason for built it.</li>
   <li><strong>Software Version</strong>: The version of the software installed.</li>
   <li><strong>Description</strong>: Single line description of the tool</li>
   <li><strong>Website</strong>: URL(s) for the program developer</li>
+	<li><strong>License</strong>:The software license.</li>
   <li><strong>Tags</strong>: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General</li>
-  <li><strong>Provides</strong>: List of programs.</li>
-  <li><strong>Base Image</strong>: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biodkr/biodocker image.</li>
-  <li><strong>Docker commands</strong>: Commands used to build, pull and run the docker image</li>
-  <li><strong>Extra</strong>: Extra information. this tag can appear multiple times</li>
 </ul>
 
 <h2 id="image-setting---from">Image Setting - FROM</h2>
@@ -398,31 +373,29 @@ CMD ["comet.2015020.linux.exe"]
 
 <h2 id="signature---maintainer">Signature - MAINTAINER</h2>
 
-<p>The File Author/ Maintainer signature. By default the Dockerfile only accepts one MAINTAINER tag. This will be the place the original author name. After updates are added to the file, the contributors name should appear in commented lines.</p>
+<p>The File Author/ Maintainer signature. By default the Dockerfile only accepts one MAINTAINER tag. This will be the place the original author name.</p>
 
 <pre><code>
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost &lt;felipe@leprevost.com.br&gt;
-# Modified by Yasset Perez-Riverol. 7edf3b0
-
+	# Maintainer
+	MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 </code></pre>
 
 <p>The number after Yasset name is the 7 first digits of the commit.</p>
 
 
            <div id="lower-link-box" class="link-box">
-				 
-				
-					<a href="/developer-manual/best-practices/" class="btn btn-primary next-link pull-right">Next</a>
-				
 
-				<br />	
+
+					<a href="/developer-manual/best-practices/" class="btn btn-primary next-link pull-right">Next</a>
+
+
+				<br />
 			</div>
 
 		</div>
 	</div>
 
-<!-- temporaroy removed 
+<!-- temporaroy removed
 
 -->
 
@@ -475,7 +448,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 <script src="/js/highlight.min.js"></script>
 
 	</div>
-		
+
 		</div>
 		<!--
 		<div class="footer">
@@ -491,7 +464,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 				By visiting this site you agree to the <a href="https://www.google.com/analytics/terms/us.html">data processing agreement</a> by Google.<br />
 				If you do not agree, <a href="http://www.usa.gov/optout-instructions.shtml">opt out</a>.
 			</div>
-		
+
 		</div>
 		-->
 
@@ -527,7 +500,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 
 		/*
 		$(window).scroll(function(){
-    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});        
+    		$(".topNavbar").css({"top": ($(window).scrollTop()) + "px"});
     		if ($(window).scrollTop() > 140){
 	    		$(".leftPanel").css({"top": ($(window).scrollTop()) -140 + "px"});
 			}
@@ -563,7 +536,7 @@ function collapseStuff(e, textHidden, textDisplayed){
 	</script>
 
 
-	
+
 
 
 	<script>hljs.initHighlightingOnLoad();</script>
