@@ -19,7 +19,7 @@ to install `blast` [here](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 Here is, where **BioContainers** plays his major role. See how to download and "install" blast in your local machine:
 
 ~~~
-docker pull biodckr/blast
+ $ docker pull biodckr/blast
 ~~~
 
 This is the docker and containers magic, the software is distributed with all the dependencies and shared OS needed to run. 
@@ -37,7 +37,7 @@ from machine to machine. If you have 30 Docker containers that you want to run, 
 ### Running blast 
 
 ~~~
-docker run biodckr/blast blastp -help
+ $ docker run biodckr/blast blastp -help
 ~~~
 
 This will print the help page for `blastp` tool. The first part of the command `docker run biodckr/blast` enable docker 
@@ -50,4 +50,54 @@ use in the container.
 {% endalert %}
 
 
+First, we should download two databases: 
+
+~~~
+ $ curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
+ $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
  
+ $ gunzip *.faa.gz
+~~~
+
+Now, we can take the first 20 proteins from mouse to be search against  zebrafish: 
+
+~~~
+ $ head -20   mouse.1.protein.faa > mm-first.fa
+~~~
+
+No, we need to prepare the zebrafish database with `makeblastdb` for the search: 
+
+~~~
+ $ docker run -v /Users/yperez/workplace:/data/ biodckr/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+~~~
+
+{% alert info %}                                                                                                                  
+ 
+ Here, we explain multiples concepts in the same command. The most important component is `-v /Users/yperez/workplace:/data/`. This command creates a symbolic link
+ between the `workplace` where the downloaded files are store and the `/data/` inside the container. You can see easily  
+
+{% endalert %} 
+
+
+No, that you know, how to run a container with all the tricks, then lets go for the final alignment: 
+
+~~~
+ $ docker run -v /Users/yperez/workplace:/data/ biodckr/blast blastp -query mmfirst.fa -db zebrafish.1.protein.faa
+~~~
+
+DONE. 
+
+### Final Steps
+
+~~~
+ $ cd /home/user/workplace
+ $ docker pull biodckr/blast 
+ $ docker run biodckr/blast blastp -help 
+ $ curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz    
+ $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz 
+ $ gunzip *.faa.gz 
+ $ head -20   mouse.1.protein.faa > mm-first.fa
+ $ docker run -v /home/user/workplace:/data/ biodckr/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+ $ docker run -v /home/user/workplace:/data/ biodckr/blast blastp -query mmfirst.fa -db zebrafish.1.protein.faa 
+~~~
+                                                                                       
