@@ -2,7 +2,7 @@
 title: 'BioContainer example'
 layout: series_item
 series: '101'
-permalink: 101/running-example/
+permalink: /101/running-example/
 estimated-time: 5
 ---
 

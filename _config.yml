@@ -1,13 +1,10 @@
 name: BioContainers
 description: An open-source and community-driven framework for software standardization
-url: http://biocontainers.pro
+url: "http://biocontainers.pro"
+baseurl: "/docs"
 markdown: kramdown
-#pygments: false
-#highlighter: pygments
 timezone: UTC
 encoding: utf-8
-exclude: [vendor]
-baseurl: /
 series:
     "101":
       desc: "Basics"

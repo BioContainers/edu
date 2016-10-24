@@ -7,18 +7,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">	
-	<link rel="stylesheet" type="text/css" href="/css/external/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+	<link rel="shortcut icon" type='image/x-icon' href="/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/external/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/font-awesome/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="/css/solarized_dark.css">
-	<link rel="stylesheet" type="text/css" href="/css/tutorials.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/css/toc.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/solarized_dark.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/tutorials.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/toc.css">
 
 	{% for css_name in page.extra_css %}
-		<link rel="stylesheet" href="{{ css_name }}">
+		<link rel="stylesheet" href="{{ site.baseurl }}/{{ css_name }}">
 	{% endfor %}
 
 	<!-- needed for tutorial specific css -->
@@ -72,11 +72,11 @@
 		-->
 
 
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/highlight.min.js"></script>
-	<script type="text/javascript" src="/js/jquery-scrollspy.js"></script>
-	<script type="text/javascript" src="/js/bottom.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/highlight.min.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/jquery-scrollspy.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/bottom.js"></script>
+	<script type="text/javascript" src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
 
 			<script type="text/javascript">
 	        $(document).ready(function() {

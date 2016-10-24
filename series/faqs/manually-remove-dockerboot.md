@@ -2,7 +2,7 @@
 title: 'Remove boot2docker'
 layout: series_item
 series: 'faqs'
-permalink: faqs/manually-remove-dockerboot/
+permalink: /faqs/manually-remove-dockerboot/
 estimated-time: 5
 ---
 

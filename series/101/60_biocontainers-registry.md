@@ -3,7 +3,7 @@ title: 'Registry UI'
 layout: series_item
 contributors: Yassset Perez-Riverol
 series: '101'
-permalink: 101/biocontainers-registry/
+permalink: /101/biocontainers-registry/
 estimated-time: 5
 ---
 
