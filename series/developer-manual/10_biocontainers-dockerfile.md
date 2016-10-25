@@ -1,5 +1,5 @@
 ---
-title: 'DockerFile Template'
+title: 'Dockerfile Template'
 layout: series_item
 series: 'developer-manual'
 permalink: /developer-manual/biocotainers-dockerfile/

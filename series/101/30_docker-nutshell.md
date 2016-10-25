@@ -9,11 +9,11 @@ estimated-time: 15
 # Docker in NutShell
 
 Docker is an open platform for developing, shipping, and running applications. Docker is designed to deliver your applications faster. With Docker you can separate your applications from your
-infrastructure. 
+infrastructure.
 
-Docker does this by combining kernel containerization features with workflows and tooling that help you manage 
+Docker does this by combining kernel containerization features with workflows and tooling that help you manage
 and deploy your applications. At its core, Docker provides a way to run almost any application securely isolated
-in a container. The isolation and security allow you to run many containers simultaneously on your host. 
+in a container. The isolation and security allow you to run many containers simultaneously on your host.
 
 Docker’s container-based platform allows for highly portable workloads. Docker containers can run on a developer’s
 local host, on physical or virtual machines in a data center, or in the Cloud.
@@ -31,12 +31,12 @@ Docker has two major components:
 
 Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building,
 running, and distributing your Docker containers. Both the Docker client and the daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon.
-   
+
 ### How does a Docker image work?
 
-We’ve already seen that Docker images are read-only templates from which Docker containers are launched. 
+We’ve already seen that Docker images are read-only templates from which Docker containers are launched.
 Each image consists of a series of layers. Docker makes use of union file systems to combine these layers into a single image.
-Union file systems allow files and directories of separate file systems, known as branches, to be transparently overlaid, 
+Union file systems allow files and directories of separate file systems, known as branches, to be transparently overlaid,
 forming a single coherent file system.
 
 One of the reasons Docker is so lightweight is because of these layers. When you change a Docker image—for example,
@@ -47,7 +47,7 @@ just the update, making distributing Docker images faster and simpler.
 Every image starts from a **Base image**, for example ubuntu, a base Ubuntu image, or fedora, a base Fedora image.
 You can also use images of your own as the basis for a new image.
 
-Docker images are then built from these base images using a simple, descriptive set of steps we call instructions. 
+Docker images are then built from these base images using a simple, descriptive set of steps we call instructions.
 Each instruction creates a new layer in our image. Instructions include actions like:
 
 - Run a command
@@ -59,21 +59,38 @@ These instructions are stored in a file called a Dockerfile. A **Dockerfile** is
 
 ~~~
 
-FROM biodckr/biodocker:latest
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-################## BEGIN INSTALLATION ###########################
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="3"
+LABEL software="Comet"
+LABEL software.version="2016012"
+LABEL description="an open source tandem mass spectrometry sequence database search tool"
+LABEL website="http://comet-ms.sourceforge.net/"
+LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
+LABEL license="http://comet-ms.sourceforge.net/"
+LABEL tags="Proteomics"
+
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
 USER biodocker
 
-RUN ZIP=comet_binaries_2016012.zip && \ wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \ unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \ chmod -R 755 /home/biodocker/bin/Comet/* && \ rm /tmp/$ZIP
-RUN mv /home/biodocker/bin/Comet/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
+RUN ZIP=comet_binaries_2016012.zip && \
+  wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+  unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+  chmod -R 755 /home/biodocker/bin/Comet/* && \
+  rm /tmp/$ZIP
+
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
+
 ENV PATH /home/biodocker/bin/Comet:$PATH
 
 WORKDIR /data/
 
-##################### INSTALLATION END ##########################
-
-MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
+CMD ["comet"]
 
 ~~~
 
@@ -81,7 +98,7 @@ MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 
 A container consists of an operating system, user-added files, and meta-data. As we’ve seen, each container is built from an image.
 That image tells Docker what the container holds, what process to run when the container is launched, and a variety of other
-configuration data. The Docker image is read-only. 
+configuration data. The Docker image is read-only.
 
 When Docker runs a container from an image, it adds a read-write layer on top of the image
 (using a union file system as we saw earlier) in which your application can then run.

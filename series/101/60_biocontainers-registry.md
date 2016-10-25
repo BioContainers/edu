@@ -60,7 +60,7 @@ The user can click the container name [for example, BLAST](/101/running-example/
 
 {% alert info %}
  
-Depending on the container provider, the registry will show the original `DockerFile` provided by the developer or it will provide the `Yaml` (see example) configuration file for the `DockerFile free`
+Depending on the container provider, the registry will show the original `Dockerfile` provided by the developer or it will provide the `Yaml` (see example) configuration file for the `Dockerfile free`
 containers. 
 
 {% endalert %} 
