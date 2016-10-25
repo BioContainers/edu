@@ -8,11 +8,11 @@ estimated-time: 5
 
 #### This page will help you prepare your computer for BioContainers
 
-You will need to work in a terminal using __`docker`__ and __`git`__. 
+You will need to work in a terminal using __`docker`__ and __`git`__.
 
 * [Git](https://github.com) is a version control system that will keep track of the changes you have made in code. [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
-* [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as: 
- [docker](https://docs.docker.com/), [docker engine](https://docs.docker.com/engine/installation/), [docker hub](https://docs.docker.com/docker-hub/). 
+* [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as:
+ [docker](https://docs.docker.com/), [docker engine](https://docs.docker.com/engine/installation/), [docker hub](https://docs.docker.com/docker-hub/).
 
 
 {% hlblock check %}
@@ -29,7 +29,7 @@ docker help
 
 If your machine is already set up, continue to the [tutorial](/101/modularity).
 
-Otherwise, choose your operating system below to learn more: 
+Otherwise, choose your operating system below to learn more:
 
 - [__Mac__](#mac)
 - [__Linux__](#linux)
@@ -49,7 +49,7 @@ What does `docker` stand for?
 ### Mac OSX
 
 [On Mac](https://docs.docker.com/docker-for-mac/) installing Docker can be done by installing the complete [Docker Toolbox](https://www.docker.com/products/docker-toolbox) available in Mac and Windows. The Docker Toolbox
-contains the Docker Engine, Compose, Machine, etc. 
+contains the Docker Engine, Compose, Machine, etc.
 
 {% hlblock check %}
 
@@ -88,15 +88,15 @@ Installing git can be done using Homebrew:
 brew install git
 ~~~
 
-If you have problems to install docker you can receive support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby) 
+If you have problems to install docker you can receive support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby)
 
 <a name="linux"></a>
 
 ### Linux
 
 Install [Docker in Linux](https://docs.docker.com/engine/installation/)  in Linux can be done using the specific Linux distribution. Some of the supported distributions are:
-[Arch Linux](https://docs.docker.com/engine/installation/linux/archlinux/), [CentOS](https://docs.docker.com/engine/installation/linux/centos/), [CRUX Linux](https://docs.docker.com/engine/installation/linux/cruxlinux/), 
-[Debian](https://docs.docker.com/engine/installation/linux/debian/), [Fedora](https://docs.docker.com/engine/installation/linux/fedora/), [Gentoo](https://docs.docker.com/engine/installation/linux/gentoolinux/), 
+[Arch Linux](https://docs.docker.com/engine/installation/linux/archlinux/), [CentOS](https://docs.docker.com/engine/installation/linux/centos/), [CRUX Linux](https://docs.docker.com/engine/installation/linux/cruxlinux/),
+[Debian](https://docs.docker.com/engine/installation/linux/debian/), [Fedora](https://docs.docker.com/engine/installation/linux/fedora/), [Gentoo](https://docs.docker.com/engine/installation/linux/gentoolinux/),
 [Oracle Linux](https://docs.docker.com/engine/installation/linux/oracle/), [Red Hat Enterprise Linux](https://docs.docker.com/engine/installation/linux/rhel/), [openSUSE and SUSE Linux Enterprise](https://docs.docker.com/engine/installation/linux/SUSE/),
 [Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
@@ -117,7 +117,7 @@ Docker for Windows is our newest offering for PCs. It runs as a native Windows a
 
 {% alert warn %}
 
-Please read through these topics on how to get started. To give us your feedback on your experience with the app and report bugs or problems, 
+Please read through these topics on how to get started. To give us your feedback on your experience with the app and report bugs or problems,
 log in to [Docker for Windows forum](https://forums.docker.com/c/docker-for-windows).
 
 {% endalert %}
@@ -131,4 +131,3 @@ After downloading the [InstallDocker.msi](https://download.docker.com/win/stable
 3- You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
 
 Click Finish on the setup complete dialog to launch Docker.
-

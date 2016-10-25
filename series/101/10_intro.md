@@ -11,7 +11,7 @@ Purpose of this tutorial series
 
 * Learn basic concepts of containers, docker and BioContainers
 * Get hands to create, deploy and use a BioContainer
-* Master the workflow for deploy and publishing a BioContainer in [Quay.io](https://quay.io/organization/biocontainers) or [DockerHub](https://hub.docker.com/u/biodckr/)
+* Master the workflow for deploy and publishing a BioContainer in [Quay.io](https://quay.io/organization/biocontainers) or [DockerHub](https://hub.docker.com/u/biocontainers/)
 
 Getting help
 ------------
