@@ -1,3 +1,11 @@
+---
+title: 'DIA-Umpire'
+layout: series_item
+series: 'containers-examples'
+permalink: /containers-examples/DIAUmpire/
+estimated-time: 5
+---
+
 In this example I am going to demonstrate the importance of Docker through the use of a complex and powerful pipeline called DIA-Umpire. In this example I will demonstrate how to download, run and obtain the results from the DIA-Umpire pipeline.
 
 ## What do we have
@@ -23,13 +31,16 @@ In order to make this analysis you will need:
 
 The first step is to download the DIA-Umpire image that is available in the BioDocker repositories:
 
-`$ docker pull biodckr/dia-umpire`
+~~~
+$ docker pull biodckr/dia-umpire
+~~~
 
 This command will download the container to your machine. Now we need to set up a folder to be our work space, and inside this folder, create another folder called `input`:
 
-`$ mkdir /workspace/`
-
-`$ mkdir /workspace/input/`
+~~~
+$ mkdir /workspace/
+$ mkdir /workspace/input/
+~~~
 
 The workspace folder will be where we are going to execute all commands from now on.
 
@@ -49,7 +60,9 @@ During the steps below we are going to use a specific docker parameter that allo
 
 The analysis starts by running the DIA-Umpire program with our converted raw file, the command can look scary at first because it looks big, but this is because we are mapping folders inside the container, check the command below and then lets take a look at it in detail:
 
-`$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params`
+~~~
+$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params
+~~~
 
 ### explaining the command
 
@@ -76,7 +89,9 @@ The Analysis will generate several files, between them the ones we need to conti
 
 Now we need to convert those files to a format compatible with Comet:
 
-`$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/msconvert --mzXML /data/*.mgf -o /data/`
+~~~
+$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/msconvert --mzXML /data/*.mgf -o /data/
+~~~
 
 this command uses a program called msconvert, from the ProteoWizard library, present in the TPP installation. This will create a new .mzXML file for each .mgf file we have. Don't forget to always use the internal path `/data/` to save the files to the correct place.
 
@@ -84,8 +99,9 @@ this command uses a program called msconvert, from the ProteoWizard library, pre
 
 Having all the files in the correct format we can now run the database search using Comet. Don't forget to adjust the _comet.params_ file with the desired values.
 
-`$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire comet.2015010.linux.exe -P/data/comet.params /data/sample_Q1.mzXML /data/sample_Q2.mzXML /data/sample_Q3.mzXML`
-
+~~~
+$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire comet.2015010.linux.exe -P/data/comet.params /data/sample_Q1.mzXML /data/sample_Q2.mzXML /data/sample_Q3.mzXML
+~~~
 
 ## 4) Run PeptideProphet and ProteinProphet from TPP Xinteract on Comet Results
 
@@ -103,13 +119,17 @@ In the next step when we run `ProteinProphet`, the program is expecting to see f
 
 Also note that we have to run this command individually for each _pep.xml_ file.
 
-`$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/xinteract -OpdEAP -PPM -drev -N/data/interact-sample_Q1.pep.xml /data/sample_Q1.pep.xml`
+~~~`
+$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/xinteract -OpdEAP -PPM -drev -N/data/interact-sample_Q1.pep.xml /data/sample_Q1.pep.xml`
+~~~
 
 ProteinProphet also is called from the `xinteract` command (check the `p` parameter).
 
 After running the above command, you should see a message like this:
 
-`QUIT - the job is incomplete`
+~~~
+QUIT - the job is incomplete
+~~~
 
 You can actually ignore this. What happens here is that TPP analysis looks for a cgi script inside the web interface installation folder and one dependency may not be installed. The error appears after the PeptideProfet and ProteinProphet ends the processing.
 
@@ -122,7 +142,9 @@ finally, the last part!
 
 We need now to run DIA-Umpire again, but this time using the quantification module. Before running, check the diaumpire.quant_params file, and set the correct values for you.
 
-`$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_Quant.jar /data/diaumpire.quant_params`
+~~~
+$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_Quant.jar /data/diaumpire.quant_params
+~~~
 
 The analysis will end with a message like this:
 
