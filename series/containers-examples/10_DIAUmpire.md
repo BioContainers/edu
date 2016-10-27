@@ -119,7 +119,7 @@ In the next step when we run `ProteinProphet`, the program is expecting to see f
 
 Also note that we have to run this command individually for each _pep.xml_ file.
 
-~~~`
+~~~
 $ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/xinteract -OpdEAP -PPM -drev -N/data/interact-sample_Q1.pep.xml /data/sample_Q1.pep.xml`
 ~~~
 
