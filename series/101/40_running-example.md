@@ -2,7 +2,7 @@
 title: 'BioContainer example'
 layout: series_item
 series: '101'
-permalink: 101/running-example/
+permalink: /101/running-example/
 estimated-time: 5
 ---
 
@@ -24,7 +24,7 @@ Here is, where **BioContainers** plays his major role. See how to download and "
 
 This is the docker and containers magic, the software is distributed with all the dependencies and shared OS needed to run.
 
-<img class="splashIcon" src="{{ site.baseurl}}img/series/101/what.gif">
+<img class="splashIcon" src="{{ site.baseurl}}/img/series/101/what.gif">
 
 Docker allows applications to be isolated into containers with instructions for exactly what they need to survive that can be easily ported
 from machine to machine. If you have 30 Docker containers that you want to run, you can run them all on a single VM.

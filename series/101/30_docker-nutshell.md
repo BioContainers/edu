@@ -2,7 +2,7 @@
 title: 'Docker in NutShell'
 layout: series_item
 series: '101'
-permalink: 101/docker-nutshell/
+permalink: /101/docker-nutshell/
 estimated-time: 15
 ---
 

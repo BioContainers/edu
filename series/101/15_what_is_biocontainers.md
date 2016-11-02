@@ -2,11 +2,11 @@
 title: 'BioContainers?'
 layout: series_item
 series: '101'
-permalink: 101/what_is_biocontainers/
+permalink: /101/what_is_biocontainers/
 estimated-time: 5
 ---
 
-![Containers]({{ site.baseurl}}img/series/101/docker-gif.gif){:height="250px" class="center"}
+![Containers]({{ site.baseurl}}/img/series/101/docker-gif.gif){:height="250px" class="center"}
 {:style="font-size: 9px; text-align: center"}  
 
 

@@ -2,7 +2,7 @@
 title: 'Getting started'
 layout: series_item
 series: '101'
-permalink: 101/getting_started/
+permalink: /101/getting_started/
 estimated-time: 5
 ---
 
