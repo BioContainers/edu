@@ -61,7 +61,7 @@ Every Dockerfile must have a metadata header with the following items:
 - **Description**: Single line description of the tool.
 - **Website**: URL(s) for the program developer.
 - **Documentation**: URL(s) containing information about how to use the software.
-- **Website**: URL(s) containing Licensing information.
+- **License**: URL(s) containing Licensing information.
 - **Tags**: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General.
 
 ## Image Setting - FROM
