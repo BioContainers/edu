@@ -6,13 +6,13 @@ permalink: /developer-manual/biocotainers-dockerfile/
 estimated-time: 5
 ---
 
-# Biodocker dockerfile template
+# BioContainers dockerfile template
 
-This is a standard template for creating a new Dockerfile for BioDocker:
+This is a standard template for creating a new Dockerfile for BioContainers:
 
-> Note: Please always follow the [best practices](/developer-manual/biocotainers-dockerfile/) and help pages [Using input and Output files](/101/biocontainers-input-output/) information.
+> Note: Please always follow the [best practices](/developer-manual/best-practices/) and help pages [Using input and Output files](/developer-manual/biocontainers-input-output/) information.
 
-Bellow is the complete example of a BioDocker Dockerfile:
+Bellow is the complete example of a BioContainers Dockerfile:
 
 ~~~
 
@@ -26,7 +26,7 @@ Bellow is the complete example of a BioDocker Dockerfile:
 # Website:          http://comet-ms.sourceforge.net/
 # Tags:             Proteomics
 # Provides:         Comet 2015020
-# Base Image:       biodckr/biodocker
+# Base Image:       biocontainers/biocontainers
 # Build Cmd:        docker build --rm -t biodckrdev/comet 2015020/.
 # Pull Cmd:         docker pull biodckr/comet
 # Run Cmd:          docker run --rm -it biodckrdev/comet <options> <files>
@@ -34,8 +34,8 @@ Bellow is the complete example of a BioDocker Dockerfile:
 # Extra:            with new lines if necessary
 #################################################################
 
-# Set the base image to biodocker base image
-FROM biodckr/biodocker
+# Set the base image to biocontainers base image
+FROM biocontainers/biocontainers
 
 ################## BEGIN INSTALLATION ######################
 
@@ -84,7 +84,7 @@ Every Dockerfile must have a header with the following items:
 - **Website**: URL(s) for the program developer
 - **Tags**: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General
 - **Provides**: List of programs.
-- **Base Image**: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biodkr/biodocker image.
+- **Base Image**: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biocontainers/biocontainers image.
 - **Docker commands**: Commands used to build, pull and run the docker image
 - **Extra**: Extra information. this tag can appear multiple times
 
@@ -92,7 +92,7 @@ Every Dockerfile must have a header with the following items:
 
 The next element is the base image and any configuration to the system you are installing:
 
-In the example above the Base Image is defined as biodckr/biodocker which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
+In the example above the Base Image is defined as biocontainers/biocontainers which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
 
 ## Installation - RUN
 
