@@ -134,7 +134,7 @@ CMD ["comet.2015020.linux.exe"]
 ~~~
 
 - Commands should be merged with '&& \' whenever possible in order to create fewer intermediate images.
-- A biodocker user has been created (id 1001) so that applications are not run as root.
+- A BioContainer user has been created (id 1001) so that applications are not run as root.
 - If possible, add the program to /usr/bin, otherwise, add to /home/biodocker/bin
 - return to the regular USER
 - change the WORKDIR to the data folder
