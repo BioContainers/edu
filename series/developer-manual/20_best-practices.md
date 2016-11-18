@@ -57,7 +57,7 @@ RUN acb && \
 ~~~
 
 - Whenever possible, reuse the same base image and use a LTS (Long Term Support) image preferably (Ubuntu 12.04 or 14.04)
-- You can use our biodckr/biodocker image based on ubuntu 14.04 with frequent updates and default folders created
+- You can use our biocontainers/biocontainers image based on ubuntu 14.04 with frequent updates and default folders created
 - Use a .dockerignore file: In most cases, it’s best to put each Dockerfile in an empty directory. Then, add to that directory only the files needed for building the Dockerfile. To increase the build’s performance, you can exclude files and directories by adding a .dockerignore file to that directory as well. This file supports exclusion patterns similar to .gitignore files. For information on creating one, see the .dockerignore file.
 - Avoid installing unnecessary packages: In order to reduce complexity, dependencies, file sizes, and build times, you should avoid installing extra or unnecessary packages just because they might be “nice to have.” For example, you don’t need to include a text editor in a database image.
 - Run only one process per container: In almost all cases, you should only run a single process in a single container. Decoupling applications into multiple containers makes it much easier to scale horizontally and reuse containers. If that service depends on another service, make use of container linking.
@@ -181,14 +181,9 @@ Lastly, to reduce layers and complexity, avoid switching USER back and forth fre
 
 ## Sources and Useful Links
 
-https://github.com/veggiemonk/awesome-docker#optimizing-images
-
-https://labs.ctl.io/optimizing-docker-images/?hvid=1OW0br
-
-https://docs.docker.com/articles/dockerfile_best-practices/
-
-http://csaba.palfi.me/random-docker-tips/
-
-https://docs.docker.com/articles/dockerfile_best-practices/
-
-http://jonathan.bergknoff.com/journal/building-good-docker-images
+- [https://github.com/veggiemonk/awesome-docker#optimizing-images](https://github.com/veggiemonk/awesome-docker#optimizing-images)
+- [https://labs.ctl.io/optimizing-docker-images/?hvid=1OW0br](https://labs.ctl.io/optimizing-docker-images/?hvid=1OW0br)
+- [https://docs.docker.com/articles/dockerfile_best-practices/](https://docs.docker.com/articles/dockerfile_best-practices/)
+- [http://csaba.palfi.me/random-docker-tips/](http://csaba.palfi.me/random-docker-tips/)
+- [https://docs.docker.com/articles/dockerfile_best-practices/](https://docs.docker.com/articles/dockerfile_best-practices/)
+- [http://jonathan.bergknoff.com/journal/building-good-docker-images](http://jonathan.bergknoff.com/journal/building-good-docker-images)
