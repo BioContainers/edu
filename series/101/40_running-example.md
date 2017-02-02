@@ -59,17 +59,19 @@ First, we should download two databases:
  $ gunzip *.faa.gz
 ~~~
 
-Now, we can take the first 20 proteins from mouse to be search against  zebrafish:
+Because both files are considerable large for Blasting them, lets just extract 2 example proteins from the mouse FASTA file and use them to query the zebrafish database. By quickly looking the head of the file we can see that the first two  proteins can be retrieved by getting the first 19 lines of the file, ten we can run the head command and redirect the output to a new file.
 
 ~~~
- $ head -20   mouse.1.protein.faa > mm-first.fa
+ $ head -19   mouse.1.protein.faa > mm-first.fa
 ~~~
 
-No, we need to prepare the zebrafish database with `makeblastdb` for the search:
+No, we need to prepare the zebrafish database with `makeblastdb` for the search, but first we need to make our files available inside the containers. The docker daemon accepst a parameter called volume (-v), it allows us to map a folder from our operating system inside the container, that way all files will be visible in both directions. In the example below, I'm mapping the folder /Users/yperez/workplace (my computer) into /data/ (the container).
+When running the command on your computer, you should use the correct paths for your files.
 
 ~~~
  $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 ~~~
+
 
 {% alert info %}                                                                                                                  
 
