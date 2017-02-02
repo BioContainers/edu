@@ -72,64 +72,43 @@ The next element is the base image and any configuration to the system you are i
 
 In the example above the Base Image is defined as biocontainers/biocontainers which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
 
-## Installation - RUN
-
-The installation area is where you instructions to build the software will be defined. Here is the correct place to put Dockerfile syntax and system commands.
-
-~~~
-
-################### BEGIN INSTALLATION ########################
-
-# Change user to root
-USER root
-
-# UPDATE APT, INSTALL PREREQUISITES AND CLEAN CACHE
-RUN apt-get clean all && \
-    apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y wget && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# ADD FILES
-ADD comet.2015020.linux.exe /home/biodocker/bin/
-
-# RUN COMMANDS
-RUN chmod +x /home/biodocker/bin/comet.2015020.linux.exe
-
-# Change user to back to biodocker
-USER biodocker
-
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
-
-# DEFINE DEFAULT COMMAND
-CMD ["comet.2015020.linux.exe"]
-
-#################### END INSTALLATION #########################
-
-~~~
-
-- Commands should be merged with '&& \' whenever possible in order to create fewer intermediate images.
-- A BioContainer user has been created (id 1001) so that applications are not run as root.
-- If possible, add the program to /usr/bin, otherwise, add to /home/biodocker/bin
-- return to the regular USER
-- change the WORKDIR to the data folder
-- set the VOLUMEs to be exported (/data and /config are exported by default by the base image)
-- EXPOSE ports (if necessary)
-
-
 ## Signature - MAINTAINER
 
 The File Author/ Maintainer signature. By default the Dockerfile only accepts one MAINTAINER tag. This will be the place the original author name. After updates are added to the file, the contributors name should appear in commented lines.
 
 ~~~
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Yasset Perez-Riverol. 7edf3b0
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br
 
 ~~~
 
-The number after Yasset name is the 7 first digits of the commit.
+## Installation - RUN
+
+The installation area is where you instructions to build the software will be defined. Here is the correct place to put Dockerfile syntax and system commands.
+
+~~~
+USER biodocker
+
+RUN ZIP=comet_binaries_2016012.zip && \
+  wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+  unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+  chmod -R 755 /home/biodocker/bin/Comet/* && \
+  rm /tmp/$ZIP
+
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
+
+ENV PATH /home/biodocker/bin/Comet:$PATH
+
+WORKDIR /data/
+
+CMD ["comet"]
+~~~
+
+- Commands should be merged with '&& \' whenever possible in order to create fewer intermediate images.
+- A biodocker user has been created (id 1001) so that applications are not run as root.
+- If possible, add the program to /usr/bin, otherwise, add to /home/biodocker/bin
+- return to the regular USER
+- change the WORKDIR to the data folder
+- set the VOLUME to be exported (/data and /config are exported by default by the base image)
+- EXPOSE ports (if necessary)
