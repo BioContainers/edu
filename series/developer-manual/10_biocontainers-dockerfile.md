@@ -6,13 +6,13 @@ permalink: /developer-manual/biocotainers-dockerfile/
 estimated-time: 5
 ---
 
-# Biodocker dockerfile template
+# BioContainers dockerfile template
 
-This is a standard template for creating a new Dockerfile for BioDocker:
+This is a standard template for creating a new Dockerfile for BioContainers:
 
-> Note: Please always follow the [best practices](/developer-manual/biocotainers-dockerfile/) and help pages [Using input and Output files](/101/biocontainers-input-output/) information.
+> Note: Please always follow the [best practices](/developer-manual/best-practices/) and help pages [Using input and Output files](/developer-manual/biocontainers-input-output/) information.
 
-Bellow is the complete example of a BioDocker Dockerfile:
+Bellow is the complete example of a BioContainers Dockerfile:
 
 ~~~
 # Base Image
@@ -64,11 +64,13 @@ Every Dockerfile must have a metadata header with the following items:
 - **License**: URL(s) containing Licensing information.
 - **Tags**: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General.
 
+
+
 ## Image Setting - FROM
 
 The next element is the base image and any configuration to the system you are installing:
 
-In the example above the Base Image is defined as biodckr/biodocker which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
+In the example above the Base Image is defined as biocontainers/biocontainers which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
 
 ## Installation - RUN
 
@@ -110,7 +112,7 @@ CMD ["comet.2015020.linux.exe"]
 ~~~
 
 - Commands should be merged with '&& \' whenever possible in order to create fewer intermediate images.
-- A biodocker user has been created (id 1001) so that applications are not run as root.
+- A BioContainer user has been created (id 1001) so that applications are not run as root.
 - If possible, add the program to /usr/bin, otherwise, add to /home/biodocker/bin
 - return to the regular USER
 - change the WORKDIR to the data folder
