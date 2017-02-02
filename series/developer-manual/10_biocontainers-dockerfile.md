@@ -15,78 +15,56 @@ This is a standard template for creating a new Dockerfile for BioContainers:
 Bellow is the complete example of a BioContainers Dockerfile:
 
 ~~~
+# Base Image
+FROM biocontainers/biocontainers:latest
 
-#################################################################
-# Dockerfile
-#
-# Version:          1
-# Software:         Comet
-# Software Version: 2015020
-# Description:      basic local alignment search tool
-# Website:          http://comet-ms.sourceforge.net/
-# Tags:             Proteomics
-# Provides:         Comet 2015020
-# Base Image:       biocontainers/biocontainers
-# Build Cmd:        docker build --rm -t biodckrdev/comet 2015020/.
-# Pull Cmd:         docker pull biodckr/comet
-# Run Cmd:          docker run --rm -it biodckrdev/comet <options> <files>
-# Extra:            Extra information
-# Extra:            with new lines if necessary
-#################################################################
+# Metadata
+LABEL base.image="biocontainers:latest"
+LABEL version="3"
+LABEL software="Comet"
+LABEL software.version="2016012"
+LABEL description="an open source tandem mass spectrometry sequence database search tool"
+LABEL website="http://comet-ms.sourceforge.net/"
+LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
+LABEL license="http://comet-ms.sourceforge.net/"
+LABEL tags="Proteomics"
 
-# Set the base image to biocontainers base image
-FROM biocontainers/biocontainers
+# Maintainer
+MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
 
-################## BEGIN INSTALLATION ######################
-
-# Change user to root
-USER root
-
-# UPDATE APT, INSTALL PREREQUISITES AND CLEAN CACHE
-RUN apt-get clean all && \
-    apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y wget && \
-    apt-get clean && \
-    apt-get purge && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# ADD FILES
-ADD comet.2015020.linux.exe /home/biodocker/bin/
-
-# RUN COMMANDS
-RUN chmod +x /home/biodocker/bin/comet.2015020.linux.exe
-
-# CHANGE USER BACK TO BIODOCKER
 USER biodocker
 
-# CHANGE WORKDIR TO /DATA
-WORKDIR /data
+RUN ZIP=comet_binaries_2016012.zip && \
+  wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+  unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+  chmod -R 755 /home/biodocker/bin/Comet/* && \
+  rm /tmp/$ZIP
 
-# DEFINE DEFAULT COMMAND
-CMD ["comet.2015020.linux.exe"]
+RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
 
-##################### INSTALLATION END #####################
+ENV PATH /home/biodocker/bin/Comet:$PATH
 
-# File Author / Maintainer
-MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
-# Modified by Yasset Perez-Riverol. 7edf3b0
+WORKDIR /data/
+
+CMD ["comet"]
 ~~~
+
 
 ## Header
 
-Every Dockerfile must have a header with the following items:
+Every Dockerfile must have a metadata header with the following items:
 
+- **Base Image**: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biocontainers/biocontainers image.
 - **Dockerfile Version**: This is a single-number version system (ex: v1, v2, v3 ...). Every change in the file must increase in 1.
 - **Software**: The name of the software installed inside the container. This can be a little tricky because some software demand libraries or dependencies. In this case the idea is to describe the "principal" software of the container, or the reason for built it.
 - **Software Version**: The version of the software installed.
-- **Description**: Single line description of the tool
-- **Website**: URL(s) for the program developer
-- **Tags**: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General
-- **Provides**: List of programs.
-- **Base Image**: All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biocontainers/biocontainers image.
-- **Docker commands**: Commands used to build, pull and run the docker image
-- **Extra**: Extra information. this tag can appear multiple times
+- **Description**: Single line description of the tool.
+- **Website**: URL(s) for the program developer.
+- **Documentation**: URL(s) containing information about how to use the software.
+- **License**: URL(s) containing Licensing information.
+- **Tags**: Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General.
+
+
 
 ## Image Setting - FROM
 
