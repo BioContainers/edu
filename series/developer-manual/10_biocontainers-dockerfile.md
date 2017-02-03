@@ -10,7 +10,7 @@ estimated-time: 5
 
 This is a standard template for creating a new Dockerfile for BioContainers:
 
-> Note: Please always follow the [best practices](/developer-manual/best-practices/) and help pages [Using input and Output files](/developer-manual/biocontainers-input-output/) information.
+> Note: Please always follow the [best practices](/docs/developer-manual/best-practices/) and help pages [Using input and Output files](/docs/developer-manual/biocontainers-input-output/) information.
 
 Bellow is the complete example of a BioContainers Dockerfile:
 
