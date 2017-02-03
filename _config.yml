@@ -19,3 +19,6 @@ series:
     "containers-examples":
       desc: "Containers Examples"
       sort: 4
+    "presentations":
+      desc: "Presentations"
+      sort: 5
