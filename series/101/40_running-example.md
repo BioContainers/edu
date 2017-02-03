@@ -7,9 +7,9 @@ estimated-time: 5
 ---
 
 {% alert warn %}
-We will run the first example with blast. The Basic Local Alignment Search Tool for comparing primary biological sequence
+We will run the first example with BLAST. The Basic Local Alignment Search Tool for comparing primary biological sequence
 information, such as the amino-acid sequences of different proteins or the nucleotides of DNA sequences.
-We chose blast becuase is one of the most used and uaseful software in bioinformatics.
+We chose BLAST becuase is one of the most sommon and useful software in bioinformatics.
 {% endalert %}
 
 First step to be able to run any software is to install it. This can be a difficult and challenged process starting by download
@@ -34,7 +34,7 @@ from machine to machine. If you have 30 Docker containers that you want to run, 
  requirements available before factoring the hypervisor for them to run on with the base OS.
 {% endalert %}
 
-### Running blast
+### Running BLAST
 
 ~~~
  $ docker run biocontainers/blast blastp -help
@@ -49,27 +49,33 @@ use in the container.
  local machine, you can use the following command: `$ docker images`
 {% endalert %}
 
+For this example let's try something practical, suppose that we are molecular biologists studying [prion proteins](https://en.wikipedia.org/wiki/PRNP), and we want to find out if the zebrafish, a model organism, has a prion protein similar to the human form.
 
-First, we should download two databases:
+1) Downloading the human prion sequence
 
-~~~
- $ curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz
- $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-
- $ gunzip *.faa.gz
-~~~
-
-Now, we can take the first 20 proteins from mouse to be search against  zebrafish:
+We can grab the huma prion FASTA sequence from UniProt:
 
 ~~~
- $ head -20   mouse.1.protein.faa > mm-first.fa
+$ wget http://www.uniprot.org/uniprot/P04156.fasta
 ~~~
 
-No, we need to prepare the zebrafish database with `makeblastdb` for the search:
+2) Downloading the zebrafish database
+
+Now, lets download and unpack our database, from NCBI
+
+~~~
+$ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+$ gunzip zebrafish.1.protein.faa.gz
+
+3) Preparing the database
+
+We need to prepare the zebrafish database with `makeblastdb` for the search, but first we need to make our files available inside the containers. The docker daemon has a parameter called volume (-v), it allows us to map a folder from our operating system inside the container, that way all files in that folder will be visible inside the container, and the BLAST results will also be available to us, outside the container. In the example below, I'm mapping the folder /Users/yperez/workplace (my computer) into /data/ (the container). When running the command on your computer, you should use the correct paths for your files.
 
 ~~~
  $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 ~~~
+
+The programs log will be displayed on the terminal, indicating if the program finished correctly. Also, you will see some new files on your local folder, those are part of the BLAST database.
 
 {% alert info %}                                                                                                                  
 
@@ -78,25 +84,28 @@ No, we need to prepare the zebrafish database with `makeblastdb` for the search:
 
 {% endalert %}
 
-
-No, that you know, how to run a container with all the tricks, then lets go for the final alignment:
+No, that you know how to run a container with all the tricks, then lets go for the final alignments:
 
 ~~~
- $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast blastp -query mmfirst.fa -db zebrafish.1.protein.faa
+ $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ~~~
 
-DONE.
+The results will be saved on the results.txt file, then you can proceed to analyse the matches. By looking the list of the best hits we can observe that zebrafish has a few predicted proteins matching to the human prion with better scores than the 
+predicted prion protein (score:33.9, e-value: 0.22). That's interesting isn't ? 
 
-### Final Steps
+Now that you have enough information to start comparing sequences using BLAST, you can move your analysis even further.
+
+We hope that this short example can provide some light on how important and easy it is to run containerized software.
+
+### Summary
 
 ~~~
  $ cd /home/user/workplace
  $ docker pull biocontainers/blast
  $ docker run biocontainers/blast blastp -help
- $ curl -O ftp://ftp.ncbi.nih.gov/refseq/M_musculus/mRNA_Prot/mouse.1.protein.faa.gz    
+ $ wget http://www.uniprot.org/uniprot/P04156.fasta    
  $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
- $ gunzip *.faa.gz
- $ head -20   mouse.1.protein.faa > mm-first.fa
- $ docker run -v /home/user/workplace:/data/ biocontainers/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
- $ docker run -v /home/user/workplace:/data/ biocontainers/blast blastp -query mmfirst.fa -db zebrafish.1.protein.faa
+ $ gunzip zebrafish.1.protein.faa.gz
+ $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+ $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ~~~

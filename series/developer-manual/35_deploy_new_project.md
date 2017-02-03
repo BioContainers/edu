@@ -18,10 +18,7 @@ In order to deploy a new Docker project with your software you must follow this 
 
 4. Build the container in your own computer and test the image. If it works properly, then you may follow.
 
-5. Push the container to your fork of our Sandbox and create an pull request following our contribution guidelines: 
- * https://github.com/BioContainers/biodocker/blob/master/CONTRIBUTING.md
-
- * If you can't do that, send a message to the <biodockers@gmail.com> so that we can help you adding your program.
+5. Push the container to your fork of our Sandbox and create an pull request following our [contribution guidelines](https://github.com/BioContainers/specs/blob/master/CONTRIBUTING.md).If you can't do that, send a message to the <biodocker@gmail.com> so that we can help you adding your program.
 
 6. Upon acceptance, we will create an <a href="https://docs.docker.com/docker-hub/builds/">automatic build</a> on DockerHub (this will allow people to search for the container using docker search).
 
