@@ -1,5 +1,5 @@
 ---
-title: 'Getting started'
+title: 'User Getting started'
 layout: series_item
 series: '101'
 permalink: /101/getting_started/
@@ -8,20 +8,22 @@ estimated-time: 5
 
 #### This page will help you prepare your computer for BioContainers
 
-You will need to work in a terminal using __`docker`__ and __`git`__.
+You will need to work in a terminal using __`docker`__ .
 
-* [Git](https://github.com) is a version control system that will keep track of the changes you have made in code. [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947)
+{% hlblock info %}
+We will provide mainly examples using **docker**, the Bicontainers team is working in examples and documentation based on **rkt**.
+{% endhlblock %}
+
 * [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as:
  [docker](https://docs.docker.com/), [docker engine](https://docs.docker.com/engine/installation/), [docker hub](https://docs.docker.com/docker-hub/).
 
 
 {% hlblock check %}
 
-Open your terminal of choice and check whether you have both commands (`docker`, `git`) installed. You should run these without
+Open your terminal of choice and check whether you have the command (`docker`) installed. You should run these without
 any error.
 
 ~~~
-git help
 docker help
 ~~~
 
@@ -29,16 +31,17 @@ docker help
 
 If your machine is already set up, continue to the [tutorial](/101/modularity).
 
+{% hlblock info %}
+The following sections provided a short summary of Howto install **docker**, if these steps do not work for you please refer to the
+full documentation in [docker](https://docs.docker.com/). You can also get in contact with us using [Specifications Issues](https://github.com/BioContainers/specs).
+{% endhlblock %}
+
+
 Otherwise, choose your operating system below to learn more:
 
 - [__Mac__](#mac)
 - [__Linux__](#linux)
 - [__Windows__](#windows)
-
-
-{% hlblock info %}
-If you want to fresh up your `git` skills, check out the [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947) or [15 minutes interactive lesson](https://try.github.io/levels/1/challenges/1) by Codeschool.
-{% endhlblock %}
 
 {% hlblock question %}
 What does `docker` stand for?
@@ -131,3 +134,9 @@ After downloading the [InstallDocker.msi](https://download.docker.com/win/stable
 3- You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
 
 Click Finish on the setup complete dialog to launch Docker.
+
+
+
+More Links:
+
+-

@@ -20,19 +20,23 @@ Our education portal is work in progress. So if you encounter a logical inconsis
 
 [![Slack](https://img.shields.io/badge/slack-join%20chat-ff69b4.svg)](https://biocontainers.slack.com){:target="_blank"} &nbsp; &nbsp; &nbsp; [![Gitter](https://badges.gitter.im/BioJS.png)](https://gitter.im/biocontainers/Lobby){:target="_blank"}  &nbsp; &nbsp; &nbsp;   [![IRC](https://img.shields.io/badge/irc-%23BioContainers-yellow.svg)](https://kiwiirc.com/client/irc.freenode.net/BioContainers){:target="_blank"}
 
-We also maintain a public [Github wiki][wiki] and have a [mailing list][groups].
-For technical queries (questions, suggestions, proposal or bug reports) [Github issues](https://github.com/BioContainers/BioContainers/issues) are preferred.
+
+- For technical queries realted with the Biocontainers specification (questions, suggestions, proposal) [Specification Github issues](https://github.com/BioContainers/specs/issues) are preferred.
+
+- For technical questiosn related with containers (broken containers, containers request) [Containers Issues ](https://github.com/BioContainers/containers/issues) are preferred.
 
 If you find a typo or want to help us to make this tutorial even better, you are invited to click on "Improve this page".
 
 [gitter]: https://gitter.im/biocontainers/Lobby
+
 [containers issue]: https://github.com/BioContainers/containers/issues
+
 [specification issue]: https://github.com/BioContainers/specs/issues
 
 Concepts in this tutorial
 ------------------------
 
-* Containers, Docker
+* Containers, Docker, rkt
 * Docker containers creation and deployment
 * Minimal rules -> conventions and gold standards
 
