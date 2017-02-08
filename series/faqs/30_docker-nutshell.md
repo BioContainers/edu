@@ -116,6 +116,21 @@ $ docker run -i -t ubuntu /bin/bash
 >What Docker image to build the container from, for example: **ubuntu**
 >The command you want to run inside the container when it is launched, for example: **/bin/bash**
 
+### DockerHub Automated Builds
+
+DockerHub provides limited resources for automated builds. Sometimes, depending on how your program compiles, you may end up having problems trying to build your image. Last time we checked, DockerHub is providing the following resources:
+
+* 2 hours
+* 2 GB RAM
+* 1 CPU
+* 30 GB Disk Space
+
+If you want to containerize your software, make sure that you are not using more than provided or else the image will not be available through the Docker Registry.
+
+## How to avoid Timeouts
+
+One of the problems are are facing with some images is the `TimeOut` error. This happens when the compilation time takes more than 2 hours. In order to avoid this, one strategy is to break your build in separate Dockerfile recipes, and then use the `FROM` command to import them.
+
 ## References:
 
 - [Understand Docker Architecture](https://docs.docker.com/engine/understanding-docker/)

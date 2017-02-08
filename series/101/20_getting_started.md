@@ -135,8 +135,3 @@ After downloading the [InstallDocker.msi](https://download.docker.com/win/stable
 
 Click Finish on the setup complete dialog to launch Docker.
 
-
-
-More Links:
-
--

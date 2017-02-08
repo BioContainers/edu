@@ -179,6 +179,28 @@ Lastly, to reduce layers and complexity, avoid switching USER back and forth fre
 
 - Images should be based on the latest LTS image available (Ubuntu 12.04 and 14.04) or to one of our images
 
+## Using the BioContainers base image
+
+BioContainers project is using a custom base image for most of its containers. The image is based on Ubuntu Trusty 14.04 LTS
+and its going to be updated frequently.
+
+## Image name and versions
+
+[biodckr/biodocker:latest](https://github.com/Biocontainers/containers/blob/master/base/Dockerfile)
+
+## Core Software and Packages
+* curl
+* fuse
+* git
+* wget
+* zip
+* openjdk-7-jre
+* build-essential
+* python
+* python-dev
+* python-pip
+* zlib1g-dev
+
 ## Sources and Useful Links
 
 - [https://github.com/veggiemonk/awesome-docker#optimizing-images](https://github.com/veggiemonk/awesome-docker#optimizing-images)
