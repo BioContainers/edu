@@ -22,7 +22,7 @@ layout: front
 
           <div class="inner cover">
             <h1 class="cover-heading" style="font-size:60px">Learn BioContainers</h1>
-            <p class="lead">Bioifomratics more accessible & reproducible</p>
+            <p class="lead">Bioinformatics more accessible & reproducible</p>
             <p class="lead">
               <a href="101/intro" class="btn btn-lg btn-default" id="getStarted"><img src="{{ site.baseurl }}/img/logo.png" width="30px"> Get Started</a>
             </p>
