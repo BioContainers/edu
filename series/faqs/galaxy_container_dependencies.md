@@ -1,3 +1,11 @@
+---
+title: 'Galaxy Integration'
+layout: series_item
+series: 'faqs'
+permalink: /faqs/galaxy-biocontainers/
+estimated-time: 15
+---
+
 ================================
 Containers for Tool Dependencies
 ================================
@@ -12,7 +20,7 @@ there are many use-cases in the Galaxy community which makes containerized syste
 Since 2014 Galaxy supports running tools in Docker containers via a special `container annotation`_ inside of the
 requirement field.
 
-.. code-block:: xml
+~~~
 
     <requirements>
         <!-- Container based dependency handling -->
@@ -21,6 +29,7 @@ requirement field.
         <requirement type="package" version="8.22">gnu_coreutils</requirement>
     </requirements>
 
+~~~
 
 This approach has shown two limitations that slowed down the adoption by tool developers.
 First, every tool needs to be annotated with a container name (as shown above) and this container needs
@@ -49,28 +58,30 @@ We have developed small utilities around this technology stack which is currentl
 Here is a short introduction:
 
 Search for containers
-^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
 
 This will search for containers in the biocontainers organisation.
 
-.. code-block:: bash
+~~~
 
-   $ mulled-search -s vsearch -o biocontainers
+$ mulled-search -s vsearch -o biocontainers
 
+~~~
 
 Build all packages from bioconda from the last 24h
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------
 
 The BioConda community is building a container for every package they create with a command similar to this.
 
-.. code-block:: bash
+~~~
 
-   $ mulled-build-channel --channel bioconda --namespace biocontainers \
+$ mulled-build-channel --channel bioconda --namespace biocontainers \
       --involucro-path ./involucro --recipes-dir ./bioconda-recipes --diff-hours 25 build
 
+~~~
 
 Building Docker containers for local Conda packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------
 
 Conda packages can be tested with creating a busybox based container for this particular package in the following way.
 This also demonstrates how you can build a container locally and on-the-fly.
@@ -79,29 +90,28 @@ This also demonstrates how you can build a container locally and on-the-fly.
 
 1) build your recipe
 
-.. code-block:: bash
-
-   $ conda build recipes/samtools
+~~~
+$ conda build recipes/samtools
+~~~
 
 2) index your local builds
 
-.. code-block:: bash
-
-   $ conda index /home/bag/miniconda2/conda-bld/linux-64/
-
+~~~
+$ conda index /home/bag/miniconda2/conda-bld/linux-64/
+~~~
 
 3) build a container for your local package
 
-.. code-block:: bash
-
-   $ mulled-build build-and-test 'samtools=3.0--0' \
+~~~
+$ mulled-build build-and-test 'samtools=3.0--0' \
       --extra-channel file://home/bag/miniconda2/conda-bld/ --test 'samtools --help'
+~~~
 
 The ``--0`` indicates the build version of the conda package. It is recommended to specify this number otherwise
 you will override already existing images. For Python Conda packages this extension might look like this ``--py35_1``.
 
 Build, test and push a conda-forge package to biocontainers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------------
 
  > You need to have write access to the biocontainers repository
 
@@ -110,19 +120,16 @@ conda-forge channel and conda-forge is also enabled by default in Galaxy. To bui
 you could do something along these lines.
 
 
-.. code-block:: bash
+~~~
 
    $ mulled-build build-and-test 'pandoc=1.17.2--0' --test 'pandoc --help' -n biocontainers
-
-.. code-block:: bash
-
    $ mulled-build push 'pandoc=1.17.2--0' --test 'pandoc --help' -n biocontainers
+~~~
 
-
-.. _Galaxy Conda documentation: ./conda_faq.rst
-.. _IUC: https://wiki.galaxyproject.org/IUC
-.. _container annotation:  https://github.com/galaxyproject/galaxy/blob/dev/test/functional/tools/catDocker.xml#L4
-.. _BioContainers: https://github.com/biocontainers
-.. _bioconda: https://github.com/bioconda/bioconda-recipes
-.. _BioContainers Quay.io account: https://quay.io/organization/biocontainers
-.. _galaxy-lib: https://github.com/galaxyproject/galaxy-lib
+- Galaxy Conda documentation: ./conda_faq.rst
+- IUC: https://wiki.galaxyproject.org/IUC
+- container annotation:  https://github.com/galaxyproject/galaxy/blob/dev/test/functional/tools/catDocker.xml#L4
+- BioContainers: https://github.com/biocontainers
+- bioconda: https://github.com/bioconda/bioconda-recipes
+- BioContainers Quay.io account: https://quay.io/organization/biocontainers
+- galaxy-lib: https://github.com/galaxyproject/galaxy-lib
