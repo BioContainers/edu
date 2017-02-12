@@ -25,3 +25,5 @@ BioContainers has two major ways of creating containers: **Dockefile based image
 
 
 ### Developing Dockerfile-less containers
+
+BioContainers offers a very easy way to create effcient containers that are minimal in size, tested and not rely on writing a Dockerfile. The preferred way to do this is to write a [conda package](https://conda.pydata.org) and submit this it the bioconda communtiy. As soon as your PR is merged and continues integration testing was successful, we will build you automatically a container and publish it at [quay.io/biocontainers](https://quay.io/organization/biocontainers). To read more about the conda packaging format, which we think has many advantages over plain Dockerfiles, can read the [Contribution Guide](https://bioconda.github.io/contributing.html) of BioConda or the even more detailed [Conda build](http://conda.pydata.org/docs/building/) documentation. 
