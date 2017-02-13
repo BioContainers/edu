@@ -105,19 +105,17 @@ a BioConda recipe should contain the following parts ():
 Example Yaml for bowtie2:
 
 ~~~
-{% set name = "unicycler" %}
-{% set version = "0.3.0b" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: unicycler
+  version: 0.3.0b
 
 build:
   number: 0
   skip: True # [py27]
 
 source:
-  fn: {{ name|lower }}_{{ version }}.tar.gz
+  fn: unicycler_0.3.0b.tar.gz
   url: https://github.com/rrwick/Unicycler/archive/906a3e7f314c7843bf0b4edf917593fc10baee4f.tar.gz
   md5: 5f06d2bd8ef5065c8047421db8c7895f
 
