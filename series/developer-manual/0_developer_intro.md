@@ -18,7 +18,7 @@ If you want to fresh up your `git` skills, check out the [Full Introduction for 
 Developing containers
 -----------------------
 
-BioContainers has two major ways of creating containers: **Dockefile based images** and **DockerFile less images**
+BioContainers has two major ways of creating containers: **Dockefile based images** and **mulled images**
 
 ### Developing Dockerfile based containers
 
@@ -26,16 +26,19 @@ The first method correspond to the traditional way of creating a container. In o
 called Dockerfile. But first, lets review each step necessary before having a Docker container.
 
 1) Install Docker
+
 Make sure that you have the docker daemon installed on your system. You can check [here](http://biocontainers.pro/docs/101/getting_started/) for more information on how to find the proper
 guidelines for you.
 
 
 2) Have a Software to Work with
+
 Make sure you have a piece of software capable of being containerized. The BioContainers base image is based
 on an Ubuntu distribution, so your software and its libraries must be compatible to Linux.
 
 
 3) Read the Documentation
+
 For a Docker container you basically need a simple Dockerfile, but our BioContainers project is based on a series
 of specifications and guidelines, so before start creating your Dockerfile we suggest you to read our [documentation](http://biocontainers.pro/docs/developer-manual/biocotainers-dockerfile/)
 first, there you will find out, amongst other things, how o create a Dockerfile compatible with BioContainers.
@@ -52,11 +55,15 @@ Once you have everything in place, you need now to figure out how to add your so
 5) Build the Container
 In order to build the container you need to use the docker daemon with the `build` command:
 
-`$ docker build -t <name> <folder_with_dockerfile>`
+~~~
+$ docker build -t <name> <folder_with_dockerfile>
+~~~
 
 So, if you are running this command in the same folder the Dockerfile is, we can type something like this:
 
-`$docker build -t MyApp .`
+~~~
+$docker build -t MyApp .
+~~~
 
 In the following minutes you will see the log output from the docker daemon while it builds your container.
 
@@ -98,48 +105,51 @@ a BioConda recipe should contain the following parts ():
 Example Yaml for bowtie2:
 
 ~~~
-about:
-  home: 'http://bowtie-bio.sourceforge.net/bowtie2/index.shtml'
-  license: GPLv3
-  summary: Fast and sensitive read alignment
+{% set name = "unicycler" %}
+{% set version = "0.3.0b" %}
 
 package:
-  name: bowtie2
-  version: 2.3.0
-
-source:
-  fn: bowtie2-2.3.0-source.zip
-  url: http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.3.0/bowtie2-2.3.0-source.zip
-  sha256: f9f841e780e78b1ae24b17981e2469e6d5add90ec22ef563af23ae2dd5ca003c
-  patches:
-    - bowtie2.patch
+  name: {{ name|lower }}
+  version: {{ version }}
 
 build:
-  number: 1
+  number: 0
+  skip: True # [py27]
+
+source:
+  fn: {{ name|lower }}_{{ version }}.tar.gz
+  url: https://github.com/rrwick/Unicycler/archive/906a3e7f314c7843bf0b4edf917593fc10baee4f.tar.gz
+  md5: 5f06d2bd8ef5065c8047421db8c7895f
 
 requirements:
   build:
-    - gcc   # [linux]
-    - llvm  # [osx]
-    - python
-    - tbb
+  - python
+  - setuptools
+  - gcc
+
   run:
-    - python
-    - perl-threaded
-    - libgcc    # [linux]
-    - tbb
+  - python
+  - libgcc
+  - spades >=3.6.2
+  - pilon
+  - java-jdk
+  - bowtie2
+  - samtools >=1.0
+  - blast
+  - freebayes
 
 test:
   commands:
-    - bowtie2 --help
-    - bowtie2-align-l --help
-    - bowtie2-align-s --help
-    - bowtie2-build --help
-    - bowtie2-build-l --help
-    - bowtie2-build-s --help
-    - bowtie2-inspect --help
-    - bowtie2-inspect-l --help
-    - bowtie2-inspect-s --help
+    - unicycler -h
+    - unicycler_align -h
+    - unicycler_check -h
+    - unicycler_polish -h
+
+about:
+  home: https://github.com/rrwick/Unicycler
+  license: GPL-3.0
+  license_file: LICENSE
+  summary: 'Hybrid assembly pipeline for bacterial genomes'
 ~~~
 
 When the recipe is ready a Pull Request should be created (https://bioconda.github.io/contribute-a-recipe.html#push-changes-wait-for-tests-to-pass-submit-pull-request). Finally
