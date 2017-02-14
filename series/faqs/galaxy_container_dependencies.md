@@ -54,7 +54,12 @@ We utilize [mulled](https://github.com/mulled/mulled) with [involucro](https://g
 in an automatic way. This is for example used to convert all packages in bioconda_ into Linux Containers
 (Docker and rkt at the moment) and made available at the `BioContainers Quay.io account`_.
 
-We have developed small utilities around this technology stack which is currently included in galaxy-lib_.
+We have developed small utilities around this technology stack which is currently included in galaxy-lib.
+
+```
+pip install galaxy-lib
+```
+
 Here is a short introduction:
 
 Search for containers
