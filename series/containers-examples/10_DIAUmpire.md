@@ -46,7 +46,7 @@ The workspace folder will be where we are going to execute all commands from now
 
 ## Getting the parameter files
 
-To run the pipeline we need some parameter files from the different program we will run. Go to the [DIA-Umpire repository](https://github.com/BioContainers/containers/tree/master/dia-umpire/2.1.2/input), download all 5 files there, and place them inside the `input` folder.
+To run the pipeline we need some parameter files from the different program we will run. Go to the [DIA-Umpire repository](https://github.com/BioContainers/containers/tree/master/dia-umpire/1.4256/input), download all 5 files there, and place them inside the `input` folder.
 
 ### a note about sharing folders with containers
 
