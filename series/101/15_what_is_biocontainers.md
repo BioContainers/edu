@@ -54,7 +54,7 @@ What is BioContainers?
 ----------------------
 
 <a href="http://biocontainers.pro">BioContainers</a> is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute Bioinformatics containers with special focus in Proteomics, Genomics, Transcriptomics and Metabolomics.
-BioContainers is based in the popular frameworks **Docker framework** and **rkt**. A revolutionary platforms for developers and sysadmins to build, ship, and run applications
+BioContainers is based on the popular frameworks **Docker framework** and **rkt**. A revolutionary platforms for developers and sysadmins to build, ship, and run applications
 anywhere. For example, with Docker you can build an image containing your software and all dependencies and ship it ready to use (see <a href="#what-is-docker">Details</a>).
 
 ## BioContainers Goals
