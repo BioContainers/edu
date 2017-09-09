@@ -26,4 +26,4 @@ As with Docker, alternative registries can be used by specifying the registry as
 > rkt --insecure-options=image fetch docker://quay.io/biocontainers/blast
 ~~~
 
-Since the BioContainers images have no difference from traditional ones, you can use also use `rkt` to manage and execute the containers.
+Since the BioContainers images have no difference from traditional ones, you can also use `rkt` to manage and execute the containers.
