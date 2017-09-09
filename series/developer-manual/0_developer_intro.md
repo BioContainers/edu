@@ -41,7 +41,7 @@ on an Ubuntu distribution, so your software and its libraries must be compatible
 
 For a Docker container you basically need a simple Dockerfile, but our BioContainers project is based on a series
 of specifications and guidelines, so before start creating your Dockerfile we suggest you to read our [documentation](http://biocontainers.pro/docs/developer-manual/biocotainers-dockerfile/)
-first, there you will find out, amongst other things, how o create a Dockerfile compatible with BioContainers.
+first, there you will find out, amongst other things, how to create a Dockerfile compatible with BioContainers.
 
 
 4) Adding Things to the Container
