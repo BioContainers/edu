@@ -66,12 +66,12 @@ Now, lets download and unpack our database, from NCBI
 ~~~
 $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
 $ gunzip zebrafish.1.protein.faa.gz
+~~~
 
 3) Preparing the database
 
 We need to prepare the zebrafish database with `makeblastdb` for the search, but first we need to make our files available inside the containers. The docker daemon has a parameter called volume (-v), it allows us to map a folder from our operating system inside the container, that way all files in that folder will be visible inside the container, and the BLAST results will also be available to us, outside the container. In the example below, I'm mapping the folder /Users/yperez/workplace (my computer) into /data/ (the container). When running the command on your computer, you should use the correct paths for your files.
 
-~~~
 
 ~~~
  $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast makeblastdb -in zebrafish.1.protein.faa -dbtype prot
