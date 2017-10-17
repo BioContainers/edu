@@ -73,7 +73,7 @@ Once the container is ready you should test it, try to run your program using th
 
 
 7) contribute
-If everything looks OK, you can contribute to the BioContainers project by sending us your Docekerfile. You can follow the instructions we have [here](https://github.com/BioContainers/containers/blob/master/blast/2.2.31/Dockerfile), and after ready, your software will be available using the docker daemon fetch command. 
+If everything looks OK, you can contribute to the BioContainers project by sending us your **Dockerfile**. You can follow the instructions we have [here](https://github.com/BioContainers/containers/blob/master/blast/2.2.31/Dockerfile), and after **ready**, your software will be available using the docker daemon fetch command. 
 
 
 ### Developing mulled containers
