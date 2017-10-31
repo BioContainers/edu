@@ -9,11 +9,11 @@ estimated-time: 5
 {% alert warn %}
 We will run the first example with BLAST. The Basic Local Alignment Search Tool for comparing primary biological sequence
 information, such as the amino-acid sequences of different proteins or the nucleotides of DNA sequences.
-We chose BLAST becuase is one of the most sommon and useful software in bioinformatics.
+We chose BLAST because it is one of the most common and useful software in bioinformatics.
 {% endalert %}
 
 First step to be able to run any software is to install it. This can be a difficult and challenged process starting by download
-the software, dependencies, etc; installation of multiple packages; dealing with depencencies craches, etc. See all the steps
+the software, dependencies, etc; installation of multiple packages; dealing with dependencies crashes, etc. See all the steps
 to install `blast` [here](https://www.ncbi.nlm.nih.gov/books/NBK279671/).  
 
 Here is, where **BioContainers** plays his major role. See how to download and "install" blast in your local machine:
@@ -53,7 +53,7 @@ For this example let's try something practical, suppose that we are molecular bi
 
 1) Downloading the human prion sequence
 
-We can grab the huma prion FASTA sequence from UniProt:
+We can grab the human prion FASTA sequence from UniProt:
 
 ~~~
 $ wget http://www.uniprot.org/uniprot/P04156.fasta
@@ -82,7 +82,7 @@ The programs log will be displayed on the terminal, indicating if the program fi
 {% alert info %}                                                                                                                  
 
  Here, we explain multiples concepts in the same command. The most important component is `-v /Users/yperez/workplace:/data/`. This command creates a symbolic link
- between the `workplace` where the downloaded files are store and the `/data/` inside the container. You can [check here](/developer-manual/biocontainers-input-output/) for more documentation.  
+ between the `workplace` where the downloaded files are store and the `/data/` inside the container. You can [check here](/developer-manual/biocontainers-input-output/) for more documentation.
 
 {% endalert %}
 
@@ -92,8 +92,8 @@ No, that you know how to run a container with all the tricks, then lets go for t
  $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ~~~
 
-The results will be saved on the results.txt file, then you can proceed to analyse the matches. By looking the list of the best hits we can observe that zebrafish has a few predicted proteins matching to the human prion with better scores than the 
-predicted prion protein (score:33.9, e-value: 0.22). That's interesting isn't ? 
+The results will be saved on the results.txt file, then you can proceed to analyze the matches. By looking the list of the best hits we can observe that zebrafish has a few predicted proteins matching to the human prion with better scores than the 
+predicted prion protein (score:33.9, e-value: 0.22). That's interesting isn't ?
 
 Now that you have enough information to start comparing sequences using BLAST, you can move your analysis even further.
 

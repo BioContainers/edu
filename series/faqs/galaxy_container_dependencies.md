@@ -124,7 +124,6 @@ You can build packages from other Conda channels as well, not only from BioConda
 conda-forge channel and conda-forge is also enabled by default in Galaxy. To build ``pandoc`` and push it to biocontainrs
 you could do something along these lines.
 
-
 ~~~
 
    $ mulled-build build-and-test 'pandoc=1.17.2--0' --test 'pandoc --help' -n biocontainers

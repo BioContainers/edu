@@ -8,9 +8,7 @@ estimated-time: 20
 
 The latest information about BioContainers is available via [https://BioContainers.pro](https://Biocontainers.pro/)
 
-
 [![Join the chat at https://gitter.im/BioContainers/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BioContainers/BioContainers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 
 Containers
 --------
@@ -88,7 +86,6 @@ docker run biocontainers/blast
 If the user find a problem with a container an issue should be open in
 the [container repository](https://github.com/BioContainers/containers/issues), the user should use the **broken tag** (see tags). Developers of
 the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
-
 
 ### 2. Get involved
 

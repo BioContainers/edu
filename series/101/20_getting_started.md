@@ -11,7 +11,7 @@ estimated-time: 5
 You will need to work in a terminal using __`docker`__ .
 
 {% hlblock info %}
-We will provide mainly examples using **docker**, the Bicontainers team is working in examples and documentation based on **rkt**.
+We will provide mainly examples using **docker**, the BioContainers team is working in examples and documentation based on **rkt**.
 {% endhlblock %}
 
 * [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as:
@@ -67,7 +67,7 @@ Double-click Docker.dmg to open the installer, then drag Moby the whale to the A
 {% alert warn %}
 
 If you are already running Docker on your machine, first read [Docker for Mac vs. Docker Toolbox](https://docs.docker.com/docker-for-mac/docker-toolbox/) to understand the impact of this installation on your existing setup, how to set your environment for Docker for Mac, and how the two products can coexist.
-If you have a old version of docokerboot and you want to remove it, you can use the following [script](/faqs/manually-remove-dockerboot)
+If you have a old version of dockerboot and you want to remove it, you can use the following [script](/faqs/manually-remove-dockerboot)
 
 {% endalert %}
 
@@ -91,7 +91,7 @@ Installing git can be done using Homebrew:
 brew install git
 ~~~
 
-If you have problems to install docker you can receive support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby)
+If you have problems installing docker you can find support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby)
 
 <a name="linux"></a>
 

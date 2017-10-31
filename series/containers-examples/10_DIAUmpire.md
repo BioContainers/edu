@@ -135,7 +135,6 @@ You can actually ignore this. What happens here is that TPP analysis looks for a
 
 Take a look at the `input/` folder, you will see that now we have some new _.pep.xml_ and _.prot.xml_ files too.
 
-
 ## 5) Run DIA-Umpire Quantification Analysis
 
 finally, the last part!

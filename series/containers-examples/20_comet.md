@@ -15,7 +15,7 @@ Let’s run a a proteomics search engine to identified proteins using [Comet](ht
 Proteomics data analysis is dominated by database-based search engines strategies.
 Amount Search Engines, Comet is one of the most popular nowadays. 
 We are going to show how to run a simple analysis protocol using the [BioContainers Comet](https://github.com/BioContainers/containers/tree/master/Comet) database
-search engine. 
+search engine.
 {% endalert %}
 
 ## Get the docker container
@@ -32,11 +32,10 @@ Some insides into this commandline:
 If the user wants to download an specific version of the comet biodcoker container it can be done by providing the current corrsponding tag. 
 
 ~~~
-$ docker pull biodckr/comet --tag="2016012" 
+$ docker pull biodckr/comet --tag="2016012"
 ~~~
 
-
-## Run the Docker Container 
+## Run the Docker Container
 
 >**Note**: First thing to do is to arrange the necessary [files to run your data](/biodocker-input-output/). 
 For this pipeline we are going to need converted raw files from some mass spectrometry analysis and a protein
@@ -59,7 +58,7 @@ Some notes about this commandline:
 1. To have access to files inside the container, and vice-versa, we need to map a local folder inside the container,
 that way all files inside this mapped folder will be visible and accessible to us and to the container.
 2. This is possible using the **parameter -v** and passing the complete path from our folder that we wish to map inside the container. In this case we are mapping /home/user/workspace into /data/, a pre-existent folder inside the container.
-3. **biodckr/comet** is the name of the container we pulled from BioDocker. 
+3. **biodckr/comet** is the name of the container we pulled from BioDocker.
 4. The **comet** right after is the name of the program inside the container we are running.
 
 After running this command you will see a new file in the folder called comet.params.new,

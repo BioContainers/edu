@@ -7,7 +7,6 @@ permalink: /developer-manual/deploy-dockerhub/
 estimated-time: 5
 ---
 
-
 In order to deploy a new Docker project with your software you must follow this steps:
 
 1. Clone our [Sandbox](https://github.com/BioContainers/sandbox) repository
