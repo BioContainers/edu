@@ -61,11 +61,11 @@ opened using [this form](https://github.com/BioContainers/BioContainers/issues/n
   request](https://help.github.com/articles/creating-a-pull-request/)
   with these changes. You pull request message ideally should include:
 
-   * A description of why the changes should be made.
+    * A description of why the changes should be made.
 
-   * A description of the implementation of the changes.
+    * A description of the implementation of the changes.
 
-   * A description of how to test the changes.
+    * A description of how to test the changes.
 
 * The pull request should pass all the continuous integration tests which are
   automatically run by GitHub using e.g. Travis CI.
