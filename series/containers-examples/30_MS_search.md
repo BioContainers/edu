@@ -17,7 +17,6 @@ algorithms for proteomics data.
 
 This pipeline is available in TPP, however several users prefer to use the individual components rather than Trans-proteomics Pipeline.  The big differential here is how we are going to do it. Instead of going through the step-by-step in how to install and configure Comet and TPP, we are going to run the pipeline using Docker containers from the BioContainers project (you can get more information on the project here).
 
-
 ## Installing Docker
 
 Docker is a freely distributed software, compatible with all operating systems. If you need directions on how to install it, follow the instructions on Docker's documentation here.
@@ -71,7 +70,6 @@ Now we can start the database search:
 
 If everything went well you should see two new files on your folder; b1930_293T_proteinID_10A_QE3_122212.pep.xml and b1931_293T_proteinID_11A_QE3_122212.pep.xml
 
-
 ## Running PeptideProphet
 
 For the next step we need to run PeptideProphet, that will overwritte the .pep.xml files we already have:
@@ -97,7 +95,6 @@ Finally, for the last step, we need to run ProteinProphet:
 
 and that's it, now you have your prot.xml file with the identified proteins.
 
-
 ## Conclusion
 
-Again we show how versatile BioContainers containers can be. Even complete analysis protocols like the one showed above can be managed easily without the need to install complex software or manipulating Makefiles. Please feel free to make comments and suggestions. 
+Again we show how versatile BioContainers containers can be. Even complete analysis protocols like the one showed above can be managed easily without the need to install complex software or manipulating Makefiles. Please feel free to make comments and suggestions.
