@@ -24,7 +24,7 @@ Useful Links:
 ### What is Quay.io 
 
 
-Quay.io is a non-profit docker registry which major advance is that support `docker` and `rkt` technologies. In Quay.io each Container is presented with the maximum amount of useful information, including a full tags list, markdown based 
+Quay.io is a non-profit docker registry whose major advantage is that it supports `docker` and `rkt` technologies. In Quay.io each Container is presented with the maximum amount of useful information, including a full tags list, markdown based 
 description and repository push and pull counts. Repositories can be linked to GitHub, BitBucket, GitLab or custom git repositories, with automatic building of the Dockerfile(s) found on push.
 
 
