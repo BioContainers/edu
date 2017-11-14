@@ -2,7 +2,7 @@
 title: 'Dockerfile Template'
 layout: series_item
 series: 'developer-manual'
-permalink: /developer-manual/biocotainers-dockerfile/
+permalink: /developer-manual/biocontainers-dockerfile/
 estimated-time: 5
 ---
 
