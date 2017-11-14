@@ -29,7 +29,7 @@ docker help
 
 {% endhlblock %}
 
-If your machine is already set up, continue to the [tutorial](/101/modularity).
+If your machine is already set up, continue to the [tutorial](/101/running-example).
 
 {% hlblock info %}
 The following sections provided a short summary of Howto install **docker**, if these steps do not work for you please refer to the
