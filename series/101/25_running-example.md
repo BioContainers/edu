@@ -21,7 +21,7 @@ Here is where **BioContainers** plays a major role. See how to download and "ins
  $ docker pull biocontainers/blast
 ~~~
 
-This is the magin of Docker and containers, the software is distributed with all the dependencies and shared OS needed to run.
+This is the magic of containers; the software is distributed with all the dependencies and shared OS needed to run.
 
 <img class="splashIcon" src="{{ site.baseurl}}/img/series/101/what.gif">
 
