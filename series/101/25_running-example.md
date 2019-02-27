@@ -19,7 +19,7 @@ to install `blast` [here](https://www.ncbi.nlm.nih.gov/books/NBK279671/).
 Here is, where **BioContainers** plays his major role. See how to download and "install" blast in your local machine:
 
 ~~~
- $ docker pull biocontainers/blast
+ $ docker pull biocontainers/blast:2.2.31
 ~~~
 
 This is the docker and containers magic, the software is distributed with all the dependencies and shared OS needed to run.
@@ -37,7 +37,7 @@ from machine to machine. If you have 30 Docker containers that you want to run, 
 ### Running BLAST
 
 ~~~
- $ docker run biocontainers/blast blastp -help
+ $ docker run biocontainers/blast:2.2.31 blastp -help
 ~~~
 
 This will print the help page for `blastp` tool. The first part of the command `docker run biocontainers/blast` enable docker
@@ -89,7 +89,7 @@ The programs log will be displayed on the terminal, indicating if the program fi
 No, that you know how to run a container with all the tricks, then lets go for the final alignments:
 
 ~~~
- $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+ $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 ~~~
 
 The results will be saved on the results.txt file, then you can proceed to analyze the matches. By looking the list of the best hits we can observe that zebrafish has a few predicted proteins matching to the human prion with better scores than the 
@@ -103,8 +103,8 @@ We hope that this short example can provide some light on how important and easy
 
 ~~~
  $ cd /home/user/workplace
- $ docker pull biocontainers/blast
- $ docker run biocontainers/blast blastp -help
+ $ docker pull biocontainers/blast:2.2.31
+ $ docker run biocontainers/blast:2.2.31 blastp -help
  $ wget http://www.uniprot.org/uniprot/P04156.fasta    
  $ curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
  $ gunzip zebrafish.1.protein.faa.gz
