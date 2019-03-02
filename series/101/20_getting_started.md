@@ -11,7 +11,7 @@ estimated-time: 5
 You will need to work in a terminal using __`docker`__ .
 
 {% hlblock info %}
-We will provide mainly examples using **docker**, the BioContainers team is working in examples and documentation based on **rkt**.
+We will provide mainly examples using **docker**, the BioContainers team is working on examples and documentation based on **rkt**.
 {% endhlblock %}
 
 * [Docker](https://www.docker.com/) is the world’s leading platform for software containerization. Docker includes multiple tools and components such as:
@@ -20,7 +20,7 @@ We will provide mainly examples using **docker**, the BioContainers team is work
 
 {% hlblock check %}
 
-Open your terminal of choice and check whether you have the command (`docker`) installed. You should run these without
+Open your terminal of choice and check whether you have the command (`docker`) installed. You should be able to run the following command without
 any error.
 
 ~~~
@@ -32,8 +32,8 @@ docker help
 If your machine is already set up, continue to the [example](/101/running-example).
 
 {% hlblock info %}
-The following sections provided a short summary of Howto install **docker**, if these steps do not work for you please refer to the
-full documentation in [docker](https://docs.docker.com/). You can also get in contact with us using [Specifications Issues](https://github.com/BioContainers/specs).
+The following sections provided a short summary of how to install **docker**. If these steps do not work for you, please refer to the
+full documentation of [docker](https://docs.docker.com/). You can also get in contact with us using [Specifications Issues](https://github.com/BioContainers/specs).
 {% endhlblock %}
 
 
@@ -91,13 +91,13 @@ Installing git can be done using Homebrew:
 brew install git
 ~~~
 
-If you have problems installing docker you can find support here:[BioContainers Gitter](https://gitter.im/biocontainers/Lobby)
+If you have problems installing docker you can find support here: [BioContainers Gitter](https://gitter.im/biocontainers/Lobby)
 
 <a name="linux"></a>
 
 ### Linux
 
-Install [Docker in Linux](https://docs.docker.com/engine/installation/)  in Linux can be done using the specific Linux distribution. Some of the supported distributions are:
+Installing [Docker in Linux](https://docs.docker.com/engine/installation/) can be done using the specific Linux distribution. Some of the supported distributions are:
 [Arch Linux](https://docs.docker.com/engine/installation/linux/archlinux/), [CentOS](https://docs.docker.com/engine/installation/linux/centos/), [CRUX Linux](https://docs.docker.com/engine/installation/linux/cruxlinux/),
 [Debian](https://docs.docker.com/engine/installation/linux/debian/), [Fedora](https://docs.docker.com/engine/installation/linux/fedora/), [Gentoo](https://docs.docker.com/engine/installation/linux/gentoolinux/),
 [Oracle Linux](https://docs.docker.com/engine/installation/linux/oracle/), [Red Hat Enterprise Linux](https://docs.docker.com/engine/installation/linux/rhel/), [openSUSE and SUSE Linux Enterprise](https://docs.docker.com/engine/installation/linux/SUSE/),
@@ -127,11 +127,11 @@ log in to [Docker for Windows forum](https://forums.docker.com/c/docker-for-wind
 
 After downloading the [InstallDocker.msi](https://download.docker.com/win/stable/InstallDocker.msi) file, you can follow the next steps:
 
-1- Double-click InstallDocker.msi to run the installer. It typically downloads to your Downloads folder, or you can run it from the recent downloads bar at the bottom of your web browser.
+1. Double-click InstallDocker.msi to run the installer. It typically downloads to your Downloads folder, or you can run it from the recent downloads bar at the bottom of your web browser.
 
-2- Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
+2. Follow the install wizard to accept the license, authorize the installer, and proceed with the install.
 
-3- You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
+3. You will be asked to authorize Docker.app with your system password during the install process. Privileged access is needed to install networking components, links to the Docker apps, and manage the Hyper-V VMs.
 
 Click Finish on the setup complete dialog to launch Docker.
 
