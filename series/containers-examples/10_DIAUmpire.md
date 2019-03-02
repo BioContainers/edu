@@ -32,7 +32,7 @@ In order to make this analysis you will need:
 The first step is to download the DIA-Umpire image that is available in the BioDocker repositories:
 
 ~~~
-$ docker pull biodckr/dia-umpire
+$ docker pull biocontainers/dia-umpire
 ~~~
 
 This command will download the container to your machine. Now we need to set up a folder to be our work space, and inside this folder, create another folder called `input`:
@@ -46,7 +46,7 @@ The workspace folder will be where we are going to execute all commands from now
 
 ## Getting the parameter files
 
-To run the pipeline we need some parameter files from the different program we will run. Go to the [DIA-Umpire repository](https://github.com/BioDocker/containers/tree/master/DIA-Umpire/1.4256/input), download all 4 files there, and place them inside the `input` folder.
+To run the pipeline we need some parameter files from the different program we will run. Go to the [DIA-Umpire repository](https://github.com/BioContainers/containers/tree/master/dia-umpire/1.4256/input), download all 5 files there, and place them inside the `input` folder.
 
 ### a note about sharing folders with containers
 
@@ -61,7 +61,7 @@ During the steps below we are going to use a specific docker parameter that allo
 The analysis starts by running the DIA-Umpire program with our converted raw file, the command can look scary at first because it looks big, but this is because we are mapping folders inside the container, check the command below and then lets take a look at it in detail:
 
 ~~~
-$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params
+$ docker run -v /home/felipevl/workspace/input:/data/ biocontainers/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params
 ~~~
 
 ### explaining the command
@@ -72,7 +72,7 @@ $ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -j
 
 Have in mind that the container do not see the folder `/home/felipevl/workspace/input`, that's how we see the files, inside the container they will be at `/data/`.
 
-`biodckr/dia-umpire java -jar -Xmx8G DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params`: this last part tells that we want to execute our biodckr/dia-umpire container and, inside the container, we want to run the those commands to execute our program.
+`biocontainers/dia-umpire java -jar -Xmx8G DIA_Umpire_SE.jar /data/sample.mzXML /data/diaumpire.se_params`: this last part tells that we want to execute our biodckr/dia-umpire container and, inside the container, we want to run the those commands to execute our program.
 
 If everything goes OK you should see several new files in the input folder and the `Job complete` message in your terminal.
 
@@ -90,7 +90,7 @@ The Analysis will generate several files, between them the ones we need to conti
 Now we need to convert those files to a format compatible with Comet:
 
 ~~~
-$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/msconvert --mzXML /data/*.mgf -o /data/
+$ docker run -v /home/felipevl/workspace/input:/data/ biocontainers/dia-umpire /usr/local/tpp/bin/msconvert --mzXML /data/*.mgf -o /data/
 ~~~
 
 this command uses a program called msconvert, from the ProteoWizard library, present in the TPP installation. This will create a new .mzXML file for each .mgf file we have. Don't forget to always use the internal path `/data/` to save the files to the correct place.
@@ -100,7 +100,7 @@ this command uses a program called msconvert, from the ProteoWizard library, pre
 Having all the files in the correct format we can now run the database search using Comet. Don't forget to adjust the _comet.params_ file with the desired values.
 
 ~~~
-$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire comet.2015010.linux.exe -P/data/comet.params /data/sample_Q1.mzXML /data/sample_Q2.mzXML /data/sample_Q3.mzXML
+$ docker run -v /home/felipevl/workspace/input:/data/ biocontainers/dia-umpire comet.2015010.linux.exe -P/data/comet.params /data/sample_Q1.mzXML /data/sample_Q2.mzXML /data/sample_Q3.mzXML
 ~~~
 
 ## 4) Run PeptideProphet and ProteinProphet from TPP Xinteract on Comet Results
@@ -120,7 +120,7 @@ In the next step when we run `ProteinProphet`, the program is expecting to see f
 Also note that we have to run this command individually for each _pep.xml_ file.
 
 ~~~
-$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire /usr/local/tpp/bin/xinteract -OpdEAP -PPM -drev -N/data/interact-sample_Q1.pep.xml /data/sample_Q1.pep.xml`
+$ docker run -v /home/felipevl/workspace/input:/data/ biocontainers/dia-umpire /usr/local/tpp/bin/xinteract -OpdEAP -PPM -drev -N/data/interact-sample_Q1.pep.xml /data/sample_Q1.pep.xml`
 ~~~
 
 ProteinProphet also is called from the `xinteract` command (check the `p` parameter).
@@ -135,7 +135,6 @@ You can actually ignore this. What happens here is that TPP analysis looks for a
 
 Take a look at the `input/` folder, you will see that now we have some new _.pep.xml_ and _.prot.xml_ files too.
 
-
 ## 5) Run DIA-Umpire Quantification Analysis
 
 finally, the last part!
@@ -143,7 +142,7 @@ finally, the last part!
 We need now to run DIA-Umpire again, but this time using the quantification module. Before running, check the diaumpire.quant_params file, and set the correct values for you.
 
 ~~~
-$ docker run -v /home/felipevl/workspace/input:/data/ biodckr/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_Quant.jar /data/diaumpire.quant_params
+$ docker run -v /home/felipevl/workspace/input:/data/ biocontainers/dia-umpire java -jar -Xmx8G /home/biodocker/bin/DIA-Umpire/DIA_Umpire_Quant.jar /data/diaumpire.quant_params
 ~~~
 
 The analysis will end with a message like this:

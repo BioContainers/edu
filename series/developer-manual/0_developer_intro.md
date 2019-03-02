@@ -14,7 +14,6 @@ Before stating to contribute to BioContainers you should check your system for t
 If you want to fresh up your `git` skills, check out the [Full Introduction for Bioinformatics](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004947) or [15 minutes interactive lesson](https://try.github.io/levels/1/challenges/1) by Codeschool.
 {% endhlblock %}
 
-
 Developing containers
 -----------------------
 
@@ -30,27 +29,23 @@ called Dockerfile. But first, lets review each step necessary before having a Do
 Make sure that you have the docker daemon installed on your system. You can check [here](http://biocontainers.pro/docs/101/getting_started/) for more information on how to find the proper
 guidelines for you.
 
-
 2) Have a Software to Work with
 
 Make sure you have a piece of software capable of being containerized. The BioContainers base image is based
 on an Ubuntu distribution, so your software and its libraries must be compatible to Linux.
 
-
 3) Read the Documentation
 
 For a Docker container you basically need a simple Dockerfile, but our BioContainers project is based on a series
-of specifications and guidelines, so before start creating your Dockerfile we suggest you to read our [documentation](http://biocontainers.pro/docs/developer-manual/biocotainers-dockerfile/)
-first, there you will find out, amongst other things, how o create a Dockerfile compatible with BioContainers.
-
+of specifications and guidelines, so before start creating your Dockerfile we suggest you to read our [documentation](http://biocontainers.pro/docs/developer-manual/biocontainers-dockerfile/)
+first, there you will find out, amongst other things, how to create a Dockerfile compatible with BioContainers.
 
 4) Adding Things to the Container
 Once you have everything in place, you need now to figure out how to add your software to the container. There are different ways of doing this; if you software is available via apt install, you can do that and the software will be available inside the container. If that's not your case you have a few other options:
 
-  * You can push the software file inside the container using the Dockerfile directives called `ADD` or `COPY` ([example](https://github.com/BioContainers/containers/blob/master/pia/1.1.0-SNAPSHOT/Dockerfile)).      
+  * You can push the software file inside the container using the Dockerfile directives called `ADD` or `COPY` ([example](https://github.com/BioContainers/containers/blob/master/pia/1.1.0-SNAPSHOT/Dockerfile)).
   * You can host the software somewhere on-line and download it via command line inside the container ([example](https://github.com/BioContainers/containers/blob/master/comet/2016012/Dockerfile)).
   * You can you use other solutions like Conda to download your software ([example](https://github.com/BioContainers/containers/blob/master/blast/2.2.31/Dockerfile), also see below).
-
 
 5) Build the Container
 In order to build the container you need to use the docker daemon with the `build` command:
@@ -67,14 +62,11 @@ $docker build -t MyApp .
 
 In the following minutes you will see the log output from the docker daemon while it builds your container.
 
-
 6) Run it!, Test it!
 Once the container is ready you should test it, try to run your program using the `run` command, check if all its functionalities are in order.
 
-
 7) contribute
-If everything looks OK, you can contribute to the BioContainers project by sending us your Docekerfile. You can follow the instructions we have [here](https://github.com/BioContainers/containers/blob/master/blast/2.2.31/Dockerfile), and after ready, your software will be available using the docker daemon fetch command. 
-
+If everything looks OK, you can contribute to the BioContainers project by sending us your **Dockerfile**. You can follow the instructions we have [here](https://github.com/BioContainers/containers/blob/master/blast/2.2.31/Dockerfile), and after **ready**, your software will be available using the docker daemon fetch command. 
 
 ### Developing mulled containers
 
