@@ -6,9 +6,15 @@
 Welcome to BioContainers's documentation!
 =========================================
 
+Contents
+--------
+
 .. toctree::
+   :maxdepth: 1
+
+   introduction
+   .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
 
 
