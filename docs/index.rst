@@ -24,6 +24,11 @@ Contents
    .. toctree::
    :maxdepth: 3
 
+   biocontainers_registry
+   .. toctree::
+   :maxdepth: 3
+
+
 
 
 

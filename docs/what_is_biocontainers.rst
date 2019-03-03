@@ -62,7 +62,7 @@ Reporting a problem with a container
 -------------------------------------
 
 If the user find a problem with a container an issue should be open in
-the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (see tags). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
+the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
 
 
 Get involved
