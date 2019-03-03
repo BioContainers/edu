@@ -23,9 +23,12 @@ It contains **independently deployable bits of code** that can be used to build 
 
 Let's install a container quickly:
 
-    $  docker pull biocontainers/dia-umpire
+  .. code-block:: bash
+   :linenos:
 
-  .. note:: This simple command installs dia-umpire and all its dependencies {% endhlblock %}
+   $ docker pull biocontainers/dia-umpire:v1.4256_cv2
+
+  .. note:: This simple command installs dia-umpire and all its dependencies
 
 Containers are build from existing operating systems. They are different from virtual machines because they don't posses an entire guest OS inside, instead, containers are build using optimized system libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
 
