@@ -3,7 +3,7 @@ BioContainers Architecture
 
 BioContainers is a community-driven project that allows bioinformaticians/developers to request, build and deploy bioinformatics containers. The following figure present the general BioContainers Architecture:
 
-.. image:: images/workflow.png
+.. image:: images/old_architecture.png
    :alt: BioContainers Architecture.
 
 How to Request a Container
