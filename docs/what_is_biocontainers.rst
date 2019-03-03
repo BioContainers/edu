@@ -1,5 +1,10 @@
+What are BioContainers?
+===========================
+
+BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics containers with special focus on proteomics, genomics, transcriptomics and metabolomics. BioContainers are based on the popular frameworks **Docker framework** and **rkt**. A revolutionary platform for developers and sysadmins to build, ship, and run applications anywhere. For example, with Docker you can build an image containing your software and all dependencies and ship it ready to use.
+
 What is a Container?
-======================
+----------------------------
 
 Basically a software container is used to encapsulate a software component and the corresponding dependencies. You don't start from scratch or install all the software over and over.
 
@@ -32,23 +37,17 @@ Why should I use a container?
 
 Most of the time when a bioinformatics analysis is performed, several bioinformatics tools and software should be installed and configured. This process can take several hours and demand a lot of effort including the installation of multiple dependencies and tools. BioContainers provide ready-to-use packages and tools that can be easily deployed and used on local machines, HPC and cloud architectures.
 
-What are BioContainers?
------------------------
-
-BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics containers with special focus on proteomics, genomics, transcriptomics and metabolomics. BioContainers are based on the popular frameworks **Docker framework** and **rkt**. A revolutionary platform for developers and sysadmins to build, ship, and run applications anywhere. For example, with Docker you can build an image containing your software and all dependencies and ship it ready to use.
 
 BioContainers Goals
 -------------------
 
--  Provide a base specification and images to easily build and deploy new bioinformatics/proteomics software including the source and examples.
+-  Provide a base specification and images to easily build and deploy new bioinformatics software including the source and examples.
 
--  Provide a series of containers ready to be used by the bioinformatics community (https://github.com/BioContainers/containers).
+-  Provide a series of containers ready to be used by the bioinformatics community (https://biocontainers.pro/registry).
 
 -  Define a set of guidelines and specifications to build a standardized container that can be used in combination with other containers and bioinformatics tools.
 
--  Define a complete infrastructure to develop, deploy and test new bioinformatics containers using continuous integration suites such as Travis Continuous Integration (https://travisci. org/), Shippable (https://app.shippable.com/) or manually built solutions.
-
--  Provide support and help to the bioinformatics community to deploy new containers for researchers that do not have bioinformatics support.
+-  Define a complete infrastructure to develop, deploy and test new bioinformatics containers using continuous integration suites such as Travis Continuous Integration (https://travisci. org/) or manually built solutions.
 
 -  Provide guidelines and help on how to create reproducible pipelines by defining, reusing and reporting specific container versions which will consistently produce the exact same result and always be available in the history of the container.
 
@@ -57,7 +56,9 @@ BioContainers Goals
 Main components of BioContainers:
 ---------------------------------
 
--  `Containers <https://github.com/BioContainers/containers>`__ provides all the containers maintained by the BioContainers community and ready to be used by the community.
+-  `Docker Containers <https://github.com/BioContainers/containers>`__ provides a lit of `Dockerfile recipes` to automatically build containers in BioContainers.
+
+-  `Conda based Containers <https://github.com/bioconda/bioconda-recipes/>`__ provides a list of `Conda recipes` to automatically build **first a conda package** and then a docker container.
 
 -  `Biocontainers Registry <https://biocontainers.pro/registry>`__ is a hosted registry of all biocontainers images that are ready to be used.
 
