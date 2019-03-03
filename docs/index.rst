@@ -16,7 +16,7 @@ Contents
    .. toctree::
    :maxdepth: 2
 
-   what_id_biocontainers
+   what_is_biocontainers
    .. toctree::
    :maxdepth: 2
 
