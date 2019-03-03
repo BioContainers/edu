@@ -1,3 +1,5 @@
+.. _running_example
+
 {% alert warn %} We will run the first example with BLAST. The Basic
 Local Alignment Search Tool for comparing biological sequence
 information, such as the amino-acid sequences of proteins or the

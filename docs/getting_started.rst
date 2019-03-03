@@ -1,47 +1,23 @@
-This page will help you prepare your computer for BioContainers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to work in a terminal using **``docker``** .
+Getting started
+============================
 
-{% hlblock info %} We will provide mainly examples using **docker**, the
-BioContainers team is working on examples and documentation based on
-**rkt**. {% endhlblock %}
+Docker Configuration
+---------------
 
--  `Docker <https://www.docker.com/>`__ is the world’s leading platform
-   for software containerization. Docker includes multiple tools and
-   components such as: `docker <https://docs.docker.com/>`__, `docker
-   engine <https://docs.docker.com/engine/installation/>`__, `docker
-   hub <https://docs.docker.com/docker-hub/>`__.
+`Docker <https://www.docker.com/>`__ is the world’s leading platform for software containerization. Docker includes multiple tools and components such as: `docker <https://docs.docker.com/>`__, `docker engine <https://docs.docker.com/engine/installation/>`__, `docker hub <https://docs.docker.com/docker-hub/>`__.
 
-{% hlblock check %}
+.. hint:: Open your terminal of choice and check whether you have the command ``docker`` installed. You should be able to run the following command without any error.
 
-Open your terminal of choice and check whether you have the command
-(``docker``) installed. You should be able to run the following command
-without any error.
+If your machine is already set up, continue to the :doc:`running_example`.
 
-::
-
-    docker help
-
-{% endhlblock %}
-
-If your machine is already set up, continue to the
-`example </101/running-example>`__.
-
-{% hlblock info %} The following sections provided a short summary of
-how to install **docker**. If these steps do not work for you, please
-refer to the full documentation of
-`docker <https://docs.docker.com/>`__. You can also get in contact with
-us using `Specifications
-Issues <https://github.com/BioContainers/specs>`__. {% endhlblock %}
+The following sections provided a short summary of how to install **docker**. If these steps do not work for you, please refer to the full documentation of `docker <https://docs.docker.com/>`__. You can also get in contact with us using `Specifications Issues <https://github.com/BioContainers/specs>`__.
 
 Otherwise, choose your operating system below to learn more:
 
 -  `**Mac** <#mac>`__
 -  `**Linux** <#linux>`__
 -  `**Windows** <#windows>`__
-
-{% hlblock question %} What does ``docker`` stand for? {% endhlblock %}
 
 Mac OSX
 ~~~~~~~

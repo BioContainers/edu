@@ -24,6 +24,14 @@ Contents
    .. toctree::
    :maxdepth: 3
 
+   getting_started
+   .. toctree::
+   :maxdepth: 3
+
+   running_example
+   .. toctree::
+   :maxdepth: 3
+
    biocontainers_registry
    .. toctree::
    :maxdepth: 3

@@ -15,7 +15,7 @@ Docker Hub
 change management, user and team collaboration, and workflow automation throughout the development pipeline.
 
 Quay.io
-~~~~~~~~~~~~~~~~~~
+---------------------
 
 `Quay.io <https://quay.io/>`__ is a non-profit docker registry whose major advantage is that it supports ``docker`` and ``rkt`` technologies. In Quay.io each Container is presented with the maximum amount of useful information, including a full tags list, markdown based description and repository push and pull counts.
 
