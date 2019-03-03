@@ -17,7 +17,11 @@ Our education portal is work in progress. So if you encounter a logical
 inconsistency or just want to ask a question - don't hesitate to contact
 us.
 
-|Slack|\ {:target="*blank"}       |Gitter|\ {:target="*\ blank"}      |IRC|\ {:target="\_blank"}
+|Slack|\ {:target="\_blank"}      
+
+|Gitter|\ {:target="\_blank"}      
+
+|IRC|\ {:target="\_blank"}
 
 -  For technical queries related to the Biocontainers specification (questions, suggestions, proposals) `Specification Github
    issues <https://github.com/BioContainers/specs/issues>`__ are
