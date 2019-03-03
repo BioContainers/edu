@@ -14,15 +14,15 @@ Contents
 
    introduction
    .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    what_is_container
    .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    what_is_biocontainers
    .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
 
 
