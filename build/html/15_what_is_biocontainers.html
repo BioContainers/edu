@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>What exactly is a Container? &#8212; BioContainers  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p><img alt="Containers" src="{{%20site.baseurl}}/img/series/101/docker-gif.gif" />{:height=”250px” class=”center”} {:style=”font-size: 9px;
+text-align: center”}</p>
+<p>Basically a software container is used to encapsulate a software
+component and the correponding dependencies. You don’t start from
+scratch or install all the software over and over.</p>
+<blockquote>
+<div>Container-based virtualization, also called operating system
+virtualization, is an approach to virtualization in which the
+virtualization layer runs as an application within the operating
+system (OS). In this approach, the operating system’s kernel runs on
+the hardware node with several isolated guest virtual machines (VMs)
+installed on top of it. The isolated guests are called containers.</div></blockquote>
+<div class="section" id="what-exactly-is-a-container">
+<h1>What exactly is a Container?<a class="headerlink" href="#what-exactly-is-a-container" title="Permalink to this headline">¶</a></h1>
+<p>It contains <strong>independently deployable bits of code</strong> that can be used
+to build and run agile applications. It could be anything from a FASTA
+parser, a tree algorithm or a simple visualization module.</p>
+<ul class="simple">
+<li>Containers encapsulate discrete components of application logic
+provisioned only with the minimal resources needed to do their job.</li>
+<li>Containers are easily packaged, lightweight, and designed to run
+anywhere</li>
+<li>Multiple containers can be deployed in a single VM.</li>
+</ul>
+<p>Let’s install a container quickly:</p>
+<p>{% hlblock info %} <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">biocontainers/dia-umpire</span></code> This simple
+command installs dia-umpire and all its dependencies {% endhlblock %}</p>
+<p>Containers are build from existing operating systems. They are different
+from virtual machines because they don’t posses an entire guest OS
+inside, instead, containers are build using optimized system libraries
+and use the host OS memory management and process controls. Containers
+normally are centralized around a specific software and you can make
+them executable by instantiating images from them.</p>
+<div class="figure" id="id1">
+<img alt="What is Container" src="https://raw.githubusercontent.com/BioContainers/specs/master/imgs/container.png" />
+<p class="caption"><span class="caption-text">What is Container</span></p>
+</div>
+<div class="section" id="why-should-i-use-a-container">
+<h2>Why should I use a container?<a class="headerlink" href="#why-should-i-use-a-container" title="Permalink to this headline">¶</a></h2>
+<p>Most of the time when a bioinformatics analysis is performed, several
+bioinformatics tools and software should be installed and configured.
+This process can take several hours and demand a lot of effort including
+the installation of multiple dependencies and tools. BioContainers
+provide ready-to-use packages and tools that can be easily deployed and
+used on local machines, HPC and cloud architectures.</p>
+</div>
+</div>
+<div class="section" id="what-are-biocontainers">
+<h1>What are BioContainers?<a class="headerlink" href="#what-are-biocontainers" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div>BioContainers is a community-driven project that provides the</div></blockquote>
+<p>infrastructure and basic guidelines to create, manage and distribute
+bioinformatics containers with special focus on proteomics, genomics,
+transcriptomics and metabolomics. BioContainers are based on the popular
+frameworks <strong>Docker framework</strong> and <strong>rkt</strong>. A revolutionary platform
+for developers and sysadmins to build, ship, and run applications
+anywhere. For example, with Docker you can build an image containing
+your software and all dependencies and ship it ready to use (see
+Details).</p>
+</div>
+<div class="section" id="biocontainers-goals">
+<h1>BioContainers Goals<a class="headerlink" href="#biocontainers-goals" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Provide a base specification and images to easily build and deploy
+new bioinformatics/proteomics software including the source and
+examples.</li>
+<li>Provide a series of containers ready to be used by the bioinformatics
+community (<a class="reference external" href="https://github.com/BioContainers/containers">https://github.com/BioContainers/containers</a>).</li>
+<li>Define a set of guidelines and specifications to build a standardized
+container that can be used in combination with other containers and
+bioinformatics tools.</li>
+<li>Define a complete infrastructure to develop, deploy and test new
+bioinformatics containers using continuous integration suites such as
+Travis Continuous Integration (<a class="reference external" href="https://travisci">https://travisci</a>. org/), Shippable
+(<a class="reference external" href="https://app.shippable.com/">https://app.shippable.com/</a>) or manually built solutions.</li>
+<li>Provide support and help to the bioinformatics community to deploy
+new containers for researchers that do not have bioinformatics
+support.</li>
+<li>Provide guidelines and help on how to create reproducible pipelines
+by defining, reusing and reporting specific container versions which
+will consistently produce the exact same result and always be
+available in the history of the container.</li>
+<li>Coordinate and integrate developers and bioinformaticians to produce
+best practices of documentation and software development.</li>
+</ul>
+</div>
+<div class="section" id="main-components-of-biocontainers">
+<h1>Main components of BioContainers:<a class="headerlink" href="#main-components-of-biocontainers" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/BioContainers/containers">Containers</a> provides
+all the containers maintained by the BioContainers community and
+ready to be used by the community.</li>
+<li><a class="reference external" href="https://biocontainers.pro/registry">Biocontainers Registry</a> is a
+hosted registry of all biocontainers images that are ready to be
+used.</li>
+<li><a class="reference external" href="https://github.com/BioContainers/specs">Specifications</a> defines a
+set of guidelines and rules to contribute with BioContainers.</li>
+</ul>
+<!--
+* Easy to start:
+* Easy to test
+--></div>
+<div class="section" id="what-you-get-using-biocontainers">
+<h1>What you get using BioContainers<a class="headerlink" href="#what-you-get-using-biocontainers" title="Permalink to this headline">¶</a></h1>
+<p>In the next video you can check out what you can achieve by using docker
+containers:</p>
+<iframe width="100%" height="600px" src="https://www.youtube.com/embed/aLipr7tTuA4" frameborder="0"></iframe></div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BioContainers</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Yasset Perez-Riverol.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/15_what_is_biocontainers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

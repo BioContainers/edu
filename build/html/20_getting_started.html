@@ -1,0 +1,235 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>This page will help you prepare your computer for BioContainers &#8212; BioContainers  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="this-page-will-help-you-prepare-your-computer-for-biocontainers">
+<h1>This page will help you prepare your computer for BioContainers<a class="headerlink" href="#this-page-will-help-you-prepare-your-computer-for-biocontainers" title="Permalink to this headline">¶</a></h1>
+<p>You will need to work in a terminal using <strong>``docker``</strong> .</p>
+<p>{% hlblock info %} We will provide mainly examples using <strong>docker</strong>, the
+BioContainers team is working on examples and documentation based on
+<strong>rkt</strong>. {% endhlblock %}</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.docker.com/">Docker</a> is the world’s leading platform
+for software containerization. Docker includes multiple tools and
+components such as: <a class="reference external" href="https://docs.docker.com/">docker</a>, <a class="reference external" href="https://docs.docker.com/engine/installation/">docker
+engine</a>, <a class="reference external" href="https://docs.docker.com/docker-hub/">docker
+hub</a>.</li>
+</ul>
+<p>{% hlblock check %}</p>
+<p>Open your terminal of choice and check whether you have the command
+(<code class="docutils literal notranslate"><span class="pre">docker</span></code>) installed. You should be able to run the following command
+without any error.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">help</span>
+</pre></div>
+</div>
+<p>{% endhlblock %}</p>
+<p>If your machine is already set up, continue to the
+<a class="reference external" href="/101/running-example">example</a>.</p>
+<p>{% hlblock info %} The following sections provided a short summary of
+how to install <strong>docker</strong>. If these steps do not work for you, please
+refer to the full documentation of
+<a class="reference external" href="https://docs.docker.com/">docker</a>. You can also get in contact with
+us using <a class="reference external" href="https://github.com/BioContainers/specs">Specifications
+Issues</a>. {% endhlblock %}</p>
+<p>Otherwise, choose your operating system below to learn more:</p>
+<ul class="simple">
+<li><a class="reference external" href="#mac">**Mac**</a></li>
+<li><a class="reference external" href="#linux">**Linux**</a></li>
+<li><a class="reference external" href="#windows">**Windows**</a></li>
+</ul>
+<p>{% hlblock question %} What does <code class="docutils literal notranslate"><span class="pre">docker</span></code> stand for? {% endhlblock %}</p>
+<div class="section" id="mac-osx">
+<h2>Mac OSX<a class="headerlink" href="#mac-osx" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.docker.com/docker-for-mac/">On Mac</a> installing Docker
+can be done by installing the complete <a class="reference external" href="https://www.docker.com/products/docker-toolbox">Docker
+Toolbox</a> available in
+Mac and Windows. The Docker Toolbox contains the Docker Engine, Compose,
+Machine, etc.</p>
+<p>{% hlblock check %}</p>
+<p>Mac Docker ToolBox can be download from <a class="reference external" href="https://docs.docker.com/docker-for-mac/">this
+page</a>. The installation
+provides Docker Engine, Docker CLI client, Docker Compose, and Docker
+Machine.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Double</span><span class="o">-</span><span class="n">click</span> <span class="n">Docker</span><span class="o">.</span><span class="n">dmg</span> <span class="n">to</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">installer</span><span class="p">,</span> <span class="n">then</span> <span class="n">drag</span> <span class="n">Moby</span> <span class="n">the</span> <span class="n">whale</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Applications</span> <span class="n">folder</span><span class="o">.</span> <span class="n">You</span> <span class="n">will</span> <span class="n">be</span> <span class="n">asked</span> <span class="n">to</span> <span class="n">authorize</span> <span class="n">Docker</span><span class="o">.</span><span class="n">app</span> <span class="k">with</span> <span class="n">your</span> <span class="n">system</span> <span class="n">password</span> <span class="n">during</span> <span class="n">the</span> <span class="n">install</span> <span class="n">process</span><span class="o">.</span> <span class="n">Privileged</span> <span class="n">access</span> <span class="ow">is</span> <span class="n">needed</span> <span class="n">to</span> <span class="n">install</span> <span class="n">networking</span> <span class="n">components</span> <span class="ow">and</span> <span class="n">links</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">apps</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>{% endhlblock %}</p>
+<p>{% alert warn %}</p>
+<p>If you are already running Docker on your machine, first read <a class="reference external" href="https://docs.docker.com/docker-for-mac/docker-toolbox/">Docker
+for Mac vs. Docker
+Toolbox</a> to
+understand the impact of this installation on your existing setup, how
+to set your environment for Docker for Mac, and how the two products can
+coexist. If you have a old version of dockerboot and you want to remove
+it, you can use the following
+<a class="reference external" href="/faqs/manually-remove-dockerboot">script</a></p>
+<p>{% endalert %}</p>
+<p>Then installed tools can be check using these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker --version
+Docker version 1.12.0, build 8eab29e
+
+$docker-compose --version
+docker-compose version 1.8.0, build f3628c7
+
+$docker-machine --version
+docker-machine version 0.8.0, build b85aac1
+</pre></div>
+</div>
+<p>Installing git can be done using Homebrew:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+<p>If you have problems installing docker you can find support here:
+<a class="reference external" href="https://gitter.im/biocontainers/Lobby">BioContainers Gitter</a></p>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<p>Installing <a class="reference external" href="https://docs.docker.com/engine/installation/">Docker in
+Linux</a> can be done
+using the specific Linux distribution. Some of the supported
+distributions are: <a class="reference external" href="https://docs.docker.com/engine/installation/linux/archlinux/">Arch
+Linux</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/centos/">CentOS</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/cruxlinux/">CRUX
+Linux</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/debian/">Debian</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/fedora/">Fedora</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/gentoolinux/">Gentoo</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/oracle/">Oracle
+Linux</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/rhel/">Red Hat Enterprise
+Linux</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/SUSE/">openSUSE and SUSE Linux
+Enterprise</a>,
+<a class="reference external" href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">Ubuntu</a></p>
+<p>{% alert warn %}</p>
+<p>If your linux distribution is not listed above, don’t give up yet. To
+try out Docker on a distribution that is not listed above, go here:
+<a class="reference external" href="https://docs.docker.com/engine/installation/binaries/">Installation from
+binaries</a>.</p>
+<p>{% endalert %}</p>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>Docker for Windows is our newest offering for PCs. It runs as a native
+Windows application and uses Hyper-V to virtualize the Docker Engine
+environment and Linux kernel-specific features for the Docker daemon.</p>
+<p>{% alert warn %}</p>
+<p>Please read through these topics on how to get started. To give us your
+feedback on your experience with the app and report bugs or problems,
+log in to <a class="reference external" href="https://forums.docker.com/c/docker-for-windows">Docker for Windows
+forum</a>.</p>
+<p>{% endalert %}</p>
+<p>After downloading the
+<a class="reference external" href="https://download.docker.com/win/stable/InstallDocker.msi">InstallDocker.msi</a>
+file, you can follow the next steps:</p>
+<ol class="arabic simple">
+<li>Double-click InstallDocker.msi to run the installer. It typically
+downloads to your Downloads folder, or you can run it from the recent
+downloads bar at the bottom of your web browser.</li>
+<li>Follow the install wizard to accept the license, authorize the
+installer, and proceed with the install.</li>
+<li>You will be asked to authorize Docker.app with your system password
+during the install process. Privileged access is needed to install
+networking components, links to the Docker apps, and manage the
+Hyper-V VMs.</li>
+</ol>
+<p>Click Finish on the setup complete dialog to launch Docker.</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BioContainers</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Yasset Perez-Riverol.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/20_getting_started.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

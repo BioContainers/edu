@@ -1,0 +1,162 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>What is Docker Hub &#8212; BioContainers  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>Every Biocontainer is deployed and permanent deposited in a public
+registry <a class="reference external" href="http://hub.docker.com">Docker Hub</a> or
+<a class="reference external" href="quay.io">Quay.io</a>. These two registries allows developers and
+contributors to deploy their software to a public repository without
+needs to implement a new registry.</p>
+<div class="section" id="what-is-docker-hub">
+<h1>What is Docker Hub<a class="headerlink" href="#what-is-docker-hub" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.docker.com/docker-hub/">Docker Hub</a> is a cloud-based
+registry service which allows you to link to code repositories, build
+your images and test them, stores manually pushed images, and links to
+Docker Cloud so you can deploy images to your hosts. It provides a
+centralized resource for container image discovery, distribution and
+change management, user and team collaboration, and workflow automation
+throughout the development pipeline.</p>
+<p>Useful Links:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.docker.com/docker-hub/">Docker Hub</a> Documentation.</li>
+<li><a class="reference external" href="https://hub.docker.com/">Docker Hub</a></li>
+</ul>
+</div>
+<div class="section" id="what-is-quay-io">
+<h1>What is Quay.io<a class="headerlink" href="#what-is-quay-io" title="Permalink to this headline">¶</a></h1>
+<p>Quay.io is a non-profit docker registry whose major advantage is that it
+supports <code class="docutils literal notranslate"><span class="pre">docker</span></code> and <code class="docutils literal notranslate"><span class="pre">rkt</span></code> technologies. In Quay.io each Container
+is presented with the maximum amount of useful information, including a
+full tags list, markdown based description and repository push and pull
+counts. Repositories can be linked to GitHub, BitBucket, GitLab or
+custom git repositories, with automatic building of the Dockerfile(s)
+found on push.</p>
+<div class="section" id="the-biocontainers-registry">
+<h2>The BioContainers Registry<a class="headerlink" href="#the-biocontainers-registry" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://biocontainers.pro/registry/">BioContainers Registry UI</a>
+provides the interface to and UI to <strong>search</strong>, <strong>tag</strong>, and
+<strong>document</strong> a BioContainers across all the registries.</p>
+<p>The users can search containers by using the search box:</p>
+<p>The containers registry allow the users to <code class="docutils literal notranslate"><span class="pre">sort</span></code> the containers by
+any of these properties:</p>
+<ul class="simple">
+<li><strong>Container Name</strong>: Container Name</li>
+<li><strong>Description</strong>: Description Provided by the developer of the
+container.</li>
+<li><strong>Real Name</strong>: The corresponding registry + container name</li>
+<li><strong>Last Modified</strong>: Last date where the container has been modified.</li>
+<li><strong>Starred/Start</strong>: If the container has been starred in any of the
+repos.</li>
+<li><strong>Popularity</strong>: How many times a container has been pull from a
+registry.</li>
+<li><strong>Registry Link</strong>: the registry Link.</li>
+</ul>
+</div>
+<div class="section" id="visualizing-a-container-information">
+<h2>Visualizing a Container Information<a class="headerlink" href="#visualizing-a-container-information" title="Permalink to this headline">¶</a></h2>
+<p>The user can click the container name <a class="reference external" href="/101/running-example/">for example,
+BLAST</a> and see all the documentation related
+with the container.</p>
+<p>{% alert info %}</p>
+<p>Depending on the container provider, the registry will show the original
+<code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> provided by the developer or it will provide the <code class="docutils literal notranslate"><span class="pre">Yaml</span></code>
+(see example) configuration file for the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span> <span class="pre">free</span></code> containers.</p>
+<p>{% endalert %}</p>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">BioContainers</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Yasset Perez-Riverol.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/60_biocontainers-registry.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
