@@ -1,8 +1,11 @@
-Purpose of this tutorial series
--------------------------------
+BioContainers Documentation
+===============================
+
+Topics
+-------------
 
 -  Learn basic concepts of containers, docker and BioContainers
--  Get hands to create, deploy and use a BioContainer
+-  Get hands to create, deploy and use a BioContainers
 -  Master the workflow for deploying and publishing a BioContainer in
    `Quay.io <https://quay.io/organization/biocontainers>`__ or
    `DockerHub <https://hub.docker.com/u/biocontainers/>`__
@@ -14,18 +17,13 @@ Our education portal is work in progress. So if you encounter a logical
 inconsistency or just want to ask a question - don't hesitate to contact
 us.
 
-|Slack|\ {:target="*blank"}       |Gitter|\ {:target="*\ blank"}      
-|IRC|\ {:target="\_blank"}
+|Slack|\ {:target="*blank"}       |Gitter|\ {:target="*\ blank"}      |IRC|\ {:target="\_blank"}
 
--  For technical queries related to the Biocontainers specification
-   (questions, suggestions, proposals) `Specification Github
+-  For technical queries related to the Biocontainers specification (questions, suggestions, proposals) `Specification Github
    issues <https://github.com/BioContainers/specs/issues>`__ are
    preferred.
 
--  For technical questions related to containers (broken containers,
-   container requests) `Containers
-   Issues <https://github.com/BioContainers/containers/issues>`__ are
-   preferred.
+-  For technical questions related to containers (broken containers, container requests) `Containers Issues <https://github.com/BioContainers/containers/issues>`__ are preferred.
 
 If you find a typo or want to help us to make this tutorial even better,
 you are invited to click on "Improve this page".
