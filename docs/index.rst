@@ -16,6 +16,10 @@ Contents
    .. toctree::
    :maxdepth: 2
 
+   what_is_container
+   .. toctree::
+   :maxdepth: 2
+
    what_is_biocontainers
    .. toctree::
    :maxdepth: 2
