@@ -24,6 +24,11 @@ Contents
    .. toctree::
    :maxdepth: 3
 
+   biocontainers_architecture
+   .. toctree::
+   :maxdepth: 3
+
+
 
 
 Indices and tables
