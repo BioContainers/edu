@@ -36,6 +36,10 @@ Contents
    .. toctree::
    :maxdepth: 3
 
+   advanced_topics
+   .. toctree::
+   :maxdepth: 3
+
 
 
 
