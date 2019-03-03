@@ -47,7 +47,7 @@ Now, let's download and unpack our database, from NCBI
     .. code-block:: bash
 
        $ docker run -v /Users/yperez/workplace/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-    $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
+       $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
 
 .. note:: The docker command can be run with the option ``-v`` this will bind a local volume (in the example path /Users/yperez/workplace) into a container volume /data/ . You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
 
