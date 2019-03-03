@@ -36,7 +36,7 @@ proteins <https://en.wikipedia.org/wiki/PRNP>`__, and we want to find out if the
 
     .. code-block:: bash
 
-    $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> P04156.fasta
+      $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> P04156.fasta
 
 .. note:: some biocontainer base images contain multiple linux command that are useful for bioinformatics like curl, wget. You should note that not all the containers contains those additional tools.
 
@@ -46,7 +46,7 @@ Now, let's download and unpack our database, from NCBI
 
     .. code-block:: bash
 
-    $ docker run -v /Users/yperez/workplace/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+       $ docker run -v /Users/yperez/workplace/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
     $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
 
 .. note:: The docker command can be run with the option ``-v`` this will bind a local volume (in the example path /Users/yperez/workplace) into a container volume /data/ . You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
@@ -57,7 +57,7 @@ We need to prepare the zebrafish database with ``makeblastdb`` for the search, b
 
      .. code-block:: bash
 
-     $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+        $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 
 The program's log will be displayed on the terminal, indicating if the program finished correctly. Also, you will see some new files in your local folder, those are part of the BLAST database.
 
@@ -66,7 +66,7 @@ Now, that you know how to run a container with all the tricks, let's go for the 
 
      .. code-block:: bash
 
-     $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+        $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 
 The results will be saved in the results.txt file, then you can proceed to analyze the matches. By looking at the list of the best hits we can observe that zebrafish have a few predicted proteins matching the human prion with better scores than the predicted prion protein (score:33.9, e-value: 0.22). That's interesting isn't ?
 
@@ -77,7 +77,7 @@ We hope that this short example can shed some light on how important and easy it
 Run everything in one go
 ~~~~~~~
 
-     .. code-block:: bash
+  .. code-block:: bash
 
      $ cd /Users/yperez/workplace   # Replace by your path
      $ docker run biocontainers/blast:2.2.31 blastp -help
