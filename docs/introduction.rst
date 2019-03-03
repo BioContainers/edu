@@ -1,4 +1,4 @@
-BioContainers Documentation
+Introduction
 ===============================
 
 Topics
