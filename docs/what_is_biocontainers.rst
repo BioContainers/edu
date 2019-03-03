@@ -24,7 +24,6 @@ It contains **independently deployable bits of code** that can be used to build 
 Let's install a container quickly:
 
   .. code-block:: bash
-   :linenos:
 
    $ docker pull biocontainers/dia-umpire:v1.4256_cv2
 
