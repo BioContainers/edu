@@ -25,7 +25,7 @@ If you find a typo or want to help us to make this tutorial even better, you are
 Concepts in this tutorial
 -------------------------
 
--  Containers, Docker, rkt
+-  Conda, Containers, Docker, rkt
 -  Docker containers creation and deployment
 -  Minimal rules -> conventions and gold standards
 

@@ -1,9 +1,7 @@
 What is BioContainers?
 ===========================
 
-BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics packages (e.g conda) and containers (e.g docker) with special focus on proteomics, genomics, transcriptomics and metabolomics.
-
-BioContainers are based on the popular frameworks **Conda** and **Docker**. A revolutionary platform for developers and sysadmins to build, ship, and run applications anywhere. For example, with Docker you can build an image containing your software and all dependencies and ship it ready to use.
+BioContainers is a community-driven project that provides the infrastructure and basic guidelines to create, manage and distribute bioinformatics packages (e.g conda) and containers (e.g docker, singularity). BioContainers is based on the popular frameworks `Conda <https://conda.io/>`__, `Docker <https://www.docker.com/>`__ and `Singularity <https://www.sylabs.io/docs/>`__.
 
 BioContainers Goals
 -------------------
