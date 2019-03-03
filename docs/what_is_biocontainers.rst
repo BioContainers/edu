@@ -25,14 +25,13 @@ Main components of BioContainers:
 
 -  `Conda based Containers <https://github.com/bioconda/bioconda-recipes/>`__ provides a list of `Conda recipes` to automatically build **first a conda package** and then a docker container.
 
--  `Biocontainers Registry <https://biocontainers.pro/registry>`__ is a hosted registry of all biocontainers images that are ready to be used.
+-  `Biocontainers Registry <https://biocontainers.pro/registry>`__ is a hosted registry of all biocontainers images that are ready to be used (read more here :doc:`biocontainersregistry`).
 
 -  `Specifications <https://github.com/BioContainers/specs>`__ defines a set of guidelines and rules to contribute with BioContainers.
 
 
-BioContainers Architecture
-----------------------------
-
+BioContainers Community Architecture
+------------------------------------
 
 BioContainers is a community-driven project that allows bioinformaticians/developers to request, build and deploy bioinformatics containers. The following figure present the general BioContainers Architecture:
 
@@ -44,14 +43,14 @@ How to Request a Container
 
 Users can request a container by opening an issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ , In the previous workflow this is ``the first step`` performed by user ``henrik``. The issue should contains the name of the software, the url of the code or binary to be package and information about the software `see BioContainers specification <http://github.com/BioContainers/container-specs.md>`__. When the containers is deploy and fully functional, the issue will be close by the developer or the contributor to BioContainers.
 
-.. note:: Before requesting a Container you should check the `BioContainers Registry <http://biocontainers.pro/registry>`__ to make sure your requested tool do not exist already.
+.. note:: Before requesting a Container you should check the `BioContainers Registry <http://biocontainers.pro/registry>`__ to make sure your requested tool do not exist already (read more about the registry in: :doc:`biocontainersregistry`).
 
 .. hint:: Importantly, the BioContainers community has implemented a "labeled legend" to tag each issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ that should be used properly for on each issue. For example, the for the new containers the label **Container Request** should be used.
 
 Use a Docker BioContainer.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When a container is deploy and the developer close the issue in GitHub the user ``henrik`` received a notification that the container is ready. Then, the user can use `docker <http://www.docker.com>` to pull or fetch the corresponding container.
+When a container is deploy and the developer close the issue in GitHub the user ``henrik`` received a notification that the container is ready. Then, the user can use ``docker`` command to pull or fetch the corresponding container.
 
 .. code-block:: bash
 
@@ -64,8 +63,6 @@ Reporting a problem with a container
 
 If the user find a problem with a container an issue should be open in
 the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (see tags). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
-
-
 
 
 Get involved

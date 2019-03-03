@@ -1,3 +1,8 @@
+.. _biocontainersregistry
+
+BioContainers Registry
+==============================
+
 Every Biocontainer is deployed and permanent deposited in a public
 registry `Docker Hub <http://hub.docker.com>`__ or
 `Quay.io <quay.io>`__. These two registries allows developers and
