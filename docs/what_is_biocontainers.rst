@@ -54,7 +54,7 @@ When a container is deploy and the developer close the issue in GitHub the user 
 
    $ docker run biocontainers/blast
 
-.. note:: You can read other sections about :doc:`condapackages` and :doc:`singularitycontainers`
+.. note:: You can read other sections about :doc:`conda_integration` and :doc:`singularitycontainers`
 
 Reporting a problem with a container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
