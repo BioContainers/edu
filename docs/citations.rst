@@ -9,3 +9,6 @@ da Veiga Leprevost F, Grüning BA, Alves Aflitos S, Röst HL, Uszkoreit J, Barsn
 Other important publications:
 
 - Gruening, B., Sallou, O., Moreno, P., da Veiga Leprevost, F., Ménager, H., Søndergaard, D., Röst, H., Sachsenberg, T., O'Connor, B., Madeira, F. and Del Angel, V.D., BioContainers Community, Perez-Riverol Y. 2018. `Recommendations for the packaging and containerizing of bioinformatics software <https://f1000research.com/articles/7-742/v1>`__. F1000Research, 7.
+
+
+Here, `The BioContainers Google Scholar <https://scholar.google.com/citations?user=O6xG2-EAAAAJ>`__
