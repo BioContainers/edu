@@ -52,7 +52,7 @@ When a container is deploy and the developer close the issue in GitHub the user 
 
 .. code-block:: bash
 
-   $ docker run biocontainers/blast
+   $ docker run biocontainers/blast:2.2.31
 
 .. note:: You can read other sections about :doc:`conda_integration` and :doc:`singularitycontainers`
 
@@ -114,7 +114,7 @@ Here, an example Dockerfile for a Biocontainer:
    LABEL about.tags="Proteomics"
 
    ################## MAINTAINER ######################
-   MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+   MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 
    ################## INSTALLATION ######################
 
@@ -155,7 +155,7 @@ The File Author/ Maintainer signature. By default the Dockerfile only accepts on
 .. code-block:: bash
 
    # Maintainer
-   MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br
+   MAINTAINER Yasset Perez-Riverol <ypriverol@gmail.com>
 
 **Installation**
 
