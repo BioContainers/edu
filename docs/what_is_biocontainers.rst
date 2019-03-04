@@ -8,13 +8,11 @@ BioContainers is a community-driven project that provides the infrastructure and
 BioContainers Goals
 -------------------
 
--  Provide a base specification to easily build and deploy new bioinformatics software including the source and examples.
-
--  Define a complete infrastructure to develop, deploy and test new bioinformatics containers using continuous integration suites such as Travis Continuous Integration (https://travisci. org/) or manually built solutions.
+-  Provide a base specificatio and infrastructure to develop, build and deploy new bioinformatics software including the source and examples.
 
 -  Provide a series of containers ready to be used by the bioinformatics community (https://biocontainers.pro/registry).
 
--  Provide guidelines and help on how to create reproducible pipelines by defining, reusing and reporting specific container versions which will consistently produce the exact same result and always be available in the history of the container.
+-  Provide guidelines and help on how to create reproducible pipelines and workflows using bioinformatics containers.
 
 -  Coordinate and integrate developers and bioinformaticians to produce best practices of documentation and software development.
 
@@ -59,7 +57,7 @@ When a container is deploy and the developer close the issue in GitHub the user 
 .. note:: You can read other sections about :doc:`condapackages` and :doc:`singularitycontainers`
 
 Reporting a problem with a container
--------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the user find a problem with a container an issue should be open in
 the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
