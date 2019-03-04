@@ -44,6 +44,14 @@ Contents
    .. toctree::
    :maxdepth: 3
 
+   best_practices
+   .. toctree::
+   :maxdepth: 3
+
    advanced_topics
+   .. toctree::
+   :maxdepth: 3
+
+   contributing
    .. toctree::
    :maxdepth: 3

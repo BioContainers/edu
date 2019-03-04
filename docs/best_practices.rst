@@ -1,19 +1,7 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
-----
-
-title: 'Best Practices'
-layout: series_item
-series: 'developer-manual'
-permalink: /developer-manual/best-practices/
-
-estimated-time: 5
------------------
-
 Best Practices
 ==============
+
+
 
 Language Specific
 -----------------
@@ -21,13 +9,12 @@ Language Specific
 Python
 ^^^^^^
 
-
 * Use requirements.txt instead of listing dependencies
 * Define library versions
 
+
 Optimization
 ------------
-
 
 * Use environment variables to avoid repeating yourself
 
@@ -35,7 +22,7 @@ This is a trick I picked up from reading the Dockerfile (link) of the "official"
 
 You can define environment variables with ENV and then reference them in subsequent RUN commands. Below, I've paraphrased an excerpt from the linked Dockerfile:
 
-.. code-block::
+.. code-block:: bash
 
 
    ENV NODE_VERSION 0.10.32
@@ -45,11 +32,11 @@ You can define environment variables with ENV and then reference them in subsequ
        rm "node-v$NODE_VERSION-linux-x64.tar.gz"
 
 
-* Merge RUN commands:
+**Merge RUN commands**
 
 instead of running:
 
-.. code-block::
+.. code-block:: bash
 
    RUN acb
    RUN cbd
@@ -57,30 +44,30 @@ instead of running:
 
 run:
 
-.. code-block::
+.. code-block:: bash
 
    RUN acb && cbd && bde
 
 or:
 
-.. code-block::
+.. code-block:: bash
 
    RUN acb && \
        cbd && \
        bde
 
-
-* Whenever possible, reuse the same base image and use a LTS (Long Term Support) image preferably (Ubuntu 12.04 or 14.04)
-* You can use our biocontainers/biocontainers image based on ubuntu 14.04 with frequent updates and default folders created
-* Use a .dockerignore file: In most cases, it’s best to put each Dockerfile in an empty directory. Then, add to that directory only the files needed for building the Dockerfile. To increase the build’s performance, you can exclude files and directories by adding a .dockerignore file to that directory as well. This file supports exclusion patterns similar to .gitignore files. For information on creating one, see the .dockerignore file.
-* Avoid installing unnecessary packages: In order to reduce complexity, dependencies, file sizes, and build times, you should avoid installing extra or unnecessary packages just because they might be “nice to have.” For example, you don’t need to include a text editor in a database image.
-* Run only one process per container: In almost all cases, you should only run a single process in a single container. Decoupling applications into multiple containers makes it much easier to scale horizontally and reuse containers. If that service depends on another service, make use of container linking.
-* Minimize the number of layers: You need to find the balance between readability (and thus long-term maintainability) of the Dockerfile and minimizing the number of layers it uses. Be strategic and cautious about the number of layers you use.
-* Sort multi-line arguments: Whenever possible, ease later changes by sorting multi-line arguments alphanumerically. This will help you avoid duplication of packages and make the list much easier to update. This also makes PRs a lot easier to read and review. Adding a space before a backslash () helps as well.
+.. note::
+   * Whenever possible, reuse the same base image and use a LTS (Long Term Support) image preferably (Ubuntu 12.04 or 14.04)
+   * You can use our biocontainers/biocontainers image based on ubuntu 14.04 with frequent updates and default folders created.
+   * Use a .dockerignore file: In most cases, it’s best to put each Dockerfile in an empty directory. Then, add to that directory only the files needed for building the Dockerfile.
+   * Avoid installing unnecessary packages: In order to reduce complexity, dependencies, file sizes, and build times, you should avoid installing extra or unnecessary packages just because they might be “nice to have.” For example, you don’t need to include a text editor in a database image.
+   * Run only one process per container: In almost all cases, you should only run a single process in a single container. Decoupling applications into multiple containers makes it much easier to scale horizontally and reuse containers. If that service depends on another service, make use of container linking.
+   * Minimize the number of layers: You need to find the balance between readability (and thus long-term maintainability) of the Dockerfile and minimizing the number of layers it uses. Be strategic and cautious about the number of layers you use.
+   * Sort multi-line arguments: Whenever possible, ease later changes by sorting multi-line arguments alphanumerically. This will help you avoid duplication of packages and make the list much easier to update. This also makes PRs a lot easier to read and review. Adding a space before a backslash () helps as well.
 
 Here’s an example from the buildpack-deps image:
 
-.. code-block::
+.. code-block:: bash
 
    RUN apt-get update && apt-get install -y \
        bzr \
@@ -89,11 +76,7 @@ Here’s an example from the buildpack-deps image:
        mercurial \
        subversion
 
-..
-
-   Note: Don't install build tools without good reason: 
-   Build tools take up a lot of space, and building from source is often slow. If you're just installing somebody else's software, it's usually not necessary to build from source and it should be avoided. For instance, it is not necessary to install python, gcc, etc. to get the latest version of node.js up and running on a Debian host. There is a binary tarball available on the node.js downloads page. Similarly, redis can be installed through the package manager.
-
+.. note:: Note: Don't install build tools without good reason: Build tools take up a lot of space, and building from source is often slow. If you're just installing somebody else's software, it's usually not necessary to build from source and it should be avoided. For instance, it is not necessary to install python, gcc, etc. to get the latest version of node.js up and running on a Debian host. There is a binary tarball available on the node.js downloads page. Similarly, redis can be installed through the package manager.
 
 There are at least a few good reasons to have build tools:
 
@@ -108,7 +91,7 @@ Don't leave temporary files lying around
 
 The following Dockerfile results in an image size of 109 MB:
 
-.. code-block::
+.. code-block:: bash
 
    FROM debian:wheezy
    RUN apt-get update && apt-get install -y wget
@@ -117,7 +100,7 @@ The following Dockerfile results in an image size of 109 MB:
 
 On the other hand, this seemingly-equivalent Dockerfile results in an image size of 99 MB:
 
-.. code-block::
+.. code-block:: bash
 
    FROM debian:wheezy
    RUN apt-get update && apt-get install -y wget
@@ -125,7 +108,7 @@ On the other hand, this seemingly-equivalent Dockerfile results in an image size
 
 Thus it seems that if you leave a file on disk between steps in your Dockerfile, the space will not be reclaimed when you delete the file. It is also often possible to avoid a temporary file entirely, just piping output between commands. For instance,
 
-.. code-block::
+.. code-block:: bash
 
    wget -O - http://nodejs.org/dist/v0.10.32/node-v0.10.32-linux-x64.tar.gz | tar zxf -
 
@@ -136,14 +119,14 @@ If you run apt-get update in setting up your container, it populates /var/lib/ap
 
 This Dockerfile generates a 99 MB image:
 
-.. code-block::
+.. code-block:: bash
 
    FROM debian:wheezy
    RUN apt-get update && apt-get install -y wget
 
 while this one generates a 90 MB image:
 
-.. code-block::
+.. code-block:: bash
 
    FROM debian:wheezy
    RUN apt-get update && apt-get install -y wget && apt-get clean && apt-get purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -153,7 +136,7 @@ while this one generates a 90 MB image:
 
 While a docker image is immutable (and that's great), a Dockerfile is not guaranteed to produce the same output when run at different times. The problem, of course, is external state, and we have little control over it. It's best to minimize the impact of external state on your Dockerfile to the extent that it's possible. One simple way to do that is to pin package versions when updating through a package manager. Here's an example of how to do that:
 
-.. code-block::
+.. code-block:: bash
 
    # apt-get update
    # apt-cache showpkg redis-server
@@ -178,7 +161,7 @@ General
 * ENV: In order to make new software easier to run, you can use ENV to update the PATH environment variable for the software your container installs. For example, ENV PATH /usr/local/nginx/bin:$PATH will ensure that CMD [“nginx”] just works. The ENV instruction is also useful for providing required environment variables specific to services you wish to containerize, such as Postgres’s PGDATA.
 * USER: If a service can run without privileges, use USER to change to a non-root user. Start by creating the user and group in the Dockerfile with something like 
 
-.. code-block::
+.. code-block:: bash
 
    RUN groupadd -r postgres && useradd -r -g postgres postgres.
 

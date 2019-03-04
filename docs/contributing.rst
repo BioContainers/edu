@@ -1,15 +1,3 @@
-
-----
-
-title: 'Contributing'
-layout: series_item
-contributors: Yassset Perez-Riverol
-series: 'developer-manual'
-permalink: /developer-manual/contributing/
-
-estimated-time: 5
------------------
-
 Contributing
 ============
 
