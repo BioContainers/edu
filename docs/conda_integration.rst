@@ -83,3 +83,91 @@ Example Yaml for bowtie2:
      summary: 'Hybrid assembly pipeline for bacterial genomes'
 
 When the recipe is ready a Pull Request should be created (https://bioconda.github.io/contribute-a-recipe.html#push-changes-wait-for-tests-to-pass-submit-pull-request). Finally, the container is automatically created for the new BioConda Package.
+
+
+Automatic build from conda recipes
+-----------------------------------
+
+We utilize `mulled <https://github.com/mulled/mulled>`_ with `involucro <https://github.com/involucro/involucro>`_ in an automatic way. This is for example used to convert all packages in ``bioconda`` into Linux Containers (Docker and rkt at the moment. We have developed small utilities around this technology stack which is currently included in galaxy-lib.
+
+.. code-block:: bash
+
+   pip install galaxy-lib
+
+Here is a short introduction:
+
+Search for conda-based containers
+~~~~~~~~~~~~~~~~~~~
+
+This will search for containers in the biocontainers organisation.
+
+.. code-block::bash
+
+   $ mulled-search -s vsearch -o biocontainers
+
+Build all packages from bioconda from the last 24h
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The BioConda community is building a container for every package they create with a command similar to this.
+
+.. code-block:: bash
+
+
+   $ mulled-build-channel --channel bioconda --namespace biocontainers \
+         --involucro-path ./involucro --recipes-dir ./bioconda-recipes --diff-hours 25 build
+
+Building Docker containers for local Conda packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Conda packages can be tested with creating a busybox based container for this particular package in the following way.
+This also demonstrates how you can build a container locally and on-the-fly.
+
+..
+
+   we modified the samtools package to version 3.0 to make clear we are using a local version
+
+
+1) build your recipe
+
+.. code-block:: bash
+
+   $ conda build recipes/samtools
+
+2) index your local builds
+
+.. code-block:: bash
+
+   $ conda index /home/bag/miniconda2/conda-bld/linux-64/
+
+3) build a container for your local package
+
+.. code-block:: bash
+
+   $ mulled-build build-and-test 'samtools=3.0--0' \
+         --extra-channel file://home/bag/miniconda2/conda-bld/ --test 'samtools --help'
+
+The ``--0`` indicates the build version of the conda package. It is recommended to specify this number otherwise
+you will override already existing images. For Python Conda packages this extension might look like this ``--py35_1``.
+
+Build, test and push a conda-forge package to biocontainers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note:: You need to have write access to the biocontainers repository
+
+You can build packages from other Conda channels as well, not only from BioConda. ``pandoc`` is available from the conda-forge channel and conda-forge is also enabled by default in Galaxy. To build ``pandoc`` and push it to biocontainrs
+you could do something along these lines.
+
+.. code-block:: bash
+
+
+      $ mulled-build build-and-test 'pandoc=1.17.2--0' --test 'pandoc --help' -n biocontainers
+      $ mulled-build push 'pandoc=1.17.2--0' --test 'pandoc --help' -n biocontainers
+
+
+* Galaxy Conda documentation: ./conda_faq.rst
+* IUC: https://wiki.galaxyproject.org/IUC
+* container annotation:  https://github.com/galaxyproject/galaxy/blob/dev/test/functional/tools/catDocker.xml#L4
+* BioContainers: https://github.com/biocontainers
+* bioconda: https://github.com/bioconda/bioconda-recipes
+* BioContainers Quay.io account: https://quay.io/organization/biocontainers
+* galaxy-lib: https://github.com/galaxyproject/galaxy-lib
