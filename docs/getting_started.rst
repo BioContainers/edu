@@ -86,7 +86,6 @@ In this scenario, the only difference is the use of the parameter ``-v`` when ru
 References
 ------------------
 
-
 * `Understand Docker Architecture <https://docs.docker.com/engine/understanding-docker/>`_
 * `Docker Tutorial - What is Docker & Docker Containers, Images, etc? <https://www.youtube.com/watch?v=pGYAg7TMmp0>`_
 * `Docker Ecosystem <https://www.digitalocean.com/community/tutorials/the-docker-ecosystem-an-introduction-to-common-components>`_
