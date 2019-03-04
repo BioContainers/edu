@@ -9,9 +9,9 @@ modern Linux clusters environments.
 
 To reference a Docker image, use the ``docker://`` prefix when fetching or running images.
 
- .. code-block::
+   .. code-block:: bash
 
-    $ rkt --insecure-options=image run docker://biocontainers/comet
+      $ rkt --insecure-options=image run docker://biocontainers/comet
 
 According to the original documentation:
 
