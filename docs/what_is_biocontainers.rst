@@ -71,6 +71,124 @@ BioContainers build the docker containers from two different sources the `Docker
 .. image:: images/arch-build.png
    :alt: BioContainers Architecture.
 
+In order to be able to contribute to BioContainers you should be able to create a BioConda recipe or a Dockerfile recipe.
+
+Create a BioConda recipe
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note:: Before you start please read the Conda documentation and `how to setup conda in your machine <https://conda.io/projects/conda-build/en/latest/source/user-guide/tutorials/index.html>`__
+
+In summary should follow these steps:
+
+- Fork the `BioConda recipes in GitHub <<https://github.com/bioconda/bioconda-recipes/>>`__
+- Create your conda recipe (`following this tutorial <https://bioconda.github.io/contributing.html>`__)
+- Create a Pull Request in BioConda
+
+After the PR get merge a Conda package get created and the corresponding docker container get push into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <http://biocontainers.pro/registry>`__
+
+Create a Dockerfile recipe
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This is a standard template for creating a new Dockerfile for BioContainers:
+
+.. note:: Please always follow the :doc:`best_practices` to create a Dockerfile.
+
+Here, an example Dockerfile for a Biocontainer:
+
+.. code-block:: bash
+
+   ################## BASE IMAGE ######################
+   FROM biocontainers/biocontainers:v1.0.0_cv4
+
+   ################## METADATA ######################
+   LABEL base_image="biocontainers:v1.0.0_cv4"
+   LABEL version="3"
+   LABEL software="crux"
+   LABEL software.version="3.2"
+   LABEL about.summary="a software toolkit for tandem mass spectrometry analysis"
+   LABEL about.home="http://cruxtoolkit.sourceforge.net/"
+   LABEL about.documentation="http://cruxtoolkit.sourceforge.net/"
+   LABEL about.license_file="http://cruxtoolkit.sourceforge.net/"
+   LABEL about.license="SPDX:Apache-2.0"
+   LABEL extra.identifiers.biotools="crux"
+   LABEL about.tags="Proteomics"
+
+   ################## MAINTAINER ######################
+   MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br>
+
+   ################## INSTALLATION ######################
+
+   USER biodocker
+
+   RUN ZIP=crux-3.2.Linux.x86_64.zip && \
+       wget https://github.com/BioContainers/containers/releases/download/Crux/$ZIP -O /tmp/$ZIP && \
+       unzip /tmp/$ZIP -d /home/biodocker/bin/ && \
+       rm /tmp/$ZIP && \
+       ln -sv /home/biodocker/bin/*/bin/* /home/biodocker/bin/
+
+   ENV PATH /home/biodocker/bin:$PATH
+
+   WORKDIR /data/
+
+
+Every Dockerfile must have a metadata header with the following items:
+
+
+* **Base Image**\ : All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biocontainers/biocontainers image.
+* **Dockerfile Version**\ : This is a single-number version system (ex: v1, v2, v3 ...). Every change in the file must increase in 1.
+* **Software**\ : The name of the software installed inside the container. This can be a little tricky because some software demand libraries or dependencies. In this case the idea is to describe the "principal" software of the container, or the reason for built it.
+* **Software Version**\ : The version of the software installed.
+* **Description**\ : Single line description of the tool.
+* **Website**\ : URL(s) for the program developer.
+* **Documentation**\ : URL(s) containing information about how to use the software.
+* **License**\ : URL(s) containing Licensing information.
+* **Tags**\ : Program tags: Genomics, Protemomics, Transcriptomics, Metabolomics, General.
+
+**Image Setting**
+
+The next element is the base image and any configuration to the system you are installing. In the example above the Base Image is defined as biocontainers/biocontainers which is based on ubuntu latest LTS (Long Term Support) release and kept up to date with updates.
+
+**Signature**
+
+The File Author/ Maintainer signature. By default the Dockerfile only accepts one MAINTAINER tag. This will be the place the original author name. After updates are added to the file, the contributors name should appear in commented lines.
+
+.. code-block:: bash
+
+   # Maintainer
+   MAINTAINER Felipe da Veiga Leprevost <felipe@leprevost.com.br
+
+**Installation**
+
+The installation area is where you instructions to build the software will be defined. Here is the correct place to put Dockerfile syntax and system commands.
+
+.. code-block:: bash
+
+   USER biodocker
+
+   RUN ZIP=comet_binaries_2016012.zip && \
+     wget https://github.com/BioDocker/software-archive/releases/download/Comet/$ZIP -O /tmp/$ZIP && \
+     unzip /tmp/$ZIP -d /home/biodocker/bin/Comet/ && \
+     chmod -R 755 /home/biodocker/bin/Comet/* && \
+     rm /tmp/$ZIP
+
+   RUN mv /home/biodocker/bin/Comet/comet_binaries_2016012/comet.2016012.linux.exe /home/biodocker/bin/Comet/comet
+
+   ENV PATH /home/biodocker/bin/Comet:$PATH
+
+   WORKDIR /data/
+
+   CMD ["comet"]
+
+**Tips**
+
+* Commands should be merged with '&& \' whenever possible in order to create fewer intermediate images.
+* A biodocker user has been created (id 1001) so that applications are not run as root.
+* If possible, add the program to /usr/bin, otherwise, add to /home/biodocker/bin
+* return to the regular USER
+* change the WORKDIR to the data folder
+* set the VOLUME to be exported (/data and /config are exported by default by the base image)
+* EXPOSE ports (if necessary)
+
 
 Get involved
 ----------------------
