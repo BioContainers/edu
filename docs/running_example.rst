@@ -3,6 +3,11 @@
 Running first container
 ================================
 
+.. sidebar:: More Examples
+   :subtitle: **It can make your life easier** if you want to explore individual examples:
+
+   - :doc:`examples`
+
 We will run the first example with BLAST. The Basic Local Alignment Search Tool for comparing biological sequence information, such as the amino-acid sequences of proteins or the nucleotides of DNA sequences. We chose BLAST because it frequently used
 in bioinformatics.
 
@@ -86,4 +91,6 @@ Run everything in one go
      $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
      $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
      $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+
+
 
