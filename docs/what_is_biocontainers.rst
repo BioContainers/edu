@@ -23,7 +23,7 @@ Main components of BioContainers:
 
 -  `Conda based Containers <https://github.com/bioconda/bioconda-recipes/>`__ provides a list of `Conda recipes` to automatically build **first a conda package** and then a docker container.
 
--  `Biocontainers Registry <https://biocontainers.pro/registry>`__ is a hosted registry of all biocontainers images that are ready to be used (read more here :doc:`biocontainersregistry`).
+-  `Biocontainers Registry <https://biocontainers.pro/registry>`__ is a hosted registry of all BioContainers images that are ready to be used (read more here :doc:`biocontainersregistry`).
 
 -  `Specifications <https://github.com/BioContainers/specs>`__ defines a set of guidelines and rules to contribute with BioContainers.
 
@@ -61,6 +61,15 @@ Reporting a problem with a container
 
 If the user find a problem with a container an issue should be open in
 the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
+
+
+BioContainers containers build architecture
+-------------------------------------------
+
+BioContainers build the docker containers from two different sources the `Dockerfile <http://github.com/BioContainers/containers/>`__ or `Conda recipes <https://github.com/bioconda/bioconda-recipes/>`__ . The BioContainers team first try to create a Conda recipe (if is possible). If not possible then a Dockerfile is created. The system automatically build the container after the ``pull request`` is merge into Conda github or BioContainer github repos.
+
+.. image:: images/arch-build.png
+   :alt: BioContainers Architecture.
 
 
 Get involved
