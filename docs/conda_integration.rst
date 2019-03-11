@@ -13,7 +13,7 @@ Integration with BioConda
 
 The conda package manager makes installing software a vastly more streamlined process. Conda is a combination of other package managers you may have encountered, such as ``pip``, ``CPAN``, ``CRAN``, ``Bioconductor``, ``apt-get``, and ``homebrew``. Conda is both language- and OS-agnostic, and can be used to install C/C++, Fortran, Go, R, Python, Java etc programs on Linux, Mac OSX, and Windows.
 
-.. note:: Installing Conda: `Bioconda < https://bioconda.github.io/#install-conda>`__ requires the conda package manager to be installed. If you have an Anaconda Python installation, you already have it. Otherwise, the best way to install it is with the `Miniconda <http://conda.pydata.org/miniconda.html>`__ package. The Python 3 version is recommended.
+.. note:: Installing Conda: `Bioconda <https://bioconda.github.io/#install-conda>`__ requires the conda package manager to be installed. If you have an Anaconda Python installation, you already have it. Otherwise, the best way to install it is with the `Miniconda <http://conda.pydata.org/miniconda.html>`__ package. The Python 3 version is recommended.
 
 Defining a Conda package
 -------------------------
