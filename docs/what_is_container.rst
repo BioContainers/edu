@@ -39,7 +39,7 @@ Container technologies
 
 BioContainers has been build around three main technologies: **Conda**, **Docker** and **Singulatiry**. The BioContainers Community release for every bioinformatics software containers in these thre technologies or flavours.
 
-.. note:: We do not provide detailed documentation about these three technologies because that can be found on their corresponding web sites, although we may explain some concepts important for understanding BioContainers.
+.. note:: We do not provide detailed documentation about these three technologies because that can be found on their corresponding web sites, although we may explain some concepts important for understanding BioContainers as needed.
 
 Conda
 ~~~~~~~~~~
