@@ -8,7 +8,7 @@ BioContainers is a community-driven project that provides the infrastructure and
 BioContainers Goals
 -------------------
 
--  Provide a base specificatio and infrastructure to develop, build and deploy new bioinformatics software including the source and examples.
+-  Provide a base specification and infrastructure to develop, build and deploy new bioinformatics software including the source and examples.
 
 -  Provide a series of containers ready to be used by the bioinformatics community (https://biocontainers.pro/registry).
 
@@ -19,7 +19,7 @@ BioContainers Goals
 Main components of BioContainers:
 ---------------------------------
 
--  `Docker Containers <https://github.com/BioContainers/containers>`__ provides a lit of `Dockerfile recipes` to automatically build containers in BioContainers.
+-  `Docker Containers <https://github.com/BioContainers/containers>`__ provides a list of `Dockerfile recipes` to automatically build containers in BioContainers.
 
 -  `Conda based Containers <https://github.com/bioconda/bioconda-recipes/>`__ provides a list of `Conda recipes` to automatically build **first a conda package** and then a docker container.
 
@@ -39,16 +39,16 @@ BioContainers is a community-driven project that allows bioinformaticians/develo
 How to Request a Container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Users can request a container by opening an issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ , In the previous workflow this is ``the first step`` performed by user ``henrik``. The issue should contains the name of the software, the url of the code or binary to be package and information about the software `see BioContainers specification <http://github.com/BioContainers/container-specs.md>`__. When the containers is deploy and fully functional, the issue will be close by the developer or the contributor to BioContainers.
+Users can request a container by opening an issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ , In the previous workflow this is ``the first step`` performed by user ``henrik``. The issue should contains the name of the software, the url of the code or binary to be packaged and information about the software `see BioContainers specification <http://github.com/BioContainers/container-specs.md>`__. When the container is deployed and fully functional, the issue will be closed by the developer or the contributor to BioContainers.
 
-.. note:: Before requesting a Container you should check the `BioContainers Registry <http://biocontainers.pro/registry>`__ to make sure your requested tool do not exist already (read more about the registry in: :doc:`biocontainersregistry`).
+.. note:: Before requesting a Container you should check the `BioContainers Registry <http://biocontainers.pro/registry>`__ to make sure your requested tool does not exist already (read more about the registry in: :doc:`biocontainersregistry`).
 
-.. hint:: Importantly, the BioContainers community has implemented a "labeled legend" to tag each issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ that should be used properly for on each issue. For example, the for the new containers the label **Container Request** should be used.
+.. hint:: Importantly, the BioContainers community has implemented a "labeled legend" to tag each issue in the `containers repository <http://github.com/BioContainers/containers/issues>`__ that should be used properly for on each issue. For example, for new containers the label **Container Request** should be used.
 
 Use a Docker BioContainer.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When a container is deploy and the developer close the issue in GitHub the user ``henrik`` received a notification that the container is ready. Then, the user can use ``docker`` command to pull or fetch the corresponding container.
+When a container is deployed and the developer closes the issue in GitHub, the user ``henrik`` receives a notification that the container is ready. Then, the user can use ``docker`` command to pull or fetch the corresponding container.
 
 .. code-block:: bash
 
@@ -59,14 +59,14 @@ When a container is deploy and the developer close the issue in GitHub the user 
 Reporting a problem with a container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the user find a problem with a container an issue should be open in
-the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivery when the containers has been fixed.
+If the user finds a problem with a container an issue should be opened in
+the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivered when the container has been fixed.
 
 
-BioContainers containers build architecture
+BioContainers build architecture
 -------------------------------------------
 
-BioContainers build the docker containers from two different sources the `Dockerfile <http://github.com/BioContainers/containers/>`__ or `Conda recipes <https://github.com/bioconda/bioconda-recipes/>`__ . The BioContainers team first try to create a Conda recipe (if is possible). If not possible then a Dockerfile is created. The system automatically build the container after the ``pull request`` is merge into Conda github or BioContainer github repos.
+BioContainers build the docker containers from two different sources the `Dockerfile <http://github.com/BioContainers/containers/>`__ or `Conda recipes <https://github.com/bioconda/bioconda-recipes/>`__ . The BioContainers team first try to create a Conda recipe (if it is possible). If not possible, then a Dockerfile is created. The system automatically builds the container after the ``pull request`` is merged into Conda github or BioContainer github repos.
 
 .. image:: images/arch-build.png
    :alt: BioContainers Architecture.
@@ -84,7 +84,7 @@ In summary should follow these steps:
 - Create your conda recipe (`following this tutorial <https://bioconda.github.io/contributing.html>`__)
 - Create a Pull Request in BioConda
 
-After the PR get merge a Conda package get created and the corresponding docker container get push into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <http://biocontainers.pro/registry>`__
+After the PR gets merged, a Conda package gets created and the corresponding docker container get pushed into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <http://biocontainers.pro/registry>`__
 
 Create a Dockerfile recipe
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -136,7 +136,7 @@ Every Dockerfile must have a metadata header with the following items:
 
 * **Base Image**\ : All containers are based on a specific GNU/Linux system. There is no preference for a specific OS flavor but, to reduce disk usage, we recommend to use our own biocontainers/biocontainers image.
 * **Dockerfile Version**\ : This is a single-number version system (ex: v1, v2, v3 ...). Every change in the file must increase in 1.
-* **Software**\ : The name of the software installed inside the container. This can be a little tricky because some software demand libraries or dependencies. In this case the idea is to describe the "principal" software of the container, or the reason for built it.
+* **Software**\ : The name of the software installed inside the container. This can be a little tricky because some software demands libraries or dependencies. In this case the idea is to describe the "principal" software of the container, or the reason for building it.
 * **Software Version**\ : The version of the software installed.
 * **Description**\ : Single line description of the tool.
 * **Website**\ : URL(s) for the program developer.
@@ -159,7 +159,7 @@ The File Author/ Maintainer signature. By default the Dockerfile only accepts on
 
 **Installation**
 
-The installation area is where you instructions to build the software will be defined. Here is the correct place to put Dockerfile syntax and system commands.
+The installation area is where the instructions to build the software will be defined. Here is the correct place to put Dockerfile syntax and system commands.
 
 .. code-block:: bash
 
@@ -202,7 +202,7 @@ Here are some general ideas:
 
 -  Browse our list of containers
 -  Propose your own ideas or software
--  Interact with other if you think there is something missing.
+-  Interact with others if you think there is something missing.
 
 
 .. |Slack| image:: https://img.shields.io/badge/slack-join%20chat-ff69b4.svg
