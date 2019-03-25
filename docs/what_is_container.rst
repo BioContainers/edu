@@ -5,7 +5,7 @@ Basically a software container is used to encapsulate a software component and t
 
 -  Containers encapsulate discrete components of application logic provisioned only with the minimal resources needed to do their job.
 
--  Containers are easily packaged, lightweight, and designed to run anywhere
+-  Containers are easily packaged, lightweight, and designed to run anywhere.
 
 Let's install a container quickly:
 
@@ -15,7 +15,7 @@ Let's install a container quickly:
 
   .. note:: This simple command installs dia-umpire and all its dependencies
 
-Containers are build from existing operating systems. They are different from virtual machines because they don't posses an entire guest OS inside, instead, containers are build using optimized system libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
+Containers are built from existing operating systems. They are different from virtual machines because they don't posses an entire guest OS inside; instead, containers are built using optimized system libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
 
 .. image:: images/container.png
    :alt: What is Container
@@ -37,7 +37,7 @@ In the next video you can check out what you can achieve by using docker contain
 Container technologies
 ----------------------
 
-BioContainers has been build around three main technologies: **Conda**, **Docker** and **Singulatiry**. The BioContainers Community release for every bioinformatics software containers in these thre technologies or flavours.
+BioContainers has been built around three main technologies: **Conda**, **Docker** and **Singulatiry**. The BioContainers Community release for every bioinformatics software containers in these three technologies or flavours.
 
 .. note:: We do not provide detailed documentation about these three technologies because that can be found on their corresponding web sites, although we may explain some concepts important for understanding BioContainers as needed.
 
