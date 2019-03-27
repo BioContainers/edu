@@ -18,7 +18,7 @@ The conda package manager makes installing software a vastly more streamlined pr
 Defining a Conda package
 -------------------------
 
-The preferred way to build a conda package is to write a `conda recipe <https://conda.pydata.org>`_ and submit this it the BioConda communitiy. As soon as your PR is merged and continues integration testing was successful, we will build you automatically a container and publish it at `quay.io/biocontainers <https://quay.io/organization/biocontainers>`_ and `BioContainers Registry <http://biocontainers.pro/registry>`__.
+The preferred way to build a conda package is to write a `conda recipe <https://conda.pydata.org>`_ and submit this it the BioConda communitiy. As soon as your PR is merged and continues integration testing was successful, we will build you automatically a container and publish it at `quay.io/biocontainers <https://quay.io/organization/biocontainers>`_ and `BioContainers Registry <http://biocontainers.pro/#/registry>`__.
 
 The BioConda specification `Contribution Guide <https://bioconda.github.io/contributing.html>`_ define how to create a recipe. In summary, a BioConda recipe should contain the following parts ():
 
