@@ -10,7 +10,7 @@ BioContainers Goals
 
 -  Provide a base specification and infrastructure to develop, build and deploy new bioinformatics software including the source and examples.
 
--  Provide a series of containers ready to be used by the bioinformatics community (https://biocontainers.pro/registry).
+-  Provide a series of containers ready to be used by the bioinformatics community (https://biocontainers.pro/#/registry). 
 
 -  Provide guidelines and help on how to create reproducible pipelines and workflows using bioinformatics containers.
 
