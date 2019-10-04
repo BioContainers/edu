@@ -15,15 +15,15 @@ Let's install a container quickly:
 
   .. note:: This simple command installs dia-umpire and all its dependencies
 
-Containers are built from existing operating systems. They are different from virtual machines because they don't posses an entire guest OS inside; instead, containers are built using optimized system libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
+Containers are built from existing operating systems. They are different from virtual machines because they don't possess an entire guest OS inside; instead, containers are built using optimized system libraries and use the host OS memory management and process controls. Containers normally are centralized around a specific software and you can make them executable by instantiating images from them.
 
 .. image:: images/container.png
-   :alt: What is Container
+   :alt: What is a Container
 
 Why should I use a container?
 -----------------------------
 
-Most of the time when a bioinformatics analysis is performed, several bioinformatics tools and software should be installed and configured. This process can take several hours and demand a lot of effort including the installation of multiple dependencies and tools. BioContainers provide ready-to-use packages and tools that can be easily deployed and used on local machines, HPC and cloud architectures.
+Most of the time when a bioinformatics analysis is performed, several bioinformatics tools and software should be installed and configured. This process can take several hours and demands a lot of effort including the installation of multiple dependencies and tools. BioContainers provide ready-to-use packages and tools that can be easily deployed and used on local machines, HPC and cloud architectures.
 
 In the next video you can check out what you can achieve by using docker containers:
 
@@ -37,7 +37,7 @@ In the next video you can check out what you can achieve by using docker contain
 Container technologies
 ----------------------
 
-BioContainers has been built around three main technologies: **Conda**, **Docker** and **Singularity**. The BioContainers Community release for every bioinformatics software containers in these three technologies or flavours.
+BioContainers has been built around three main technologies: **Conda**, **Docker** and **Singularity**. The BioContainers Community releases for every bioinformatics software containers in these three technologies or flavours.
 
 .. note:: We do not provide detailed documentation about these three technologies because that can be found on their corresponding web sites, although we may explain some concepts important for understanding BioContainers as needed.
 

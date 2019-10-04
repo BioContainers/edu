@@ -4,7 +4,7 @@ Introduction
 Topics
 -------------
 
--  Learn basic concepts of containers, docker and BioContainers
+-  Learn basic concepts of containers, Docker and BioContainers
 -  Get hands to create, deploy and use a BioContainers
 -  Master the workflow for deploying and publishing a BioContainer in `Quay.io <https://quay.io/organization/biocontainers>`__ or `DockerHub <https://hub.docker.com/u/biocontainers/>`__
 
@@ -20,7 +20,7 @@ Our education portal is work in progress. So if you encounter a logical inconsis
 
 -  For technical questions related to containers (broken containers, container requests) `Containers Issues <https://github.com/BioContainers/containers/issues>`__ are preferred.
 
-If you find a typo or want to help us to make this tutorial even better, you are invited to click on "Improve this page".
+If you find a typo or want to help us to make this tutorial even better, you are invited to click on "Edit on GitHub".
 
 Concepts in this tutorial
 -------------------------
