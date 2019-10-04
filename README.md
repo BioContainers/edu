@@ -2,11 +2,11 @@ BioContainers Documentation
 =============================
 
 
-The BioCotnainers documentation is generated using readthedocs and sphinx. The final version of the documentations is deploy in: https://biocontainers-edu.readthedocs.io/en/latest/
+The BioContainers documentation is generated using readthedocs and sphinx. The final version of the documentation is deployed in: https://biocontainers-edu.readthedocs.io/en/latest/
 
 If you want to contribute with the documentation please do a Pull Request (PR) in the branch ``read_docs``.
 
-The documentation source files `.rst` are store in the **docs** folder.
+The documentation source files `.rst` are stored in the **docs** folder.
 
 If you want to build the project locally, you need to follow these steps:
 
