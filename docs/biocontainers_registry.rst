@@ -22,7 +22,7 @@ Quay.io
 BioContainers Registry
 --------------------------
 
-`BioContainers Registry UI <http://biocontainers.pro/registry/>`__ provides the interface to and UI to **search**, **tag**, and
+`BioContainers Registry UI <https://biocontainers.pro/#/registry/>`__ provides the interface to and UI to **search**, **tag**, and
 **document** a BioContainers across all the registries.
 
 The users can search containers by using the search box:
