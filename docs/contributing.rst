@@ -10,11 +10,11 @@ If you have an idea for a feature/container to add or an approach for a bugfix, 
 common venues for this are `GitHub issues <https://github.com/BioContainers/specs/issues>`_ for common specification issues and the
 `Containers and Tools <https://github.com/BioContainers/containers/issues>`_ for container/docker related issues.
 Browse through existing GitHub issues and if one seems related, comment on it. If no existing issue seems appropriate, a new issue can be
-opened using `this form <https://github.com/BioContainers/BioContainers/issues/new>`_. BioContainers developers are also generally available via Gitter 
+opened using `this form <https://github.com/BioContainers/containers/issues/new>`_. BioContainers developers are also generally available via Gitter 
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
    :target: https://gitter.im/BioContainers/BioContainers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-   :alt: Join the chat at https://gitter.im/BioContainers/BioContainers
+   :alt: Join the chat at https://gitter.im/BioContainers/Lobby
 
 
 How to Contribute
@@ -22,7 +22,7 @@ How to Contribute
 
 
 * 
-  All changes to the `specifications BioContainers project <https://github.com/BioContainers/bidocker>`_
+  All changes to the `specifications BioContainers project <https://github.com/BioContainers/containers>`_
   should be made through pull requests to this repository (with just two
   exceptions outlined below).
 
@@ -61,7 +61,7 @@ How to Contribute
 * 
   If your changes modify containers/images - please ensure the resulting files
   conform to BioContainers Specifications `BioContainers
-  Specifications <https://github.com/BioContainers/BioContainers>`_.
+  Specifications <https://github.com/BioContainers/specs>`_.
 
 * 
   Commit and push your changes to your
@@ -89,14 +89,14 @@ How to Contribute
 Ideas
 -----
 
-BioContainers's `BioContainers Specification and Design <http://github.com/BioContainers/BioContainers/issues>`_ is filled with comments and ideas
+BioContainers's `BioContainers Specification and Design <http://github.com/BioContainers/specs/issues>`_ is filled with comments and ideas
 for enhancements and we believe would make the best entry points for new developers.
 
 A Quick Note about Containers
 -----------------------------
 
-  For the most part, BioContainers containers should be published to the `BioContainers containers <https://github.com/BioContainers/BioContainers>`_ and not in this repository directly.
-  If you are looking to supply new containers first check if an existing container exists in this repository `BioContainers containers <https://github.com/BioContainers/BioContainers>`_ -
+  For the most part, BioContainers containers should be published to the `BioContainers containers <https://github.com/BioContainers/containers>`_ and not in this repository directly.
+  If you are looking to supply new containers first check if an existing container exists in this repository `BioContainers containers <https://github.com/BioContainers/containers>`_ -
   please checkout the repository on GitHub.
 
 Handling Pull Requests
