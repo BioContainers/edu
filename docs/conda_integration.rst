@@ -18,9 +18,9 @@ The conda package manager makes installing software a vastly more streamlined pr
 Defining a Conda package
 -------------------------
 
-The preferred way to build a conda package is to write a `conda recipe <https://conda.pydata.org>`_ and submit this it the BioConda communitiy. As soon as your PR is merged and continues integration testing was successful, we will build you automatically a container and publish it at `quay.io/biocontainers <https://quay.io/organization/biocontainers>`_ and `BioContainers Registry <http://biocontainers.pro/#/registry>`__.
+The preferred way to build a conda package is to write a `conda recipe <https://conda.pydata.org>`_ and submit this it the BioConda community. As soon as your PR is merged and continues integration testing was successful, we will build you automatically a container and publish it at `quay.io/biocontainers <https://quay.io/organization/biocontainers>`_ and `BioContainers Registry <http://biocontainers.pro/#/registry>`__.
 
-The BioConda specification `Contribution Guide <https://bioconda.github.io/contributing.html>`_ define how to create a recipe. In summary, a BioConda recipe should contain the following parts ():
+The BioConda specification `Contribution Guide <https://bioconda.github.io/contributing.html>`_ define how to create a recipe. In summary, a BioConda recipe should contain the following parts:
 
 - Source URL is stable (details)
 - md5 or sha256 hash included for source download (details)
@@ -33,7 +33,7 @@ The BioConda specification `Contribution Guide <https://bioconda.github.io/contr
 - Package does not already exist in the defaults, r, or conda-forge channels with some
   exceptions (details)
 - Package is appropriate for bioconda
-- If the recipe installs custom wrapper scripts, usage notes should be added to ``extra -> notes`` in the meta.yaml.
+- If the recipe installs custom wrapper scripts, usage notes should be added to ``extra -> notes`` in the meta.yaml
 
 Example Yaml for bowtie2:
 
@@ -82,13 +82,13 @@ Example Yaml for bowtie2:
      license_file: LICENSE
      summary: 'Hybrid assembly pipeline for bacterial genomes'
 
-When the recipe is ready a Pull Request should be created (https://bioconda.github.io/contribute-a-recipe.html#push-changes-wait-for-tests-to-pass-submit-pull-request). Finally, the container is automatically created for the new BioConda Package.
+When the recipe is ready, a Pull Request should be created (https://bioconda.github.io/contributor/workflow.html). Finally, the container is automatically created for the new BioConda Package.
 
 
 Automatic build from conda recipes
 -----------------------------------
 
-We utilize `mulled <https://github.com/mulled/mulled>`_ with `involucro <https://github.com/involucro/involucro>`_ in an automatic way. This is for example used to convert all packages in ``bioconda`` into Linux Containers (Docker and rkt at the moment. We have developed small utilities around this technology stack which is currently included in galaxy-lib.
+We utilize `mulled <https://github.com/mulled/mulled>`_ with `involucro <https://github.com/involucro/involucro>`_ in an automatic way. This is for example used to convert all packages in ``bioconda`` into Linux Containers (Docker and rkt at the moment). We have developed small utilities around this technology stack which is currently included in galaxy-lib.
 
 .. code-block:: bash
 
@@ -108,7 +108,7 @@ This will search for containers in the biocontainers organisation.
 Build all packages from bioconda from the last 24h
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The BioConda community is building a container for every package they create with a command similar to this.
+The BioConda community is building a container for every package they create with a command similar to this:
 
 .. code-block:: bash
 
@@ -119,27 +119,25 @@ The BioConda community is building a container for every package they create wit
 Building Docker containers for local Conda packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Conda packages can be tested with creating a busybox based container for this particular package in the following way.
+Conda packages can be tested with creating a busybox-based container for this particular package in the following way.
 This also demonstrates how you can build a container locally and on-the-fly.
 
-..
-
-   we modified the samtools package to version 3.0 to make clear we are using a local version
+.. note:: We modified the samtools package to version 3.0 to make clear we are using a local version.
 
 
-1) build your recipe
+1) Build your recipe
 
 .. code-block:: bash
 
    $ conda build recipes/samtools
 
-2) index your local builds
+2) Index your local builds
 
 .. code-block:: bash
 
    $ conda index /home/bag/miniconda2/conda-bld/linux-64/
 
-3) build a container for your local package
+3) Build a container for your local package
 
 .. code-block:: bash
 
@@ -154,8 +152,7 @@ Build, test and push a conda-forge package to biocontainers
 
 .. note:: You need to have write access to the biocontainers repository
 
-You can build packages from other Conda channels as well, not only from BioConda. ``pandoc`` is available from the conda-forge channel and conda-forge is also enabled by default in Galaxy. To build ``pandoc`` and push it to biocontainrs
-you could do something along these lines.
+You can build packages from other Conda channels as well, not only from BioConda. ``pandoc`` is available from the conda-forge channel and conda-forge is also enabled by default in Galaxy. To build ``pandoc`` and push it to BioContainers, you could do something along these lines:
 
 .. code-block:: bash
 
@@ -166,7 +163,7 @@ you could do something along these lines.
 
 * Galaxy Conda documentation: ./conda_faq.rst
 * IUC: https://wiki.galaxyproject.org/IUC
-* container annotation:  https://github.com/galaxyproject/galaxy/blob/dev/test/functional/tools/catDocker.xml#L4
+* Container annotation:  https://github.com/galaxyproject/galaxy/blob/dev/test/functional/tools/catDocker.xml#L4
 * BioContainers: https://github.com/biocontainers
 * bioconda: https://github.com/bioconda/bioconda-recipes
 * BioContainers Quay.io account: https://quay.io/organization/biocontainers
