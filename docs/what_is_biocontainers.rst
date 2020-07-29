@@ -81,10 +81,10 @@ Create a BioConda recipe
 In summary should follow these steps:
 
 - Fork the `BioConda recipes in GitHub <<https://github.com/bioconda/bioconda-recipes/>>`__
-- Create your conda recipe (`following this tutorial <https://bioconda.github.io/contributing.html>`__)
+- Create your conda recipe (`following this tutorial <https://bioconda.github.io/contributor/index.html>`__)
 - Create a Pull Request in BioConda
 
-After the PR gets merged, a Conda package gets created and the corresponding docker container get pushed into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <http://biocontainers.pro/registry>`__
+After the PR gets merged, a Conda package gets created and the corresponding docker container get pushed into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <https://biocontainers.pro/#/registry>`__
 
 Create a Dockerfile recipe
 ~~~~~~~~~~~~~~~~~~~~~~~
