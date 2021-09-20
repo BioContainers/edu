@@ -50,11 +50,11 @@ proteins <https://en.wikipedia.org/wiki/PRNP>`__, and we want to find out if the
 Now, let's download and unpack our database, from NCBI
 
     .. code-block:: bash
+       $ mkdir host-data
+       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
 
-       $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-       $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
-
-.. note:: The docker command can be run with the option ``-v`` this will bind a local volume (in the example path /Users/yperez/workplace) into a container volume /data/ . You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
+.. note:: The docker command can be run with the option ``-v`` this will bind a local volume (in the example path host-data within the current working directory) into a container volume /data/ . You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
 
 3) Preparing the database
 
@@ -62,16 +62,21 @@ We need to prepare the zebrafish database with ``makeblastdb`` for the search, b
 
      .. code-block:: bash
 
-        $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+        $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
 
 The program's log will be displayed on the terminal, indicating if the program finished correctly. Also, you will see some new files in your local folder, those are part of the BLAST database.
 
+Download a query sequence from the UniProt Knowledgebase (UniProtKB).
+
+     .. code-block:: bash
+
+        $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> host-data/P04156.fasta
 
 Now, that you know how to run a container with all the tricks, let's go for the final alignments:
 
      .. code-block:: bash
 
-        $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+        $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 
 The results will be saved in the results.txt file, then you can proceed to analyze the matches. By looking at the list of the best hits we can observe that zebrafish have a few predicted proteins matching the human prion with better scores than the predicted prion protein (score:33.9, e-value: 0.22). That's interesting isn't ?
 
@@ -85,12 +90,13 @@ Run everything in one go
   .. code-block:: bash
 
      $ cd /Users/yperez/workplace   # Replace by your path
+     $ mkdir host-data
      $ docker run biocontainers/blast:2.2.31 blastp -help
-     $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> P04156.fasta
-     $ docker run -v /Users/yperez/workplace/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-     $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
-     $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
-     $ docker run -v /Users/yperez/workplace:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
+     $ docker run -v `pwd`/host-data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+     $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
+     $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 makeblastdb -in zebrafish.1.protein.faa -dbtype prot
+     $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> host-data/P04156.fasta
+     $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 blastp -query P04156.fasta -db zebrafish.1.protein.faa -out results.txt
 
 
 
