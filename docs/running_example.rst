@@ -31,30 +31,29 @@ Running BLAST
 
 This will print the help page for ``blastp`` tool. The first part of the command ``docker run biocontainers/blast`` enables docker to identify the correct container in your local registry. The second part ``blastp -help`` is the command that you want to use in the container.
 
-.. note:: If you want to `list all the containers/images <https://docs.docker.com/engine/reference/commandline/images/>`__
-you have pulled from public repositories and are available in your local machine, you can use the following command: ``$ docker images``
+.. note:: If you want to `list all the containers/images <https://docs.docker.com/engine/reference/commandline/images/>` you have pulled from public repositories and are available in your local machine, you can use the following command: ``docker images``.
 
 For this example let's try something practical, suppose that we are molecular biologists studying `prion
 proteins <https://en.wikipedia.org/wiki/PRNP>`__, and we want to find out if the zebrafish, a model organism, has a prion protein similar to the human form.
 
-1- Downloading the human prion sequence, We can grab the human prion FASTA sequence from UniProt:
+1) Downloading the human prion sequence, We can grab the human prion FASTA sequence from UniProt:
 
     .. code-block:: bash
 
       $ docker run biocontainers/blast:2.2.31 curl https://www.uniprot.org/uniprot/P04156.fasta >> P04156.fasta
 
-.. note:: some biocontainer base images contain multiple linux command that are useful for bioinformatics like curl, wget. You should note that not all the containers contains those additional tools.
+.. note:: Some biocontainer base images contain multiple linux command that are useful for bioinformatics like ``curl``, ``wget``. You should note that not all the containers contains those additional tools.
 
 2) Downloading the zebrafish database
 
 Now, let's download and unpack our database, from NCBI
 
     .. code-block:: bash
-       $ mkdir host-data
-       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
-       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
+      $ mkdir host-data
+      $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
+      $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
 
-.. note:: The docker command can be run with the option ``-v`` this will bind a local volume (in the example path host-data within the current working directory) into a container volume /data/ . You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
+.. note:: The docker command can be run with the option ``-v``; this will bind a local volume (in the example path host-data within the current working directory) into a container volume /data/. You can read more about `here <https://docs.docker.com/storage/volumes/>`__ . In the example every operation performed in ``/data/`` will be stored in the bind directory.
 
 3) Preparing the database
 
