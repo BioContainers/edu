@@ -80,7 +80,7 @@ Create a BioConda recipe
 
 In summary should follow these steps:
 
-- Fork the `BioConda recipes in GitHub <<https://github.com/bioconda/bioconda-recipes/>>`__
+- Fork the `BioConda recipes in GitHub <https://github.com/bioconda/bioconda-recipes/>`__
 - Create your conda recipe (`following this tutorial <https://bioconda.github.io/contributor/index.html>`__)
 - Create a Pull Request in BioConda
 
