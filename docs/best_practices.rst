@@ -3,7 +3,7 @@ Best Practices
 
 The  BioContainers community develop and build guidelines to create, build containers. Here, we describe the guidelines to create Dockerfile containers. If you are interested to read more about BioContainers guidelines, you can follow our recent manuscript in `F1000 <https://f1000research.com/articles/7-742/v1>`__.
 
-- Gruening, B., Sallou, O., Moreno, P., da Veiga Leprevost, F., Ménager, H., Søndergaard, D., Röst, H., Sachsenberg, T., O'Connor, B., Madeira, F. and Del Angel, V.D., BioContainers Community, Perez-Riverol Y. 2018. `Recommendations for the packaging and containerizing of bioinformatics software <https://f1000research.com/articles/7-742/v1>`__. F1000Research, 7.
+- Gruening, B., Sallou, O., Moreno, P., da Veiga Leprevost, F., Ménager, H., Søndergaard, D., Röst, H., Sachsenberg, T., O'Connor, B., Madeira, F. and Del Angel, V.D., BioContainers Community, Perez-Riverol Y. 2018. `Recommendations for the packaging and containerizing of bioinformatics software <https://f1000research.com/articles/7-742/v2>`__. F1000Research, 7.
 
 Language Specific
 -----------------
