@@ -13,6 +13,7 @@ Docker Configuration
 Other commands:
 
 .. code-block:: bash
+
     $ docker --version
     Docker version 1.12.0, build 8eab29e
 
