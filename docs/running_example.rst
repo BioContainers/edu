@@ -49,6 +49,7 @@ proteins <https://en.wikipedia.org/wiki/PRNP>`__, and we want to find out if the
 Now, let's download and unpack our database, from NCBI
 
     .. code-block:: bash
+
       $ mkdir host-data
       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 curl -O ftp://ftp.ncbi.nih.gov/refseq/D_rerio/mRNA_Prot/zebrafish.1.protein.faa.gz
       $ docker run -v `pwd`/host-data/:/data/ biocontainers/blast:2.2.31 gunzip zebrafish.1.protein.faa.gz
