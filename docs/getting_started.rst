@@ -76,7 +76,7 @@ In many cases the software you are using requires an input or an output file to 
 
 After setting the folder and necessary files inside we can execute the image we want. In the example bellow we are running an image built from an example container:
 
-.. code-block::
+.. code-block:: bash
 
    $ docker run -v /home/user/docker/:/data/ biocontainers/program:version -input /data/prot.fa -output /data/result.txt`
 
