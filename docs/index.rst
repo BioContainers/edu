@@ -13,49 +13,14 @@ Contents
    :maxdepth: 1
 
    introduction
-   .. toctree::
-   :maxdepth: 3
-
    what_is_container
-   .. toctree::
-   :maxdepth: 3
-
    what_is_biocontainers
-   .. toctree::
-   :maxdepth: 3
-
    getting_started
-   .. toctree::
-   :maxdepth: 3
-
    running_example
-   .. toctree::
-   :maxdepth: 3
-
    conda_integration
-   .. toctree::
-   :maxdepth: 3
-
    biocontainers_registry
-   .. toctree::
-   :maxdepth: 3
-
    examples
-   .. toctree::
-   :maxdepth: 3
-
    best_practices
-   .. toctree::
-   :maxdepth: 3
-
    citations
-   .. toctree::
-   :maxdepth: 3
-
    advanced_topics
-   .. toctree::
-   :maxdepth: 3
-
    contributing
-   .. toctree::
-   :maxdepth: 3

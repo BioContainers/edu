@@ -32,6 +32,7 @@ In the next video you can check out what you can achieve by using docker contain
    <iframe width="100%" height="600px" src="https://www.youtube.com/embed/aLipr7tTuA4" frameborder="0"></iframe>
 
 .. raw:: html
+
    </b>
 
 Container technologies
