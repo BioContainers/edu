@@ -6,7 +6,7 @@ BioContainers in Examples
 In this section we provide a set of examples about how to use BioContainers in your analysis. Please feel free to contribute to this help with your own examples.
 
 Peptide MS search engine (Tide)
--------------------------
+-------------------------------
 
 Let’s run a proteomics search engine to identified proteins using `Tide <http://crux.ms/commands/tide-index.html>`_. Proteomics data analysis is dominated by database-based search engines strategies. Amount Search Engines, **Tide** is one of the most popular nowadays.
 

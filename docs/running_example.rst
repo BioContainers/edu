@@ -85,7 +85,7 @@ Now that you have enough information to start comparing sequences using BLAST, y
 We hope that this short example can shed some light on how important and easy it is to run containerized software.
 
 Run everything in one go
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
   .. code-block:: bash
 

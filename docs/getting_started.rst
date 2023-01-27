@@ -4,7 +4,7 @@ Getting started with Docker
 ============================
 
 Docker Configuration
----------------
+--------------------
 
 `Docker <https://www.docker.com/>`__ is the world’s leading platform for software containerization. Docker includes multiple tools and components such as: `docker <https://docs.docker.com/>`__, `docker engine <https://docs.docker.com/engine/installation/>`__, `docker hub <https://docs.docker.com/docker-hub/>`__.
 
