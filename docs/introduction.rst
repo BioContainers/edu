@@ -29,7 +29,7 @@ Concepts in this tutorial
 -  Docker containers creation and deployment
 -  Minimal rules -> conventions and gold standards
 
-.. note:: The BioContainers project is truly open source, `even this tutorial <https://gith.com/BioContainers/edu/blob/origin/master/docs/index.rst>`__.
+.. note:: The BioContainers project is truly open source, `even this tutorial <https://github.com/BioContainers/edu/>`__.
 
 
 .. |Slack| image:: https://img.shields.io/badge/slack-join%20chat-ff69b4.svg
