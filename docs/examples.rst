@@ -6,14 +6,14 @@ BioContainers in Examples
 In this section we provide a set of examples about how to use BioContainers in your analysis. Please feel free to contribute to this help with your own examples.
 
 Peptide MS search engine (Tide)
--------------------------
+-------------------------------
 
 Let’s run a proteomics search engine to identified proteins using `Tide <http://crux.ms/commands/tide-index.html>`_. Proteomics data analysis is dominated by database-based search engines strategies. Amount Search Engines, **Tide** is one of the most popular nowadays.
 
 Get the docker container
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    $ docker pull biocontainers/crux:v3.2_cv3
 
@@ -34,7 +34,7 @@ I'm placing all these files inside a folder in your machine, in my case I will u
 Start searching
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/crux:v3.2_cv3 crux tide-index small-yeast.fasta yeast-index
 
@@ -43,7 +43,7 @@ Start searching
 After running this command you will see a new folder called yeast-index in your path (``/Users/yperez/workplace``).
 
 
-.. code-block::
+.. code-block:: bash
 
        $ docker run -v /Users/yperez/workplace/:/data/ biocontainers/crux:v3.2_cv3 crux tide-search --compute-sp T --mzid-output T demo.ms2 yeast-index
 

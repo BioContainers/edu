@@ -57,7 +57,7 @@ When a container is deployed and the developer closes the issue in GitHub, the u
 .. note:: You can read other sections about :doc:`conda_integration` and :doc:`singularitycontainers`
 
 Reporting a problem with a container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the user finds a problem with a container an issue should be opened in
 the `container repository <https://github.com/BioContainers/containers/issues>`__, the user should use the **broken tag** (`see tags <https://github.com/BioContainers/containers/labels>`_). Developers of the project will pick-up the issue and deploy a new version of the container. A message will be delivered when the container has been fixed.
@@ -74,7 +74,7 @@ BioContainers build the docker containers from two different sources the `Docker
 In order to be able to contribute to BioContainers you should be able to create a BioConda recipe or a Dockerfile recipe.
 
 Create a BioConda recipe
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: Before you start please read the Conda documentation and `how to setup conda in your machine <https://conda.io/projects/conda-build/en/latest/source/user-guide/tutorials/index.html>`__
 
@@ -87,7 +87,7 @@ In summary should follow these steps:
 After the PR gets merged, a Conda package gets created and the corresponding docker container get pushed into `Quay.io Registry <https://quay.io/organization/biocontainers>`__  and the `BioContainers Registry <https://biocontainers.pro/#/registry>`__
 
 Create a Dockerfile recipe
-~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a standard template for creating a new Dockerfile for BioContainers:
 

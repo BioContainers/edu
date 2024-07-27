@@ -24,7 +24,7 @@ Docker useful tips
 Bash interactive script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    $ docker run -t -i ubuntu /bin/bash
    root@af8bae53bdd3:/#
@@ -36,7 +36,7 @@ In this example:
 
 Let’s try running some commands inside the container:
 
-.. code-block::
+.. code-block:: bash
 
    root@af8bae53bdd3:/# ls
    bin boot dev etc home lib lib64 media mnt opt proc root run sbin srv sys tmp usr var
@@ -51,7 +51,7 @@ Start a daemonized Hello world
 
 Let’s create a container that runs as a daemon.
 
-.. code-block::
+.. code-block:: bash
 
    $ docker run -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
    1e5535038e285177d5214659a068137486f96ee5c2e85a4ac52dc83f2ebe4147
@@ -60,7 +60,7 @@ Let’s create a container that runs as a daemon.
 
 We can use this container ID to see what’s happening with our hello world daemon. First, let’s make sure our container is running. Run the ``docker ps`` command. The docker ``ps`` command queries the Docker daemon for information about all the containers it knows about.
 
-.. code-block::
+.. code-block:: console
 
    $ docker ps
    CONTAINER ID  IMAGE         COMMAND               CREATED        STATUS       PORTS NAMES
