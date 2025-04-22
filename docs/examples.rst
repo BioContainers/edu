@@ -58,7 +58,7 @@ So far, you launched your first containers using the docker run command. You ran
 
 
 * **docker run**  - Run a docker container
-* **dcoker pull** - Download the container from Biodocker Hub
+* **docker pull** - Download the container from Biodocker Hub
 * **docker ps**   - Lists containers.
 * **docker logs** - Shows us the standard output of a container.
 * **docker stop** - Stops running containers.
